@@ -115,7 +115,7 @@ public class MyHashTable {
 	public void displayTable() {
 		for (int i = 0; i < buckets.length; i ++) {
 			for (int j = 0; j < buckets[i].size(); j++) {
-				buckets[i].get(j).printInfo();
+				buckets[i].get(j).print();
 			}
 		}
 	}
