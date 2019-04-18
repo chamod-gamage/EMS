@@ -92,21 +92,24 @@ public class EmployeeInfo {
     }
     
     public boolean setGender(String gen){
-        if (gen == "Other" || gen == "other") {
-            gender = 0;
-            return true;
-        }
-        else if (gen == "Female" || gen == "female"){
-            gender = 1;
-            return true;
-        }
-        else if (gen == "Male" || gen == "male"){
+        
+        List<Character> genChar = StringConverter.stringToChars(gen);
+        
+        
+        
+        if (genChar.get(0) == 'M' || genChar.get(0) == 'm') {
             gender = 2;
             return true;
         }
-        else{
-            return false;
+        else if (genChar.get(0) == 'F' || genChar.get(0) == 'f'){
+            gender = 1;
+            return true;
         }
+        else {
+            gender = 0;
+            return true;
+        }
+        
     }
     
     public boolean setWorkLocation (String location){
