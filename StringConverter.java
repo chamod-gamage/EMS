@@ -13,6 +13,9 @@ public final class StringConverter {
     private StringConverter(){}
     
     public static boolean stringChecker (String name){
+        if (name.length() == 0){
+            return false;
+        }
         for (int x = 0; x < name.length(); x++) {
             int ascii = name.charAt(x);
             if ((ascii < 32) || (ascii > 32 && ascii < 65) || (ascii > 90 && ascii < 97) || (ascii > 122)) {
