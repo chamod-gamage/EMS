@@ -8,6 +8,9 @@
  *
  * @author 618062
  */
+
+import java.util.ArrayList;
+import java.util.List;
 public final class StringConverter {
     
     private StringConverter(){}
@@ -23,6 +26,16 @@ public final class StringConverter {
             }
         }
         return true;
+    }
+    
+    public static List<Character> stringToChars (String text) {
+        
+        List<Character> chars = new ArrayList<>();
+
+        for (int i = 0; i < text.length(); i++) {
+            chars.add(text.charAt(i));
+	}
+        return chars;
     }
     
     public static String stripTrailingSpaces (String name) {
