@@ -121,7 +121,7 @@ public class EmployeeInfo {
     }
     
     public boolean setDeductionRate(double rate){
-        if (rate < 0){
+        if (rate < 0 || rate >= 1){
             return false;
         }
         deductionRate = rate;
