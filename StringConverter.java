@@ -40,6 +40,9 @@ public final class StringConverter {
     }
     
     public static int stringToInteger(String employeeNumber) {
+        if (employeeNumber.length() == 0){
+            return -1;
+        }
         for (int x = 0; x < employeeNumber.length(); x++) {
             int ascii = employeeNumber.charAt(x);
             if (ascii < 48 || ascii > 57) {
@@ -51,6 +54,9 @@ public final class StringConverter {
     }
     
     public static double stringToDollars (String doub) {
+        if (doub.length() == 0){
+            return -1;
+        }
         int perCounter = 0;
         boolean hasSign = false;
         for (int x = 0; x < doub.length(); x++) {
@@ -79,6 +85,9 @@ public final class StringConverter {
     }
     
     public static double stringToPercent (String doub) {
+        if (doub.length() == 0){
+            return -1;
+        }
         int perCounter = 0;
         boolean hasSign = false;
         for (int x = 0; x < doub.length(); x++) {

@@ -13,13 +13,13 @@ public class EditStudentFrame extends javax.swing.JFrame {
     /**
      * Creates new form EditStudentFrame
      */
-    private static HashTable mainHT = new HashTable(10);
+    private static HashTable mainHT = new HashTable(10); // REMOVE LATER, PLACEHOLDER HASH TABLE
     private EmployeeInfo employeeToEdit;
     
     public EditStudentFrame(EmployeeInfo employee) {
         initComponents();
         employeeToEdit = employee;
-        mainHT.addToTable(employeeToEdit);
+        mainHT.addToTable(employeeToEdit); // SET BEGINNING STATE
         if (employee instanceof PartTimeEmployee){
             partTimeButton.setSelected(true);
             partTimeButtonActionPerformed(null);
@@ -29,16 +29,36 @@ public class EditStudentFrame extends javax.swing.JFrame {
             fullTimeButton.setSelected(true);
             fullTimeButtonActionPerformed(null);
         }
+        setTextFields();
         invalidLabel.setVisible(false);
     }
     
-    private void setTextFields(){
+    private void setTextFields(){ // DEFAULT VALUES ARE USED IF INFO IS BLANK, EXCEPTION IF IT CAN BE CALCULATED
         firstNameInput.setText(employeeToEdit.getFirstName());
         lastNameInput.setText(employeeToEdit.getLastName());
         String empNum = Integer.toString(employeeToEdit.getEmployeeNumber());
         employeeNumberInput.setText(empNum);
-        // FINISH MAKING THIS
+        genderInput.setText(employeeToEdit.getGender());
+        locationInput.setText(employeeToEdit.getWorkLocation());
+        String deduction = Double.toString(employeeToEdit.getDeductionRate());
+        deductionRateInput.setText(deduction);
+        if (employeeToEdit instanceof PartTimeEmployee){
+            PartTimeEmployee temp = (PartTimeEmployee)employeeToEdit;
+            hourlyWageInput.setText(Double.toString(temp.getHourlyWage()));
+            hoursPerWeekInput.setText(Double.toString(temp.getHoursPerWeek()));
+            weeksPerYearInput.setText(Double.toString(temp.getWeeksPerYear()));
+            yearlySalaryInput.setText(Double.toString(temp.calcAnnualGrossIncome()));
+        }
+        else {
+            FullTimeEmployee temp = (FullTimeEmployee)employeeToEdit;
+            yearlySalaryInput.setText(Double.toString(temp.getYearlySalary()));
+            weeksPerYearInput.setText("52");
+            hoursPerWeekInput.setText("20");
+            double wage = (((temp.getYearlySalary())/52)/20);
+            hourlyWageInput.setText(Double.toString(wage));
+        }
     }
+        // FINISH MAKING THIS
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +94,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
         yearlySalaryInput = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         invalidLabel = new javax.swing.JLabel();
+        TestButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -174,6 +195,11 @@ public class EditStudentFrame extends javax.swing.JFrame {
         yearlySalaryInput.setText("6599465");
 
         submitButton.setText("Submit Changes");
+        submitButton.setToolTipText("");
+        submitButton.setMaximumSize(new java.awt.Dimension(200, 32));
+        submitButton.setMinimumSize(new java.awt.Dimension(200, 32));
+        submitButton.setPreferredSize(new java.awt.Dimension(200, 32));
+        submitButton.setRequestFocusEnabled(false);
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -182,6 +208,13 @@ public class EditStudentFrame extends javax.swing.JFrame {
 
         invalidLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         invalidLabel.setText("Invalid Inputs: Changes Rejected");
+
+        TestButton.setText("jButton1");
+        TestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TestButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,11 +275,13 @@ public class EditStudentFrame extends javax.swing.JFrame {
                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(400, 400, 400)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(submitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(invalidLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                .addGap(400, 400, 400))
+                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(invalidLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(137, 137, 137)
+                .addComponent(TestButton)
+                .addGap(186, 186, 186))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,10 +325,15 @@ public class EditStudentFrame extends javax.swing.JFrame {
                     .addComponent(weeksPerYearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(weeksPerYearInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(invalidLabel)
-                .addGap(28, 28, 28)
-                .addComponent(submitButton)
-                .addGap(55, 55, 55))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(invalidLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(TestButton)
+                        .addGap(88, 88, 88))))
         );
 
         pack();
@@ -330,7 +370,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_fullTimeButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        // TODO add your handling code here:
+//        // TODO add your handling code here:
         String firstName = StringConverter.stripTrailingSpaces(firstNameInput.getText());
         String lastName = StringConverter.stripTrailingSpaces(lastNameInput.getText());
         if ((!StringConverter.stringChecker(firstName)) || (!StringConverter.stringChecker(lastName))){
@@ -353,6 +393,10 @@ public class EditStudentFrame extends javax.swing.JFrame {
             double hourlyWage = StringConverter.stringToDollars(StringConverter.stripTrailingSpaces(hourlyWageInput.getText()));
             double hoursPerWeek = StringConverter.stringToDollars(StringConverter.stripTrailingSpaces(hoursPerWeekInput.getText()));
             double weeksPerYear = StringConverter.stringToDollars(StringConverter.stripTrailingSpaces(weeksPerYearInput.getText()));
+            if (hourlyWage == -1 || hoursPerWeek == -1 || weeksPerYear == -1){
+                invalidLabel.setVisible(true);
+                return;
+            }
             if (employeeToEdit instanceof PartTimeEmployee) {
                 PartTimeEmployee temp = (PartTimeEmployee)employeeToEdit;
                 temp.setFirstName(firstName);
@@ -366,6 +410,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
                 temp.setWeeksPerYear(weeksPerYear);
                 mainHT.removeFromTable(employeeToEdit.getEmployeeNumber());
                 mainHT.addToTable(temp);
+                employeeToEdit = temp;
             }
             else {
                 PartTimeEmployee temp = new PartTimeEmployee();
@@ -380,13 +425,51 @@ public class EditStudentFrame extends javax.swing.JFrame {
                 temp.setWeeksPerYear(weeksPerYear);
                 mainHT.removeFromTable(employeeToEdit.getEmployeeNumber());
                 mainHT.addToTable(temp);
+                employeeToEdit = temp;
             }
         }
         if (fullTimeButton.isSelected()) {
            // ADD SAME STUFF FOR FULL TIME EMPLOYEE
            double yearlySalary = StringConverter.stringToDollars(StringConverter.stripTrailingSpaces(yearlySalaryInput.getText())); 
+           if (yearlySalary == -1) {
+               invalidLabel.setVisible(true);
+               return;
+           }
+           if (employeeToEdit instanceof FullTimeEmployee){
+                FullTimeEmployee temp = (FullTimeEmployee)employeeToEdit;
+                temp.setFirstName(firstName);
+                temp.setLastName(lastName);
+                temp.setEmployeeNumber(employeeNumber);
+                temp.setGender(gender);
+                temp.setWorkLocation(location);
+                temp.setDeductionRate(deductionRate);
+                temp.setYearlySalary(yearlySalary);
+                mainHT.removeFromTable(employeeToEdit.getEmployeeNumber());
+                mainHT.addToTable(temp);
+                employeeToEdit = temp;
+           }
+           else {
+                FullTimeEmployee temp = new FullTimeEmployee();
+                temp.setFirstName(firstName);
+                temp.setLastName(lastName);
+                temp.setEmployeeNumber(employeeNumber);
+                temp.setGender(gender);
+                temp.setWorkLocation(location);
+                temp.setDeductionRate(deductionRate);
+                temp.setYearlySalary(yearlySalary);
+                mainHT.removeFromTable(employeeToEdit.getEmployeeNumber());
+                mainHT.addToTable(temp);
+                employeeToEdit = temp;
+           }
         }
+        this.setVisible(false);
+        System.exit(0); // REMOVE LATER
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void TestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestButtonActionPerformed
+        // TODO add your handling code here:
+        System.out.println(mainHT.readFromTable(employeeToEdit.getEmployeeNumber()).getLastName());
+    }//GEN-LAST:event_TestButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,15 +499,17 @@ public class EditStudentFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        EmployeeInfo myEmployee = new FullTimeEmployee();
+        FullTimeEmployee myEmployee = new FullTimeEmployee();
+        EditStudentFrame theFrame = new EditStudentFrame(myEmployee);
+        theFrame.setVisible(true);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditStudentFrame(myEmployee).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton TestButton;
     private javax.swing.JTextField deductionRateInput;
     private javax.swing.JLabel deductionRateLabel;
     private javax.swing.JLabel employeeNumLabel;
