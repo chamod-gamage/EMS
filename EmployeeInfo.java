@@ -26,7 +26,8 @@ public class EmployeeInfo {
         firstName = "Default";
         lastName = "Name";
         gender = 0;
-        workLocation = -1;
+        workLocation = 0;
+        locations.add("Null Location");
         deductionRate = 0.2;
         genders[0] = "Other"; 
         genders[1] = "Female"; 
@@ -44,6 +45,7 @@ public class EmployeeInfo {
         lastName = lName;
         gender = gen;
         workLocation = workLoc;
+        locations.add("Null Location");
         deductionRate = dedRate;
         genders[0] = "Other"; 
         genders[1] = "Female"; 
@@ -56,6 +58,7 @@ public class EmployeeInfo {
         lastName = lName;
         gender = gen;
         workLocation = workLoc;
+        locations.add("Null Location");
         deductionRate = dedRate;
         genders[0] = "Other"; 
         genders[1] = "Female"; 
@@ -67,8 +70,8 @@ public class EmployeeInfo {
     public int getEmployeeNumber() {return employeeNumber;}
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
-    public int getGender() {return gender;}
-    public int getWorkLocation() {return workLocation;}
+    public String getGender() {return genders[gender];}
+    public String getWorkLocation() {return locations.get(workLocation);}
     public double getDeductionRate() {return deductionRate;}
     
     // Setters
@@ -92,11 +95,7 @@ public class EmployeeInfo {
     }
     
     public boolean setGender(String gen){
-        
         List<Character> genChar = StringConverter.stringToChars(gen);
-        
-        
-        
         if (genChar.get(0) == 'M' || genChar.get(0) == 'm') {
             gender = 2;
             return true;
@@ -108,8 +107,7 @@ public class EmployeeInfo {
         else {
             gender = 0;
             return true;
-        }
-        
+        }   
     }
     
     public boolean setWorkLocation (String location){

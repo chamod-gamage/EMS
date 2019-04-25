@@ -9,6 +9,7 @@
  * @author 618062
  */
 public class PartTimeEmployee extends EmployeeInfo {
+    
     private double hourlyWage;
     private double hoursPerWeek;
     private double weeksPerYear;
