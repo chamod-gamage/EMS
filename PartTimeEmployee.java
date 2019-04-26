@@ -9,7 +9,6 @@
  * @author 618062
  */
 public class PartTimeEmployee extends EmployeeInfo {
-    
     private double hourlyWage;
     private double hoursPerWeek;
     private double weeksPerYear;
@@ -55,7 +54,7 @@ public class PartTimeEmployee extends EmployeeInfo {
         if (hours <= 0) {
             return false;
         }
-        hourlyWage = hours;
+        hoursPerWeek = hours;
         return true;
     }
     
@@ -63,7 +62,7 @@ public class PartTimeEmployee extends EmployeeInfo {
         if (weeks <= 0) {
             return false;
         }
-        hourlyWage = weeks;
+        weeksPerYear = weeks;
         return true;
     }
 

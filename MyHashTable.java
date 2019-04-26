@@ -45,22 +45,22 @@ public class MyHashTable {
             return buckets;
         }
 
-	public int calcBucket(int empNumber) { // Determines bucket based on EmployeeInfo.empNumber
-		return (empNumber % buckets.length);
+	public int calcBucket(int employeeNumber) { // Determines bucket based on EmployeeInfo.employeeNumber
+		return (employeeNumber % buckets.length);
 	}
 
 	public void addToTable(EmployeeInfo theEmployee) {
-		int position = calcBucket(theEmployee.empNumber);
+		int position = calcBucket(theEmployee.employeeNumber);
 		buckets[position].add(theEmployee);
                 numInTable++;
 
 		// Add the employee referenced by theemployee to the hash table.
 	}
 
-	public EmployeeInfo readFromTable(int empNumber) {
-		int position = calcBucket(empNumber);
+	public EmployeeInfo readFromTable(int employeeNumber) {
+		int position = calcBucket(employeeNumber);
 		for (int i = 0; i < buckets[position].size(); i++) {
-			if (buckets[position].get(i).empNumber == empNumber) {
+			if (buckets[position].get(i).employeeNumber == employeeNumber) {
 				
 				return buckets[position].get(i);
 			}
@@ -72,10 +72,10 @@ public class MyHashTable {
 		return null;
 	}
 
-	public EmployeeInfo removeFromTable(int empNumber) {
-		int position = calcBucket(empNumber);
+	public EmployeeInfo removeFromTable(int employeeNumber) {
+		int position = calcBucket(employeeNumber);
 		for (int i = 0; i < buckets[position].size(); i++) {
-			if (buckets[position].get(i).empNumber == empNumber) {
+			if (buckets[position].get(i).employeeNumber == employeeNumber) {
                                 numInTable--;
 				return buckets[position].remove(i);
 
@@ -87,11 +87,11 @@ public class MyHashTable {
 		// that employee.
 	}
 
-	public boolean isInTable(int empNumber) {
+	public boolean isInTable(int employeeNumber) {
 
-		int position = calcBucket(empNumber);
+		int position = calcBucket(employeeNumber);
 		for (int i = 0; i < buckets[position].size(); i++) {
-			if (buckets[position].get(i).empNumber == empNumber) {
+			if (buckets[position].get(i).employeeNumber == employeeNumber) {
 				return true;
 			}
 		}
@@ -99,17 +99,17 @@ public class MyHashTable {
 		// Return true if that employee is in the hash table, false otherwise.
 	}
 
-	public void displayHorizontal() {
-		// Displays the Hash table line by line with each bucket item taking up a
-		// horizontal line
-		for (int i = 0; i < buckets.length; i++) {
-			for (int j = 0; j < buckets[i].size(); j++) {
-				System.out.println(buckets[i].get(j).returnLine());
-			}
-			System.out.println("BUCKET/BUCKET/BUCKET/BUCKET/BUCKET/BUCKET");
-		}
-
-	}
+//	public void displayHorizontal() {
+//		// Displays the Hash table line by line with each bucket item taking up a
+//		// horizontal line
+//		for (int i = 0; i < buckets.length; i++) {
+//			for (int j = 0; j < buckets[i].size(); j++) {
+//				System.out.println(buckets[i].get(j).returnLine());
+//			}
+//			System.out.println("BUCKET/BUCKET/BUCKET/BUCKET/BUCKET/BUCKET");
+//		}
+//
+//	}
 	
 	
 	public void displayTable() {
@@ -120,60 +120,60 @@ public class MyHashTable {
 		}
 	}
 
-	public void displayTableColumns() {
-		// Displays HashTable with each bucket being a column
-		int maxChar = 10; // Variable that will determine the characters in a column width
-
-		for (int i = 0; i < buckets.length; i++) {
-			for (int j = 0; j < buckets[i].size(); j++) {
-				if (maxChar < buckets[i].get(j).returnLine().length()) {
-					maxChar = buckets[i].get(j).returnLine().length();
-				}
-			}
-
-		}
-		maxChar += 1;
-
-		int greatest = 0; // Variable that will determine EmployeeInfo with most characters
-		for (int i = 0; i < buckets.length; i++) {
-
-			String stringBucket = "Bucket " + i + ": ";
-
-			System.out.print(stringBucket);
-			for (int j = 0; j < maxChar - stringBucket.length(); j++)
-
-				System.out.print(' ');
-
-			if (buckets[i].size() > greatest) {
-				greatest = buckets[i].size();
-			}
-		}
-
-		for (int i = 0; i < greatest; i++) { // Prints out the Hash Table in the method's format
-			System.out.println(' ');
-			for (int j = 0; j < buckets.length; j++) {
-				if (i < buckets[j].size()) {
-
-					int len = maxChar - buckets[j].get(i).returnLine().length();
-					System.out.print(buckets[j].get(i).returnLine());
-					for (int k = 0; k < len; k++) {
-						System.out.print(' ');
-					}
-				}
-
-				else {
-					for (int k = 0; k < maxChar; k++) {
-						System.out.print(' ');
-					}
-
-				}
-
-			}
-
-		}
-
-		System.out.println(' ');
-	}
-
+//	public void displayTableColumns() {
+//		// Displays HashTable with each bucket being a column
+//		int maxChar = 10; // Variable that will determine the characters in a column width
+//
+//		for (int i = 0; i < buckets.length; i++) {
+//			for (int j = 0; j < buckets[i].size(); j++) {
+//				if (maxChar < buckets[i].get(j).returnLine().length()) {
+//					maxChar = buckets[i].get(j).returnLine().length();
+//				}
+//			}
+//
+//		}
+//		maxChar += 1;
+//
+//		int greatest = 0; // Variable that will determine EmployeeInfo with most characters
+//		for (int i = 0; i < buckets.length; i++) {
+//
+//			String stringBucket = "Bucket " + i + ": ";
+//
+//			System.out.print(stringBucket);
+//			for (int j = 0; j < maxChar - stringBucket.length(); j++)
+//
+//				System.out.print(' ');
+//
+//			if (buckets[i].size() > greatest) {
+//				greatest = buckets[i].size();
+//			}
+//		}
+//
+//		for (int i = 0; i < greatest; i++) { // Prints out the Hash Table in the method's format
+//			System.out.println(' ');
+//			for (int j = 0; j < buckets.length; j++) {
+//				if (i < buckets[j].size()) {
+//
+//					int len = maxChar - buckets[j].get(i).returnLine().length();
+//					System.out.print(buckets[j].get(i).returnLine());
+//					for (int k = 0; k < len; k++) {
+//						System.out.print(' ');
+//					}
+//				}
+//
+//				else {
+//					for (int k = 0; k < maxChar; k++) {
+//						System.out.print(' ');
+//					}
+//
+//				}
+//
+//			}
+//
+//		}
+//
+//		System.out.println(' ');
+//	}
+//
 }
 

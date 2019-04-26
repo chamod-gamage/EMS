@@ -20,7 +20,7 @@ public final class StringConverter {
         }
         for (int x = 0; x < name.length(); x++) {
             int ascii = name.charAt(x);
-            if ((ascii < 32) || (ascii > 32 && ascii < 65) || (ascii > 90 && ascii < 97) || (ascii > 122)) {
+            if (((ascii < 32) || (ascii > 32 && ascii < 65) || (ascii > 90 && ascii < 97) || (ascii > 122)) && ascii != 46) {
                 return false;
             }
         }
@@ -50,6 +50,29 @@ public final class StringConverter {
             }
         }
         int num = Integer.parseInt(employeeNumber);
+        return num;
+    }
+    
+    public static double stringToDouble (String doub) {
+        if (doub.length() == 0){
+            return -1;
+        }
+        int perCounter = 0;
+        
+        for (int x = 0; x < doub.length(); x++) {
+            int ascii = doub.charAt(x);
+            if ((ascii < 48 || ascii > 57) && ascii != 46) {
+                
+                return -1;
+            }
+            if (ascii == 46){
+                perCounter++;
+            }
+        }
+        if (perCounter > 1){
+            return -1;
+        }
+        double num = Double.parseDouble(doub);
         return num;
     }
     

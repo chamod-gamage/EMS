@@ -11,7 +11,7 @@
 public class MainJFrame extends javax.swing.JFrame {
     
     // ATTRIBUTES
-    private MyHashTable theHT;
+    private static MyHashTable theHT;
     
     
     // CONSTRUCTORS
@@ -20,6 +20,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        jLabel3.setVisible(false);
         
         theHT = new MyHashTable(2);
         
@@ -28,7 +29,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     // METHODS   
     
-    public MyHashTable getTheHT() {
+    public static MyHashTable getTheHT() {
         return theHT;
     }
 
@@ -77,16 +78,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
-        jLabel3.setText("INVALID PASSWORD");
+        jLabel3.setText("PASSWORD IS INVALID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
@@ -95,15 +100,11 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(70, 70, 70))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(108, 108, 108))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addGap(15, 15, 15))
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jLabel3)))
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,10 +127,46 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private static boolean isPasswordCorrect(char[] input) {
+        
+        char[] correct = { 'I', 'n', 'v', 'a', 'l', 'i', 'd' };
+        boolean isCorrect = true;
+        if (input.length != correct.length) {
+            isCorrect = false;
+        } else {
+            for (int i = 0; i < input.length; i++) {
+                if (input[i] != correct[i]) {
+                    isCorrect = false;
+                }
+            }
+        }
+
+    //Zero out the password.
+        for (int i = 0; i < correct.length; i++) {
+            correct[i] = 0;
+        }
+
+        return isCorrect;
+    }
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MenuFrame theMenu = new MenuFrame();
-        theMenu.setVisible(true);
+        jLabel3.setVisible(false);
+        char[] input = jPasswordField1.getPassword(); 
+        
+        if (isPasswordCorrect(input) == true) {
+            MenuFrame theMenu = new MenuFrame();
+            theMenu.setVisible(true);
+        
+        } else {
+            jLabel3.setVisible(false);
+            jLabel3.setVisible(true);
+        }
+            
+        
+        
 
         
         
@@ -196,6 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);
+                
             }
         });
     }
