@@ -73,6 +73,7 @@ public class EmployeeInfo {
     public String getGender() {return genders[gender];}
     public String getWorkLocation() {return locations.get(workLocation);}
     public double getDeductionRate() {return deductionRate;}
+    public static ArrayList<Integer> getEmployeeNumbers() {return employeeNumbers;}
     
     // Setters
     
