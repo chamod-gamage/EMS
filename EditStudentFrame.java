@@ -13,7 +13,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
     /**
      * Creates new form EditStudentFrame
      */
-    private static MyHashTable mainHT = new MyHashTable(10); // REMOVE LATER, PLACEHOLDER HASH TABLE
+    private static HashTable mainHT = new HashTable(10); // REMOVE LATER, PLACEHOLDER HASH TABLE
     private EmployeeInfo employeeToEdit;
     
     public EditStudentFrame(EmployeeInfo employee) {
@@ -463,6 +463,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
            }
         }
         this.setVisible(false);
+        System.exit(0); // REMOVE LATER
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void TestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestButtonActionPerformed
