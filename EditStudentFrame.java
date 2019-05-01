@@ -13,7 +13,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
     /**
      * Creates new form EditStudentFrame
      */
-    private static HashTable mainHT = new HashTable(10); // REMOVE LATER, PLACEHOLDER HASH TABLE
+    private static MyHashTable mainHT = new MyHashTable(10); // REMOVE LATER, PLACEHOLDER HASH TABLE
     private EmployeeInfo employeeToEdit;
     
     public EditStudentFrame(EmployeeInfo employee) {
