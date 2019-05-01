@@ -19,7 +19,7 @@ public class EmployeeInfo {
     protected double deductionRate;
     private static ArrayList<Integer> employeeNumbers = new ArrayList<Integer>();
     private static String[] genders = new String[3];
-    private static ArrayList<String> locations = new ArrayList<String>();
+    public static ArrayList<String> locations = new ArrayList<String>();
 
     protected EmployeeInfo () {
         employeeNumber = generateEmployeeNumber();
@@ -54,6 +54,7 @@ public class EmployeeInfo {
 
     protected EmployeeInfo (String fName, String lName, int gen, int workLoc, double dedRate) {
         employeeNumber = generateEmployeeNumber();
+        employeeNumbers.add(employeeNumber);
         firstName = fName;
         lastName = lName;
         gender = gen;
@@ -81,6 +82,7 @@ public class EmployeeInfo {
         if (num < 0 || employeeNumbers.contains(num)){
             return false;
         }
+        employeeNumbers.remove(employeeNumber);
         employeeNumber = num;
         return true;
     }
@@ -116,8 +118,7 @@ public class EmployeeInfo {
             workLocation = locations.indexOf(location);
         }
         else{
-            addWorkLocation(location);
-            workLocation = locations.indexOf(location);
+            return false;
         }
         return true;
     }
@@ -130,7 +131,7 @@ public class EmployeeInfo {
         return true;
     }
     
-    private static void addWorkLocation(String location){
+    public static void addWorkLocation(String location){
         locations.add(location);
     }
 
@@ -140,7 +141,7 @@ public class EmployeeInfo {
             do {
                     number = getNum.nextInt(899999) + 100000;
             } while (employeeNumbers.contains(number) == true);
-            employeeNumbers.add(number);
+
             return number;
     }
 
