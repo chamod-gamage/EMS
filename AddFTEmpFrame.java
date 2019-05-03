@@ -413,7 +413,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         }
         if (jRadioButton1.isSelected()) {
             FullTimeEmployee empToAdd = new FullTimeEmployee();
-            if (StringConverter.stringToInteger(jTextField16.getText()) != -1) {
+            if (StringConverter.stringToInteger(jTextField16.getText()) != -1 && StringConverter.stringToInteger(jTextField16.getText()) < 1000000) {
                 empToAdd.setEmployeeNumber(StringConverter.stringToInteger(jTextField16.getText()));
             } else {
                 valid = false;
@@ -456,9 +456,8 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         }
         if (jRadioButton2.isSelected()) {
             PartTimeEmployee empToAdd = new PartTimeEmployee();
-            if (StringConverter.stringToInteger(jTextField16.getText()) != -1) {
+            if (StringConverter.stringToInteger(jTextField16.getText()) != -1 && StringConverter.stringToInteger(jTextField16.getText()) < 1000000) {
                 empToAdd.setEmployeeNumber(StringConverter.stringToInteger(jTextField16.getText()));
-                
             } else {
                 valid = false;
             }
