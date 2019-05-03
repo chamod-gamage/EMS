@@ -28,7 +28,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jTextField11.setVisible(false);
         jComboBox2.setVisible(false);
 
-        jTextField13.setVisible(false);
+        jComboBox1.setVisible(false);
         jTextField14.setVisible(false);
         jTextField15.setVisible(false);
         jTextField16.setVisible(false);
@@ -91,7 +91,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
         jTextField16 = new javax.swing.JTextField();
@@ -101,6 +100,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         jLabel8.setText("Yearly Salary:");
 
@@ -167,12 +167,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
-
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField14ActionPerformed(evt);
@@ -204,6 +198,13 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -260,10 +261,8 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(67, 67, 67))
         );
         layout.setVerticalGroup(
@@ -294,11 +293,11 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addGap(17, 17, 17)
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jComboBox2))
@@ -337,7 +336,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jTextField11.setVisible(true);
         jComboBox2.setVisible(true);
 
-        jTextField13.setVisible(true);
+        jComboBox1.setVisible(true);
         jTextField14.setVisible(true);
         jTextField15.setVisible(true);
         jTextField16.setVisible(true);
@@ -376,7 +375,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jTextField11.setVisible(true);
         jComboBox2.setVisible(true);
 
-        jTextField13.setVisible(true);
+        jComboBox1.setVisible(true);
         jTextField14.setVisible(true);
         jTextField15.setVisible(true);
         jTextField16.setVisible(true);
@@ -430,11 +429,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            if (StringConverter.stringChecker(jTextField13.getText())) {
-                empToAdd.setGender(jTextField13.getText());
-            } else {
-                valid = false;
-            }
+            empToAdd.setGender(jComboBox1.getSelectedItem().toString());
 
             empToAdd.setWorkLocation(jComboBox2.getSelectedItem().toString());    
             
@@ -478,11 +473,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            if (StringConverter.stringChecker(jTextField13.getText())) {
-                empToAdd.setGender(jTextField13.getText());
-            } else {
-                valid = false;
-            }
+            empToAdd.setGender(jComboBox1.getSelectedItem().toString());
             
             empToAdd.setWorkLocation(jComboBox2.getSelectedItem().toString());
             
@@ -548,10 +539,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
     private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField14ActionPerformed
@@ -567,6 +554,10 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -605,6 +596,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -623,7 +615,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
