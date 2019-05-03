@@ -141,7 +141,7 @@ public class EmployeeInfo {
             do {
                     number = getNum.nextInt(899999) + 100000;
             } while (employeeNumbers.contains(number) == true);
-
+            employeeNumbers.add(number);
             return number;
     }
 

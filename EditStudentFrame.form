@@ -36,6 +36,14 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="lastNameInput" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="locationLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="locationInput" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="deductionRateInput" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="partTimeButton" min="-2" pref="136" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="hourlyWageLabel" min="-2" pref="132" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -43,25 +51,12 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="yearlySalaryInput" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="locationLabel" min="-2" pref="132" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="deductionRateInput" min="-2" pref="200" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="partTimeButton" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="employeeNumLabel" min="-2" pref="132" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="employeeNumberInput" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jComboBox2" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="employeeNumLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="employeeNumberInput" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="genderInput" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -132,14 +127,14 @@
                   <Component id="employeeNumLabel" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="genderLabel" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="employeeNumberInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="genderInput" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="locationLabel" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="deductionRateLabel" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="locationInput" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deductionRateInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -320,6 +315,18 @@
         <Property name="text" type="java.lang.String" value="000055"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="genderInput">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="Male"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="locationInput">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
+        <Property name="text" type="java.lang.String" value="Torana"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="deductionRateInput">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
@@ -382,35 +389,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TestButtonActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Male"/>
-            <StringItem index="1" value="Female"/>
-            <StringItem index="2" value="Other"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
