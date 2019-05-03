@@ -14,6 +14,28 @@ public final class StringConverter {
     
     private StringConverter(){}
     
+    public static String empNumberToString (int num) {
+        int zeroes;
+        zeroes = 6 - Integer.toString(num).length();
+        String output = Integer.toString(num);
+        String sixZero = "000000";
+        
+        char[] actualArray = sixZero.toCharArray();
+        
+        for (int x = zeroes; x < 6; x++) {
+            int pos = x - zeroes;
+            actualArray[x] = output.charAt(pos);
+      
+                 
+        }
+        String toReturn = new String(actualArray);
+        return toReturn;
+        
+        
+        
+        
+    }
+    
     public static boolean stringChecker (String name){
         if (name.length() == 0){
             return false;
