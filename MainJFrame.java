@@ -12,6 +12,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     // ATTRIBUTES
     private static MyHashTable theHT;
+    private static MenuFrame theMenu;
     
     
     // CONSTRUCTORS
@@ -157,35 +158,13 @@ public class MainJFrame extends javax.swing.JFrame {
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
-            MenuFrame theMenu = new MenuFrame();
+            theMenu = new MenuFrame();
             theMenu.setVisible(true);
         
         } else {
             jLabel3.setVisible(false);
             jLabel3.setVisible(true);
         }
-            
-        
-        
-
-        
-        
-        
-//        FTEmp theFTE;
-//        PTEmp thePTE;
-//        
-//        theFTE = new FTEmp(111111, "Elmer", "Fudd", 0, 3, 0.2, 80000.00);
-//        theHT.addToTable(theFTE);
-//        System.out.println("Added the FTE to the hash table!");
-//                
-//        thePTE = new PTEmp(222222, "Daffy", "Duck", 0, 2, 0.22, 10.0, 20.0, 30.0);
-//        theHT.addToTable(thePTE);
-//        System.out.println("Added the PTE to the hash table!");
-//                
-//        theFTE = new FTEmp(333333, "Lola", "Bunny", 1, 5, 0.17, 90000.00);
-//        theHT.addToTable(theFTE);
-//        System.out.println("Added the FTE to the hash table!");
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -200,7 +179,12 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    
+    public static void setMenuVisibility(boolean isVisible) {
+        theMenu.setVisible(isVisible);
+        if (theMenu.isVisible()) {
+            theMenu.fillTable();
+        }
+    }
     
     /**
      * @param args the command line arguments

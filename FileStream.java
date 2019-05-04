@@ -62,12 +62,12 @@ public class FileStream {
         try {
             BufferedWriter myFile = new BufferedWriter(new FileWriter(filename));
             EmployeeInfo currentEmployee;
-            ArrayList<Integer> employeeNumbers = EmployeeInfo.getEmployeeNumbers();
-            int length = employeeNumbers.size();
-            System.out.println(length);
-            myFile.write(Integer.toString(length)); myFile.newLine();
-            for (int i = 0; i < length; i++) {
-                currentEmployee = MainJFrame.getTheHT().readFromTable(employeeNumbers.get(i));
+            myFile.write(MainJFrame.getTheHT().getNumInTable()); myFile.newLine();
+            while (true) {
+                currentEmployee = MainJFrame.getTheHT().iterate();
+                if (currentEmployee == null) {
+                    break;
+                }
                 if (currentEmployee instanceof PartTimeEmployee) {
                     myFile.write("p"); myFile.newLine();
                     myFile.write(currentEmployee.getFirstName()); myFile.newLine();

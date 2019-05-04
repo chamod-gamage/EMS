@@ -8,7 +8,6 @@
  *
  * @author 567882
  */
-import java.util.*;
 
 public class MenuFrame extends javax.swing.JFrame {
 
@@ -17,6 +16,9 @@ public class MenuFrame extends javax.swing.JFrame {
      */
     public MenuFrame() {
         initComponents();
+        for (int i = 0; i < 20; i++) {
+            MainJFrame.getTheHT().addToTable(new PartTimeEmployee());
+        }
         fillByEmployeeNumber(true);
     }
 
@@ -29,11 +31,11 @@ public class MenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        addEmployeeButton = new javax.swing.JButton();
+        removeEmployeeButton = new javax.swing.JButton();
+        editEmployeeButton = new javax.swing.JButton();
+        viewEmployeeButton = new javax.swing.JButton();
+        addLocationButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         mainTable = new javax.swing.JTable();
         searchBar = new javax.swing.JTextField();
@@ -41,38 +43,38 @@ public class MenuFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Add Employees");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addEmployeeButton.setText("Add Employees");
+        addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addEmployeeButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Remove Employees");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        removeEmployeeButton.setText("Remove Employees");
+        removeEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                removeEmployeeButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Edit Employee Information");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        editEmployeeButton.setText("Edit Employee Information");
+        editEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                editEmployeeButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("View Employee Information");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        viewEmployeeButton.setText("View Employee Information");
+        viewEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                viewEmployeeButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Add Work Location");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        addLocationButton.setText("Add Work Location");
+        addLocationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                addLocationButtonActionPerformed(evt);
             }
         });
 
@@ -156,13 +158,13 @@ public class MenuFrame extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(removeEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(addEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(userGuideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(editEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(viewEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addLocationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -171,18 +173,18 @@ public class MenuFrame extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
-                .addComponent(jButton1)
+                .addComponent(addEmployeeButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(removeEmployeeButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(editEmployeeButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(viewEmployeeButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(addLocationButton)
                 .addGap(18, 18, 18)
                 .addComponent(userGuideButton)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -192,6 +194,67 @@ public class MenuFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void resetTable() {
+        mainTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Employee #", "Type", "First Name", "Last Name", "Gender", "Location", "Deduction"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(mainTable);
+        if (mainTable.getColumnModel().getColumnCount() > 0) {
+            mainTable.getColumnModel().getColumn(0).setResizable(false);
+            mainTable.getColumnModel().getColumn(1).setResizable(false);
+            mainTable.getColumnModel().getColumn(2).setResizable(false);
+            mainTable.getColumnModel().getColumn(3).setResizable(false);
+            mainTable.getColumnModel().getColumn(4).setResizable(false);
+            mainTable.getColumnModel().getColumn(5).setResizable(false);
+            mainTable.getColumnModel().getColumn(6).setResizable(false);
+        }
+    }
+    
     private void fillRow(EmployeeInfo employee, int row) {
         mainTable.setValueAt(Integer.toString(employee.getEmployeeNumber()), row, 0);
         if (employee instanceof PartTimeEmployee) {
@@ -207,52 +270,68 @@ public class MenuFrame extends javax.swing.JFrame {
         mainTable.setValueAt(employee.getDeductionRate(), row, 6);
     }
     
-    private void fillTable() {
+    public void fillTable() {
+        resetTable();
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
         EmployeeInfo employee;
-        for (int i = 0; i < EmployeeInfo.getEmployeeNumbers().size(); i++) {
-            employee = MainJFrame.getTheHT().readFromTable(EmployeeInfo.getEmployeeNumbers().get(i));
+        int i = 0;
+        while (true) {
+            employee = MainJFrame.getTheHT().iterate();
+            if (employee == null) {
+                break;
+            }
             fillRow(employee, i);
+            i++;
         }
     }
     
     private void fillByEmployeeNumber(boolean sortUp) {
-        ArrayList<Integer> sortedList = EmployeeInfo.getEmployeeNumbers();
-        if (sortUp) {
-            Collections.sort(sortedList);
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
         }
-        else {
-            Collections.sort(sortedList, Collections.reverseOrder());
-        }
+        Integer[] sortedList = MainJFrame.getTheHT().sortedNumbers(sortUp);
         EmployeeInfo employee;
-        for (int i = 0; i < sortedList.size(); i++) {
-            employee = MainJFrame.getTheHT().readFromTable(sortedList.get(i));
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable(sortedList[i]);
             fillRow(employee, i);
         }
     }
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_editEmployeeButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void viewEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_viewEmployeeButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void addLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationButtonActionPerformed
         // TODO add your handling code here:
         AddLoc theLocFrame = new AddLoc();
         theLocFrame.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_addLocationButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void removeEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        int[] employees = mainTable.getSelectedRows();
+        for (int i = 0; i < employees.length; i++) {
+            Object employeeNumber = mainTable.getValueAt(employees[i], 0);
+            if (employeeNumber != null) {
+                MainJFrame.getTheHT().removeFromTable(Integer.parseInt(employeeNumber.toString()));
+            }
+        }
+        fillTable();
+    }//GEN-LAST:event_removeEmployeeButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
         // TODO add your handling code here:
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
         theAddFrame.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed
         // TODO add your handling code here:
@@ -294,14 +373,14 @@ public class MenuFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton addEmployeeButton;
+    private javax.swing.JButton addLocationButton;
+    private javax.swing.JButton editEmployeeButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable mainTable;
+    private javax.swing.JButton removeEmployeeButton;
     private javax.swing.JTextField searchBar;
     private javax.swing.JButton userGuideButton;
+    private javax.swing.JButton viewEmployeeButton;
     // End of variables declaration//GEN-END:variables
 }
