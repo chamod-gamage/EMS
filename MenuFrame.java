@@ -14,12 +14,16 @@ public class MenuFrame extends javax.swing.JFrame {
     /**
      * Creates new form MenuFrame
      */
+    
+    private javax.swing.table.DefaultTableModel mainModel;
+    
     public MenuFrame() {
         initComponents();
-        for (int i = 0; i < 20; i++) {
+        initializeModel();
+        for (int i = 0; i < 50; i++) {
             MainJFrame.getTheHT().addToTable(new PartTimeEmployee());
         }
-        fillByEmployeeNumber(true);
+        fillTable();
     }
 
     /**
@@ -194,8 +198,21 @@ public class MenuFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void resetTable() {
-        mainTable.setModel(new javax.swing.table.DefaultTableModel(
+    public void resizeTable() {
+        mainModel.setNumRows(MainJFrame.getTheHT().getNumInTable());
+        mainTable.setModel(mainModel);
+        mainTable.getTableHeader().setReorderingAllowed(false);
+        mainTable.getColumnModel().getColumn(0).setResizable(false);
+        mainTable.getColumnModel().getColumn(1).setResizable(false);
+        mainTable.getColumnModel().getColumn(2).setResizable(false);
+        mainTable.getColumnModel().getColumn(3).setResizable(false);
+        mainTable.getColumnModel().getColumn(4).setResizable(false);
+        mainTable.getColumnModel().getColumn(5).setResizable(false);
+        mainTable.getColumnModel().getColumn(6).setResizable(false);
+    }
+    
+    public void initializeModel() {
+        mainModel = (new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -271,7 +288,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     public void fillTable() {
-        resetTable();
+        resizeTable();
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -301,6 +318,13 @@ public class MenuFrame extends javax.swing.JFrame {
     
     private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
         // TODO add your handling code here:
+        if (mainTable.getSelectedRowCount() == 1) {
+            EmployeeInfo employeeToEdit = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
+            EditStudentFrame editFrame = new EditStudentFrame(employeeToEdit);
+            editFrame.setVisible(true);
+            this.setVisible(false);
+            fillRow(employeeToEdit, mainTable.getSelectedRow());
+        }
     }//GEN-LAST:event_editEmployeeButtonActionPerformed
 
     private void viewEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeeButtonActionPerformed

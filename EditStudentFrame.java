@@ -96,7 +96,6 @@ public class EditStudentFrame extends javax.swing.JFrame {
         yearlySalaryInput = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         invalidLabel = new javax.swing.JLabel();
-        TestButton = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
 
@@ -207,13 +206,6 @@ public class EditStudentFrame extends javax.swing.JFrame {
         invalidLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         invalidLabel.setText("Invalid Inputs: Changes Rejected");
 
-        TestButton.setText("jButton1");
-        TestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TestButtonActionPerformed(evt);
-            }
-        });
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
@@ -284,9 +276,7 @@ public class EditStudentFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(invalidLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(137, 137, 137)
-                .addComponent(TestButton)
-                .addGap(186, 186, 186))
+                .addGap(396, 396, 396))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,15 +320,10 @@ public class EditStudentFrame extends javax.swing.JFrame {
                     .addComponent(weeksPerYearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(weeksPerYearInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(invalidLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(TestButton)
-                        .addGap(88, 88, 88))))
+                .addComponent(invalidLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         pack();
@@ -467,14 +452,9 @@ public class EditStudentFrame extends javax.swing.JFrame {
                 employeeToEdit = temp;
            }
         }
-        this.setVisible(false);
-        System.exit(0); // REMOVE LATER
+        MainJFrame.setMenuVisibility(true);
+        this.dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
-
-    private void TestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestButtonActionPerformed
-        // TODO add your handling code here:
-        System.out.println(mainHT.readFromTable(employeeToEdit.getEmployeeNumber()).getLastName());
-    }//GEN-LAST:event_TestButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -514,7 +494,6 @@ public class EditStudentFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton TestButton;
     private javax.swing.JTextField deductionRateInput;
     private javax.swing.JLabel deductionRateLabel;
     private javax.swing.JLabel employeeNumLabel;

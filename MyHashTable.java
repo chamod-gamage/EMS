@@ -40,14 +40,6 @@ public class MyHashTable {
     public int getNumInTable(){
         return numInTable;
     }
-    
-    public int getIterateHash() {
-        return iterateHash;
-    }
-    
-    public int getIterateIndex() {
-        return iterateIndex;
-    }
 
     public ArrayList<EmployeeInfo>[] getBuckets() {
         return buckets;
@@ -108,7 +100,7 @@ public class MyHashTable {
     }
     
     public EmployeeInfo iterate() {
-        if (iterateIndex >= buckets[iterateHash].size()) {
+        while (iterateIndex >= buckets[iterateHash].size()) {
             iterateIndex = 0;
             iterateHash++;
             if (iterateHash >= buckets.length) {
