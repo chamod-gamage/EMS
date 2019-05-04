@@ -4,6 +4,7 @@ Maid MenuFrame an attribute of MainJFrame, and provided a method to change it's 
 Finished remove button and edit button
 Made table editable from code
 Fixed the stupid password screen
+Made search bar
 Things to do:
-Make search bar work
 Make clicking a column sort by that column
+Get the memory working

@@ -142,6 +142,11 @@ public class MenuFrame extends javax.swing.JFrame {
         }
 
         searchBar.setText("Search...");
+        searchBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBarActionPerformed(evt);
+            }
+        });
 
         userGuideButton.setText("User Guide");
         userGuideButton.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +214,33 @@ public class MenuFrame extends javax.swing.JFrame {
         mainTable.getColumnModel().getColumn(4).setResizable(false);
         mainTable.getColumnModel().getColumn(5).setResizable(false);
         mainTable.getColumnModel().getColumn(6).setResizable(false);
+    }
+    
+    public void cleanTable() {
+        mainModel.setNumRows(0);
+        mainTable.setModel(mainModel);
+        mainTable.getTableHeader().setReorderingAllowed(false);
+        mainTable.getColumnModel().getColumn(0).setResizable(false);
+        mainTable.getColumnModel().getColumn(1).setResizable(false);
+        mainTable.getColumnModel().getColumn(2).setResizable(false);
+        mainTable.getColumnModel().getColumn(3).setResizable(false);
+        mainTable.getColumnModel().getColumn(4).setResizable(false);
+        mainTable.getColumnModel().getColumn(5).setResizable(false);
+        mainTable.getColumnModel().getColumn(6).setResizable(false);
+    }
+    
+    public void addRow(EmployeeInfo employee) {
+        mainModel.setNumRows(mainModel.getRowCount() + 1);
+        mainTable.setModel(mainModel);
+        mainTable.getTableHeader().setReorderingAllowed(false);
+        mainTable.getColumnModel().getColumn(0).setResizable(false);
+        mainTable.getColumnModel().getColumn(1).setResizable(false);
+        mainTable.getColumnModel().getColumn(2).setResizable(false);
+        mainTable.getColumnModel().getColumn(3).setResizable(false);
+        mainTable.getColumnModel().getColumn(4).setResizable(false);
+        mainTable.getColumnModel().getColumn(5).setResizable(false);
+        mainTable.getColumnModel().getColumn(6).setResizable(false);
+        fillRow(employee, mainModel.getRowCount() - 1);
     }
     
     public void initializeModel() {
@@ -360,6 +392,49 @@ public class MenuFrame extends javax.swing.JFrame {
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userGuideButtonActionPerformed
+
+    private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
+        // TODO add your handling code here:
+        String search = searchBar.getText();
+        cleanTable();
+        EmployeeInfo currentEmployee;
+        if (search.equals("")) {
+            fillTable();
+        }
+        else if (StringConverter.stringToInteger(search) != -1) {
+            while (true) {
+                currentEmployee = MainJFrame.getTheHT().iterate();
+                if (currentEmployee == null) {
+                    break;
+                }
+                if (Integer.toString(currentEmployee.getEmployeeNumber()).contains(search)) {
+                    addRow(currentEmployee);
+                }
+            }
+        }
+        else if (StringConverter.stringChecker(search)) {
+            while (true) {
+                currentEmployee = MainJFrame.getTheHT().iterate();
+                if (currentEmployee == null) {
+                    break;
+                }
+                if (currentEmployee.getFirstName().toLowerCase().contains(search.toLowerCase()) || currentEmployee.getLastName().toLowerCase().contains(search.toLowerCase()) || currentEmployee.getWorkLocation().toLowerCase().contains(search.toLowerCase())) {
+                    addRow(currentEmployee);
+                }
+            }
+        }
+        else if (StringConverter.stringToDouble(search) != -1) {
+            while (true) {
+                currentEmployee = MainJFrame.getTheHT().iterate();
+                if (currentEmployee == null) {
+                    break;
+                }
+                if (Double.toString(currentEmployee.getDeductionRate()).contains(search)) {
+                    addRow(currentEmployee);
+                }
+            }
+        }
+    }//GEN-LAST:event_searchBarActionPerformed
 
     /**
      * @param args the command line arguments

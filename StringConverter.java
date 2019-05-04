@@ -29,11 +29,7 @@ public final class StringConverter {
                  
         }
         String toReturn = new String(actualArray);
-        return toReturn;
-        
-        
-        
-        
+        return toReturn;   
     }
     
     public static boolean stringChecker (String name){
