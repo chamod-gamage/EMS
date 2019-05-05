@@ -9,3 +9,6 @@ All applicable columns can now be sorted by clicking the header
 Added safety swtich based on the number of employees in the hashtable
 Things to do:
 Get the memory working
+	Maybe add multiple save files?
+Random fillrow error, throws out of bounds exception?
+Add 100000 cap to # of employees
