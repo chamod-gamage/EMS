@@ -155,4 +155,144 @@ public final class StringConverter {
         double num = Double.parseDouble(doub);
         return num;
     } 
+    
+    public static String[][] sortTwoDimentionalArray(String[][] array) {
+        if (array.length < 2) {
+            return array;
+        }
+        boolean isIdentical;
+        String [][] first;
+        String [][] second;
+        int firstLength = 0;
+        int secondLength = 0;
+        int keyIndex = array.length/2;
+        String keyValue = array[keyIndex][0];
+        String keyNumber = array[keyIndex][1];
+        for (int i = 0; i < array.length; i++){
+            isIdentical = true;
+            if (i == keyIndex) {
+                continue;
+            }
+            if (keyValue.length() < array[i][0].length()) {
+                for (int x = 0; x < keyValue.length(); x++) {
+                    int asciiKey = keyValue.charAt(x);
+                    int asciiCurrent = array[i][0].charAt(x);
+                    if (asciiKey > asciiCurrent) {
+                        firstLength++;
+                        isIdentical = false;
+                        break;
+                    }
+                    else if (asciiKey < asciiCurrent) {
+                        secondLength++;
+                        isIdentical = false;
+                        break;
+                    }
+                }
+                if (isIdentical) {
+                    firstLength++;
+                }
+            }
+            else {
+                for (int x = 0; x < array[i][0].length(); x++) {
+                    int asciiKey = keyValue.charAt(x);
+                    int asciiCurrent = array[i][0].charAt(x);
+                    if (asciiKey > asciiCurrent) {
+                        firstLength++;
+                        isIdentical = false;
+                        break;
+                    }
+                    else if (asciiKey < asciiCurrent) {
+                        secondLength++;
+                        isIdentical = false;
+                        break;
+                    }
+                }
+                if (isIdentical) {
+                    firstLength++;
+                }
+            }
+        }
+        first = new String[firstLength][2];
+        second = new String[secondLength][2];
+        int firstIndex = 0;
+        int secondIndex = 0;
+        for (int i = 0; i < array.length; i++){
+            isIdentical = true;
+            if (i == keyIndex) {
+                continue;
+            }
+            if (keyValue.length() < array[i][0].length()) {
+                for (int x = 0; x < keyValue.length(); x++) {
+                    int asciiKey = keyValue.charAt(x);
+                    int asciiCurrent = array[i][0].charAt(x);
+                    if (asciiKey > asciiCurrent) {
+                        first[firstIndex][0] = array[i][0];
+                        first[firstIndex][1] = array[i][1];
+                        firstIndex++;
+                        isIdentical = false;
+                        break;
+                    }
+                    else if (asciiKey < asciiCurrent) {
+                        second[secondIndex][0] = array[i][0];
+                        second[secondIndex][1] = array[i][1];
+                        secondIndex++;
+                        isIdentical = false;
+                        break;
+                    }
+                }
+                if (isIdentical) {
+                    first[firstIndex][0] = array[i][0];
+                    first[firstIndex][1] = array[i][1];
+                    firstIndex++;
+                }
+            }
+            else {
+                for (int x = 0; x < array[i][0].length(); x++) {
+                    int asciiKey = keyValue.charAt(x);
+                    int asciiCurrent = array[i][0].charAt(x);
+                    if (asciiKey > asciiCurrent) {
+                        first[firstIndex][0] = array[i][0];
+                        first[firstIndex][1] = array[i][1];
+                        firstIndex++;
+                        isIdentical = false;
+                        break;
+                    }
+                    else if (asciiKey < asciiCurrent) {
+                        second[secondIndex][0] = array[i][0];
+                        second[secondIndex][1] = array[i][1];
+                        secondIndex++;
+                        isIdentical = false;
+                        break;
+                    }
+                }
+                if (isIdentical) {
+                    first[firstIndex][0] = array[i][0];
+                    first[firstIndex][1] = array[i][1];
+                    firstIndex++;
+                }
+            }
+        }
+        first = sortTwoDimentionalArray(first);
+        second = sortTwoDimentionalArray(second);
+        for (int i = 0; i < firstLength; i++) {
+            array[i][0] = first[i][0];
+            array[i][1] = first[i][1];
+        }
+        array[firstLength][0] = keyValue;
+        array[firstLength][1] = keyNumber;
+        for (int i = 0; i < secondLength; i++) {
+            array[firstLength + 1 + i][0] = second[i][0];
+            array[firstLength + 1 + i][1] = second[i][1];
+        }
+        return array;
+    }
+    
+    public static String [][] reverseTwoDimentionalArray(String [][] array) {
+        String [][] toReturn = new String[array.length][2];
+        for (int i = 0; i < array.length; i++) {
+            toReturn[array.length - 1 - i][0] = array[i][0];
+            toReturn[array.length - 1 - i][1] = array[i][1];
+        }
+        return toReturn;
+    }
 }

@@ -63,7 +63,6 @@ public class MyHashTable {
                 return buckets[position].get(i);
             }
         }
-        System.out.println("No EmployeeInfo found");
         return null;
     }
 
@@ -133,6 +132,26 @@ public class MyHashTable {
             Arrays.sort(employeeNumbers, Collections.reverseOrder());
         }
         return employeeNumbers;
+    }
+    
+    public String[][] sortedFirstNames(boolean ascending) {
+        if (numInTable == 0) {
+            return null;
+        }
+        String [][] names = new String[numInTable][2];
+        int index = 0;
+        for (int i = 0; i < buckets.length; i ++) {
+            for (int j = 0; j < buckets[i].size(); j++) {
+                names[index][0] = buckets[i].get(j).getFirstName();
+                names[index][1] = Integer.toString(buckets[i].get(j).getEmployeeNumber());
+                index++;
+            }
+        }
+        names = StringConverter.sortTwoDimentionalArray(names);
+        if (!ascending) {
+            names = StringConverter.reverseTwoDimentionalArray(names);
+        }
+        return names;
     }
 }
 

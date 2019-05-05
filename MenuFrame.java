@@ -20,8 +20,39 @@ public class MenuFrame extends javax.swing.JFrame {
     public MenuFrame() {
         initComponents();
         initializeModel();
-        for (int i = 0; i < 50; i++) {
-            MainJFrame.getTheHT().addToTable(new PartTimeEmployee());
+        EmployeeInfo test;
+        test = new EmployeeInfo();
+        test.setFirstName("a");
+        MainJFrame.getTheHT().addToTable(test);
+        test = new EmployeeInfo();
+        test.setFirstName("d");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("r");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("z");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("b");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("q");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("n");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("d");
+        MainJFrame.getTheHT().addToTable(test);
+                test = new EmployeeInfo();
+        test.setFirstName("h");
+        MainJFrame.getTheHT().addToTable(test);
+        String [][] testTwo = MainJFrame.getTheHT().sortedFirstNames(false);
+        for (int i = 0; i < 9; i++) {
+            System.out.print(testTwo[i][0]);
+            System.out.print("    ");
+            System.out.println(testTwo[i][1]);
         }
         fillTable();
     }
@@ -402,6 +433,14 @@ public class MenuFrame extends javax.swing.JFrame {
             fillTable();
         }
         else if (StringConverter.stringToInteger(search) != -1) {
+            if (search.length() == 6) {
+                currentEmployee = MainJFrame.getTheHT().readFromTable(StringConverter.stringToInteger(search));
+                if (currentEmployee == null) {
+                    return;
+                }
+                addRow(currentEmployee);
+                return;
+            }
             while (true) {
                 currentEmployee = MainJFrame.getTheHT().iterate();
                 if (currentEmployee == null) {
