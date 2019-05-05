@@ -16,10 +16,40 @@ public class MenuFrame extends javax.swing.JFrame {
      */
     
     private javax.swing.table.DefaultTableModel mainModel;
-    
+    private boolean sortedUp = false;
+    private class HeaderEvent extends java.awt.event.MouseAdapter {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent e) {
+            if (MainJFrame.getTheHT().getNumInTable() > 10000) {
+                return;
+            }
+            int column = mainTable.columnAtPoint(e.getPoint());
+            switch (column) {
+                case 0:
+                    fillByEmployeeNumber();
+                    break;
+                case 2:
+                    fillByFirstName();
+                    break;
+                case 3:
+                    fillByLastName();
+                    break;
+                case 5:
+                    fillByLocation();
+                    break;
+                case 6:
+                    fillByDeductionRate();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public MenuFrame() {
         initComponents();
         initializeModel();
+        mainTable.getTableHeader().addMouseListener(new HeaderEvent());
         EmployeeInfo test;
         test = new EmployeeInfo();
         test.setFirstName("a");
@@ -161,6 +191,8 @@ public class MenuFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        mainTable.getTableHeader().setResizingAllowed(false);
+        mainTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(mainTable);
         if (mainTable.getColumnModel().getColumnCount() > 0) {
             mainTable.getColumnModel().getColumn(0).setResizable(false);
@@ -233,7 +265,7 @@ public class MenuFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     public void resizeTable() {
         mainModel.setNumRows(MainJFrame.getTheHT().getNumInTable());
         mainTable.setModel(mainModel);
@@ -367,15 +399,93 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByEmployeeNumber(boolean sortUp) {
+    private void fillByEmployeeNumber() {
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
-        Integer[] sortedList = MainJFrame.getTheHT().sortedNumbers(sortUp);
+        Integer[] sortedList = MainJFrame.getTheHT().sortedNumbers(!sortedUp); // Does the opposit sort of whatever currently exists
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
             employee = MainJFrame.getTheHT().readFromTable(sortedList[i]);
             fillRow(employee, i);
+        }
+        if (sortedUp) {
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
+        }
+    }
+    
+    private void fillByFirstName() {
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
+        String [][] sortedList = MainJFrame.getTheHT().sortedFirstNames(!sortedUp); // Does the opposit sort of whatever currently exists
+        EmployeeInfo employee;
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
+            fillRow(employee, i);
+        }
+        if (sortedUp) {
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
+        }
+    }
+    
+    private void fillByLastName() {
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
+        String [][] sortedList = MainJFrame.getTheHT().sortedLastNames(!sortedUp); // Does the opposit sort of whatever currently exists
+        EmployeeInfo employee;
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
+            fillRow(employee, i);
+        }
+        if (sortedUp) {
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
+        }
+    }
+    
+    private void fillByLocation() {
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
+        String [][] sortedList = MainJFrame.getTheHT().sortedLocations(!sortedUp); // Does the opposit sort of whatever currently exists
+        EmployeeInfo employee;
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
+            fillRow(employee, i);
+        }
+        if (sortedUp) {
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
+        }
+    }
+    
+    private void fillByDeductionRate() {
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
+        double [][] sortedList = MainJFrame.getTheHT().sortedDeductionRates(!sortedUp); // Does the opposit sort of whatever currently exists
+        EmployeeInfo employee;
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable((int)sortedList[i][1]);
+            fillRow(employee, i);
+        }
+        if (sortedUp) {
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
         }
     }
     
@@ -427,6 +537,22 @@ public class MenuFrame extends javax.swing.JFrame {
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
         // TODO add your handling code here:
         String search = searchBar.getText();
+        if (MainJFrame.getTheHT().getNumInTable() > 10000) {
+            if (StringConverter.stringToInteger(search) != -1) {
+                if (search.length() == 6) {
+                    EmployeeInfo currentEmployee = MainJFrame.getTheHT().readFromTable(StringConverter.stringToInteger(search));
+                    if (currentEmployee != null) {
+                        cleanTable();
+                        addRow(currentEmployee);
+                    }
+                }
+            }
+            else if (search.equals("") || mainTable.getRowCount() != MainJFrame.getTheHT().getNumInTable()) {
+                cleanTable();
+                fillTable();
+            }
+            return; 
+        }
         cleanTable();
         EmployeeInfo currentEmployee;
         if (search.equals("")) {

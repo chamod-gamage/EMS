@@ -153,5 +153,66 @@ public class MyHashTable {
         }
         return names;
     }
+    
+    public String [][] sortedLastNames(boolean ascending) {
+        if (numInTable == 0) {
+            return null;
+        }
+        String [][] names = new String[numInTable][2];
+        int index = 0;
+        for (int i = 0; i < buckets.length; i ++) {
+            for (int j = 0; j < buckets[i].size(); j++) {
+                names[index][0] = buckets[i].get(j).getLastName();
+                names[index][1] = Integer.toString(buckets[i].get(j).getEmployeeNumber());
+                index++;
+            }
+        }
+        names = StringConverter.sortTwoDimentionalArray(names);
+        if (!ascending) {
+            names = StringConverter.reverseTwoDimentionalArray(names);
+        }
+        return names;
+    }
+    
+    public String [][] sortedLocations(boolean ascending) {
+        if (numInTable == 0) {
+            return null;
+        }
+        String [][] locations = new String[numInTable][2];
+        int index = 0;
+        for (int i = 0; i < buckets.length; i ++) {
+            for (int j = 0; j < buckets[i].size(); j++) {
+                locations[index][0] = buckets[i].get(j).getWorkLocation();
+                locations[index][1] = Integer.toString(buckets[i].get(j).getEmployeeNumber());
+                index++;
+            }
+        }
+        locations = StringConverter.sortTwoDimentionalArray(locations);
+        if (!ascending) {
+            locations = StringConverter.reverseTwoDimentionalArray(locations);
+        }
+        return locations;
+    }
+    
+    public double [][] sortedDeductionRates(boolean ascending) {
+        if (numInTable == 0) {
+            return null;
+        }
+        double temp;
+        double [][] rates = new double[numInTable][2];
+        int index = 0;
+        for (int i = 0; i < buckets.length; i ++) {
+            for (int j = 0; j < buckets[i].size(); j++) {
+                rates[index][0] = buckets[i].get(j).getDeductionRate();
+                rates[index][1] = buckets[i].get(j).getEmployeeNumber();
+                index++;
+            }
+        }
+        rates = StringConverter.sortTwoDimentionalArray(rates);
+        if (!ascending) {
+            rates = StringConverter.reverseTwoDimentionalArray(rates);
+        }
+        return rates;
+    }
 }
 

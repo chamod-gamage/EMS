@@ -5,13 +5,7 @@ Finished remove button and edit button
 Made table editable from code
 Fixed the stupid password screen
 Made search bar
-Added sort by employee number
-Added sort by first name
-(No botton)
+All applicable columns can now be sorted by clicking the header
+Added safety swtich based on the number of employees in the hashtable
 Things to do:
-Make clicking a column sort by that column
 Get the memory working
-Add sort by last name
-Add sort by location
-Add sort by deduction rate
-Add safety switch based on the number of employees in the hashtable

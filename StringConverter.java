@@ -287,8 +287,73 @@ public final class StringConverter {
         return array;
     }
     
+    public static double [][] sortTwoDimentionalArray(double [][] array) {
+        if (array.length < 2) {
+            return array;
+        }
+        double [][] first;
+        double [][] second;
+        int firstLength = 0;
+        int secondLength = 0;
+        int keyIndex = array.length/2;
+        double keyValue = array[keyIndex][0];
+        double keyNumber = array[keyIndex][1];
+        for (int i = 0; i < array.length; i++) {
+            if (keyIndex == i) {
+                continue;
+            }
+            if (array[i][0] <= keyValue) {
+                firstLength++;
+            }
+            else {
+                secondLength++;
+            }
+        }
+        first = new double[firstLength][2];
+        second = new double[secondLength][2];
+        int firstIndex = 0;
+        int secondIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (keyIndex == i) {
+                continue;
+            }
+            if (array[i][0] <= keyValue) {
+                first[firstIndex][0] = array[i][0];
+                first[firstIndex][1] = array[i][1];
+                firstIndex++;
+            }
+            else {
+                second[secondIndex][0] = array[i][0];
+                second[secondIndex][1] = array[i][1];
+                secondIndex++;
+            }
+        }
+        first = sortTwoDimentionalArray(first);
+        second = sortTwoDimentionalArray(second);
+        for (int i = 0; i < firstLength; i++) {
+            array[i][0] = first[i][0];
+            array[i][1] = first[i][1];
+        }
+        array[firstLength][0] = keyValue;
+        array[firstLength][1] = keyNumber;
+        for (int i = 0; i < secondLength; i++) {
+            array[firstLength + 1 + i][0] = second[i][0];
+            array[firstLength + 1 + i][1] = second[i][1];
+        }
+        return array;
+    }
+    
     public static String [][] reverseTwoDimentionalArray(String [][] array) {
         String [][] toReturn = new String[array.length][2];
+        for (int i = 0; i < array.length; i++) {
+            toReturn[array.length - 1 - i][0] = array[i][0];
+            toReturn[array.length - 1 - i][1] = array[i][1];
+        }
+        return toReturn;
+    }
+    
+    public static double [][] reverseTwoDimentionalArray(double [][] array) {
+        double [][] toReturn = new double[array.length][2];
         for (int i = 0; i < array.length; i++) {
             toReturn[array.length - 1 - i][0] = array[i][0];
             toReturn[array.length - 1 - i][1] = array[i][1];
