@@ -409,10 +409,12 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         valid = true;
         if (done == true) {
+            MainJFrame.setMenuVisibility(true);
             this.dispose();
         }
-        if (jRadioButton1.isSelected()) {
+        if (jRadioButton1.isSelected() && done != true) {
             FullTimeEmployee empToAdd = new FullTimeEmployee();
+            System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(jTextField16.getText()) != -1 && StringConverter.stringToInteger(jTextField16.getText()) < 1000000) {
                 empToAdd.setEmployeeNumber(StringConverter.stringToInteger(jTextField16.getText()));
             } else {
@@ -443,19 +445,21 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
+            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             if (valid == true) {
                 mainHT.addToTable(empToAdd);
                 jLabel19.setVisible(false);
                 jLabel21.setText("EMPLOYEE ADDED!");
                 jButton1.setText("Done");
-                done = true;
-                
+                done = true; 
             } else {
+                
                 jLabel19.setVisible(true);
             }
         }
-        if (jRadioButton2.isSelected()) {
+        if (jRadioButton2.isSelected() && done != true) {
             PartTimeEmployee empToAdd = new PartTimeEmployee();
+            System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(jTextField16.getText()) != -1 && StringConverter.stringToInteger(jTextField16.getText()) < 1000000) {
                 empToAdd.setEmployeeNumber(StringConverter.stringToInteger(jTextField16.getText()));
             } else {
@@ -483,22 +487,23 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             }
             if (StringConverter.stringToDollars(jTextField10.getText()) != -1) {
                 empToAdd.setHourlyWage(StringConverter.stringToDollars(jTextField10.getText()));
-                System.out.println(StringConverter.stringToDollars(jTextField10.getText()));
+                
             } else {
                 valid = false;
             }
             if (StringConverter.stringToDollars(jTextField9.getText()) != -1) {
                 empToAdd.setHoursPerWeek(StringConverter.stringToDouble(jTextField9.getText()));
-                System.out.println(StringConverter.stringToDouble(jTextField9.getText()));
+               
             } else {
                 valid = false;
             }
             if (StringConverter.stringToDollars(jTextField8.getText()) != -1) {
                 empToAdd.setWeeksPerYear(StringConverter.stringToDouble(jTextField8.getText()));
-                System.out.println(StringConverter.stringToDouble(jTextField8.getText()));
+                
             } else {
                 valid = false;
             }
+            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             
             if (valid == true) {
                 mainHT.addToTable(empToAdd);
@@ -510,15 +515,16 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                 
                 
             } else {
+                
                 jLabel19.setVisible(true);
             }
             
-            System.out.println(empToAdd.getDeductionRate());
+            
 
             
         }
         
-        mainHT.displayTable();
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

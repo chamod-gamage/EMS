@@ -341,7 +341,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     private void fillRow(EmployeeInfo employee, int row) {
-        mainTable.setValueAt(Integer.toString(employee.getEmployeeNumber()), row, 0);
+        mainTable.setValueAt(StringConverter.empNumberToString(employee.getEmployeeNumber()), row, 0);
         if (employee instanceof PartTimeEmployee) {
             mainTable.setValueAt("Part-Time", row, 1);
         }
@@ -500,7 +500,7 @@ public class MenuFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
         theAddFrame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed
