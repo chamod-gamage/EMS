@@ -158,9 +158,9 @@ public class MainJFrame extends javax.swing.JFrame {
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
+            FileStream.readFromFile();
             theMenu = new MenuFrame();
             theMenu.setVisible(true);
-            FileStream.readFromFile();
             this.dispose();
         
         } 
@@ -172,9 +172,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private void viewUserGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserGuideButtonActionPerformed
         // TODO add your handling code here:
         
-        SeparateJFrame theSeparateJFrame = new SeparateJFrame();
-        theSeparateJFrame.setVisible(true);
-        theSeparateJFrame.setMainHT(getTheHT());  // Have theSeparateJFrame mainHT point to the real HT.
+        //SeparateJFrame theSeparateJFrame = new SeparateJFrame();
+        //theSeparateJFrame.setVisible(true);
+        //theSeparateJFrame.setMainHT(getTheHT());  // Have theSeparateJFrame mainHT point to the real HT.
     }//GEN-LAST:event_viewUserGuideButtonActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

@@ -53,10 +53,6 @@ public class MenuFrame extends javax.swing.JFrame {
         initializeModel();
         mainTable.getTableHeader().addMouseListener(new HeaderEvent());
         EmployeeInfo test;
-        for (int i = 0; i < 100; i++) {
-            test = new PartTimeEmployee();
-            MainJFrame.getTheHT().addToTable(test);
-        }
         fillTable();
     }
 
@@ -488,6 +484,12 @@ public class MenuFrame extends javax.swing.JFrame {
 
     private void viewEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeeButtonActionPerformed
         // TODO add your handling code here:
+        if (mainTable.getSelectedRowCount() == 1) {
+            EmployeeInfo employeeToView = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
+            ViewEmployeeFrame viewFrame = new ViewEmployeeFrame(employeeToView);
+            viewFrame.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_viewEmployeeButtonActionPerformed
 
     private void addLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationButtonActionPerformed
@@ -574,7 +576,6 @@ public class MenuFrame extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
         FileStream.writeToFile();
-        this.dispose();
     }//GEN-LAST:event_saveButtonActionPerformed
 
     /**

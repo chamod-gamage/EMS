@@ -44,6 +44,7 @@ public class FileStream {
                     employeeToAdd.setWorkLocation(myFile.readLine());
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setHourlyWage(Double.parseDouble(myFile.readLine()));
+                    employeeToAdd.setHoursPerWeek(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setWeeksPerYear(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
                 }
