@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="titleLabel" min="-2" pref="112" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="returnButton" min="-2" pref="110" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="70" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="weeksPerYearLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="hoursPerWeekLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="hourlyWageLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="netIncomeLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="yearlySalaryLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="deductionRateLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="workLocationLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="genderLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="typeLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lastNameLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="firstNameLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="employeeNumberLabel" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="employeeNumberField" max="32767" attributes="0"/>
+                  <Component id="firstNameField" max="32767" attributes="0"/>
+                  <Component id="lastNameField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="genderTextField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="locationField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="deductionRateField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="yearlySalaryField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="netIncomeField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="hourlyWageField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="hoursPerWeekField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="weeksPerYearField" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="employeeNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="employeeNumberField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="firstNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lastNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="typeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="genderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="genderTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="workLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="locationField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="deductionRateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deductionRateField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="yearlySalaryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="yearlySalaryField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="netIncomeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="netIncomeField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="hourlyWageLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hourlyWageField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="hoursPerWeekLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hoursPerWeekField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="weeksPerYearLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="weeksPerYearField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="returnButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="titleLabel">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="View Employee"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="employeeNumberLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Employee Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="firstNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="First Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lastNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Last Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="typeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Type"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="genderLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gender"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="workLocationLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Work Location"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="deductionRateLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deduction Rate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="yearlySalaryLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Yearly Salary"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="netIncomeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Net Income"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hourlyWageLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hourly Wage"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hoursPerWeekLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hours Per Week"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="weeksPerYearLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Weeks Per Year"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="returnButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Return"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 32]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="employeeNumberField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="000000"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="firstNameField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Default"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lastNameField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Full-Time"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="genderTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Other"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="locationField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Null Location"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="deductionRateField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0.2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="yearlySalaryField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="50000"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="netIncomeField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="50000"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hourlyWageField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="14"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hoursPerWeekField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="20"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="weeksPerYearField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="50"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
