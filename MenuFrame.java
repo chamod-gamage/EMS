@@ -53,7 +53,7 @@ public class MenuFrame extends javax.swing.JFrame {
         initializeModel();
         mainTable.getTableHeader().addMouseListener(new HeaderEvent());
         EmployeeInfo test;
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 100; i++) {
             test = new PartTimeEmployee();
             MainJFrame.getTheHT().addToTable(test);
         }

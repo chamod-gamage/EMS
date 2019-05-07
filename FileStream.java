@@ -14,7 +14,7 @@ import java.io.*;
 
 public class FileStream {
     private FileStream(){}
-    private static String filename = "Memory.txt";
+    private static String filename = "src/RWMemory.txt";
     private static String backup = "Backup.txt";
     public static void readFromFile() {
         try {
@@ -51,8 +51,9 @@ public class FileStream {
             myFile.close();
         }
         catch (Exception e) {
-            System.out.println("File Not Found");
+            
             if (e instanceof FileNotFoundException) {
+                System.out.println("File Not Found");
                 // Add option to restore from backup
                 return;
             }
@@ -63,7 +64,7 @@ public class FileStream {
         try {
             BufferedWriter myFile = new BufferedWriter(new FileWriter(filename));
             EmployeeInfo currentEmployee;
-            myFile.write(MainJFrame.getTheHT().getNumInTable()); myFile.newLine();
+            myFile.write(Integer.toString(MainJFrame.getTheHT().getNumInTable())); myFile.newLine();
             while (true) {
                 currentEmployee = MainJFrame.getTheHT().iterate();
                 if (currentEmployee == null) {

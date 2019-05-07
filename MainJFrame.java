@@ -67,6 +67,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setMinimumSize(new java.awt.Dimension(119, 22));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -159,6 +160,7 @@ public class MainJFrame extends javax.swing.JFrame {
         if (isPasswordCorrect(input) == true) {
             theMenu = new MenuFrame();
             theMenu.setVisible(true);
+            FileStream.readFromFile();
             this.dispose();
         
         } 
