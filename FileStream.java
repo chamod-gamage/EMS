@@ -51,6 +51,7 @@ public class FileStream {
             myFile.close();
         }
         catch (Exception e) {
+            System.out.println("File Not Found");
             if (e instanceof FileNotFoundException) {
                 // Add option to restore from backup
                 return;
