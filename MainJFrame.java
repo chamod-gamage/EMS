@@ -158,8 +158,15 @@ public class MainJFrame extends javax.swing.JFrame {
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
-            FileStream.readFromFile();
-            theMenu = new MenuFrame();
+            boolean alert = false;
+            try {
+                FileStream.readFromFile();
+            }
+            catch(Exception e) {
+                // Create pop-up
+                alert = true;
+            }
+            theMenu = new MenuFrame(alert);
             theMenu.setVisible(true);
             this.dispose();
         

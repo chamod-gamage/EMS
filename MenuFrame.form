@@ -27,25 +27,16 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="586" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="searchBar" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Component id="removeEmployeeButton" alignment="1" min="-2" pref="186" max="-2" attributes="0"/>
-                                      <Component id="addEmployeeButton" alignment="1" min="-2" pref="186" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="userGuideButton" min="-2" pref="186" max="-2" attributes="0"/>
-                                  <Component id="editEmployeeButton" alignment="1" min="-2" pref="186" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="viewEmployeeButton" alignment="1" min="-2" pref="186" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="addLocationButton" min="-2" pref="186" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="saveButton" min="-2" pref="186" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="searchBar" pref="186" max="32767" attributes="0"/>
+                  <Component id="removeEmployeeButton" alignment="0" pref="186" max="32767" attributes="0"/>
+                  <Component id="addEmployeeButton" alignment="0" pref="186" max="32767" attributes="0"/>
+                  <Component id="userGuideButton" pref="186" max="32767" attributes="0"/>
+                  <Component id="editEmployeeButton" alignment="0" pref="186" max="32767" attributes="0"/>
+                  <Component id="viewEmployeeButton" alignment="0" pref="186" max="32767" attributes="0"/>
+                  <Component id="addLocationButton" pref="186" max="32767" attributes="0"/>
+                  <Component id="saveButton" pref="186" max="32767" attributes="0"/>
+                  <Component id="warningLabel" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -54,7 +45,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="warningLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Component id="searchBar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="addEmployeeButton" min="-2" max="-2" attributes="0"/>
@@ -70,7 +63,7 @@
               <Component id="userGuideButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -210,6 +203,12 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="warningLabel">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="WARNING, NO MEMORY FOUND"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
