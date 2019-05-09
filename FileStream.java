@@ -19,8 +19,7 @@ public class FileStream {
     public static void readFromFile() {
         try {
             BufferedReader myFile = new BufferedReader(new FileReader(filename));
-            System.out.println(EmployeeInfo.locations.size());
-            int length = Integer.parseInt(myFile.readLine()) + 1;
+            int length = Integer.parseInt(myFile.readLine());
             for (int i = 0; i < length; i++) {
                 String dataType = myFile.readLine();
                 if (dataType.equals("f")) {
@@ -34,9 +33,8 @@ public class FileStream {
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setYearlySalary(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
-                    System.out.println("Rea");
                 }
-                else if (dataType.equals("p")) {
+                if (dataType.equals("p")) {
                     // Part time employee
                     PartTimeEmployee employeeToAdd = new PartTimeEmployee();
                     employeeToAdd.setFirstName(myFile.readLine());
@@ -46,21 +44,9 @@ public class FileStream {
                     employeeToAdd.setWorkLocation(myFile.readLine());
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setHourlyWage(Double.parseDouble(myFile.readLine()));
+                    employeeToAdd.setHoursPerWeek(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setWeeksPerYear(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
-                    System.out.println("Read");
-                }
-                else if (dataType.equals("loc")) {
-                    System.out.println("Reading...");
-                    //Locations
-                    int locNum = Integer.parseInt(myFile.readLine());
-                    
-                    
-                    for (int x = 0; x < locNum; x++) {
-                        EmployeeInfo.addWorkLocation(myFile.readLine());
-                        
-                    }
-                    
                 }
             }
             myFile.close();
@@ -109,16 +95,7 @@ public class FileStream {
                     FullTimeEmployee currentFTEmployee = (FullTimeEmployee)currentEmployee;
                     myFile.write(Double.toString(currentFTEmployee.getYearlySalary())); myFile.newLine();
                 }
-                
-                
             }
-            
-            myFile.write("loc"); myFile.newLine();
-            myFile.write(Integer.toString(EmployeeInfo.locations.size())); myFile.newLine();
-            for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
-                        myFile.write(EmployeeInfo.locations.get(x)); myFile.newLine();
-                        System.out.println("Writing...");
-                    }
             // Iterate through hashtable using employee numbers and write them all to the file
             myFile.close();
         }
@@ -126,7 +103,6 @@ public class FileStream {
             System.out.println("Error Writing to Memeory");
         }
     }
-    /*
     public static void restoreFromBackup () throws Exception {
         try {
             BufferedReader myFile = new BufferedReader(new FileReader(backup));
@@ -158,15 +134,6 @@ public class FileStream {
                     employeeToAdd.setWeeksPerYear(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
                 }
-                if (dataType.equals('l')) {
-                    //Locations
-                    int locNum = Integer.parseInt(myFile.readLine());
-                    
-                    for (int x = 0; x < locNum; x++) {
-                        EmployeeInfo.addWorkLocation(myFile.readLine());
-                    }
-                    
-                }
             }
             myFile.close();
         }
@@ -174,5 +141,4 @@ public class FileStream {
             throw e;
         }
     }
-*/
 }

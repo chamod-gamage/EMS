@@ -10,23 +10,19 @@
  */
 
 public class MenuFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MenuFrame
-     */
     
-    private javax.swing.table.DefaultTableModel mainModel;
-    private boolean sortedUp = false;
-    private class HeaderEvent extends java.awt.event.MouseAdapter {
+    private javax.swing.table.DefaultTableModel mainModel; // Model for the main table
+    private boolean sortedUp = false; // If the table is currently sorted up
+    private class HeaderEvent extends java.awt.event.MouseAdapter { // Custom mouse event handler for organizing columns
         @Override
         public void mouseClicked(java.awt.event.MouseEvent e) {
-            int column = mainTable.columnAtPoint(e.getPoint());
-            if (MainJFrame.getTheHT().getNumInTable() > 5000) {
+            int column = mainTable.columnAtPoint(e.getPoint()); // Get clicked column
+            if (MainJFrame.getTheHT().getNumInTable() > 5000) { // Check that the table is not too large for the sort to run quickly
                 if (column != 0) {
                     return;
                 }
             }
-            switch (column) {
+            switch (column) { // Organize column
                 case 0:
                     fillByEmployeeNumber();
                     break;
@@ -50,9 +46,9 @@ public class MenuFrame extends javax.swing.JFrame {
 
     public MenuFrame(boolean warning) {
         initComponents();
-        initializeModel();
-        mainTable.getTableHeader().addMouseListener(new HeaderEvent());
-        if (!warning) {
+        initializeModel(); // Set value of model
+        mainTable.getTableHeader().addMouseListener(new HeaderEvent());  // Initialize custom mouse event handler
+        if (!warning) { // Warning label for if no memory file was found
             warningLabel.setVisible(false);
         }
         fillTable();
@@ -253,9 +249,9 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public void resizeTable() {
-        mainModel.setNumRows(MainJFrame.getTheHT().getNumInTable());
-        mainTable.setModel(mainModel);
-        mainTable.getTableHeader().setReorderingAllowed(false);
+        mainModel.setNumRows(MainJFrame.getTheHT().getNumInTable()); // Set the number of rows to be equal to the number of items in the table
+        mainTable.setModel(mainModel); // Update model
+        mainTable.getTableHeader().setReorderingAllowed(false); // Turn off unwanted features
         mainTable.getColumnModel().getColumn(0).setResizable(false);
         mainTable.getColumnModel().getColumn(1).setResizable(false);
         mainTable.getColumnModel().getColumn(2).setResizable(false);
@@ -266,7 +262,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     public void cleanTable() {
-        mainModel.setNumRows(0);
+        mainModel.setNumRows(0); // Reset table completely
         mainTable.setModel(mainModel);
         mainTable.getTableHeader().setReorderingAllowed(false);
         mainTable.getColumnModel().getColumn(0).setResizable(false);
@@ -279,7 +275,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     public void addRow(EmployeeInfo employee) {
-        mainModel.setNumRows(mainModel.getRowCount() + 1);
+        mainModel.setNumRows(mainModel.getRowCount() + 1); // Add a row to the table
         mainTable.setModel(mainModel);
         mainTable.getTableHeader().setReorderingAllowed(false);
         mainTable.getColumnModel().getColumn(0).setResizable(false);
@@ -289,10 +285,10 @@ public class MenuFrame extends javax.swing.JFrame {
         mainTable.getColumnModel().getColumn(4).setResizable(false);
         mainTable.getColumnModel().getColumn(5).setResizable(false);
         mainTable.getColumnModel().getColumn(6).setResizable(false);
-        fillRow(employee, mainModel.getRowCount() - 1);
+        fillRow(employee, mainModel.getRowCount() - 1); // Fill the added row with the given employee
     }
     
-    public void initializeModel() {
+    public void initializeModel() { // Creates model for the table
         mainModel = (new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -353,7 +349,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillRow(EmployeeInfo employee, int row) {
+    private void fillRow(EmployeeInfo employee, int row) { // Iterates through the columns of a row, filling them with employee information
         mainTable.setValueAt(StringConverter.empNumberToString(employee.getEmployeeNumber()), row, 0);
         if (employee instanceof PartTimeEmployee) {
             mainTable.setValueAt("Part-Time", row, 1);
@@ -369,7 +365,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     public void fillTable() {
-        resizeTable();
+        resizeTable(); // Iterates through the rows, calling fill row with the next employee
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -385,7 +381,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByEmployeeNumber() {
+    private void fillByEmployeeNumber() { // Fills rows with employees organized by employee number
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -403,7 +399,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByFirstName() {
+    private void fillByFirstName() { // Fill sorted by first name
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -421,7 +417,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByLastName() {
+    private void fillByLastName() { // Fill sorted by last name
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -439,7 +435,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByLocation() {
+    private void fillByLocation() { // Fill sorted by location
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -457,7 +453,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByDeductionRate() {
+    private void fillByDeductionRate() { // Fill sorted by deduction rate
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -476,7 +472,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
-        // TODO add your handling code here:
+        // Creates editEmployeeFrame for the currently selected employee
         if (mainTable.getSelectedRowCount() == 1) {
             EmployeeInfo employeeToEdit = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
             EditStudentFrame editFrame = new EditStudentFrame(employeeToEdit);
@@ -487,7 +483,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_editEmployeeButtonActionPerformed
 
     private void viewEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeeButtonActionPerformed
-        // TODO add your handling code here:
+        // Creates viewEmployeeFrame for the currently selected employee
         if (mainTable.getSelectedRowCount() == 1) {
             EmployeeInfo employeeToView = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
             ViewEmployeeFrame viewFrame = new ViewEmployeeFrame(employeeToView);
@@ -497,14 +493,14 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_viewEmployeeButtonActionPerformed
 
     private void addLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationButtonActionPerformed
-        // TODO add your handling code here:
+        // Creates new add location frame
         AddLoc theLocFrame = new AddLoc();
         theLocFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addLocationButtonActionPerformed
 
     private void removeEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeeButtonActionPerformed
-        // TODO add your handling code here:
+        // Removes selected employees from the hashtable, then updates mainTable
         int[] employees = mainTable.getSelectedRows();
         for (int i = 0; i < employees.length; i++) {
             Object employeeNumber = mainTable.getValueAt(employees[i], 0);
@@ -516,7 +512,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_removeEmployeeButtonActionPerformed
 
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
-        // TODO add your handling code here:
+        // Creates new add employee frame
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
         theAddFrame.setVisible(true);
         //this.setVisible(false);
@@ -527,24 +523,24 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_userGuideButtonActionPerformed
 
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
-        // TODO add your handling code here:
+        // Handles search bar
         String search = searchBar.getText();
         cleanTable();
         EmployeeInfo currentEmployee;
         if (search.equals("")) {
-            fillTable();
+            fillTable(); // If nothing was typed in the search bar, fill table normally
         }
-        else if (StringConverter.stringToInteger(search) != -1) {
-            if (search.length() == 6) {
-                currentEmployee = MainJFrame.getTheHT().readFromTable(StringConverter.stringToInteger(search));
+        else if (StringConverter.stringToInteger(search) != -1) { // If search was sucessfully converted to an integer
+            if (search.length() == 6) { // If the length is that of a full employee number
+                currentEmployee = MainJFrame.getTheHT().readFromTable(StringConverter.stringToInteger(search)); // Search for number in table
                 if (currentEmployee == null) {
                     return;
                 }
-                addRow(currentEmployee);
+                addRow(currentEmployee); // Display employee if found
                 return;
             }
             while (true) {
-                currentEmployee = MainJFrame.getTheHT().iterate();
+                currentEmployee = MainJFrame.getTheHT().iterate(); // Go through table and display numbers that contain the search
                 if (currentEmployee == null) {
                     break;
                 }

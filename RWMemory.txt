@@ -1,838 +1,32 @@
-100
-p
-Default
-Name
-625110
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-375190
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-636650
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-455610
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-397700
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-606640
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-798260
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-823560
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-527080
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-963710
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-944411
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-608321
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-938791
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-446781
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-493311
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-788701
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-405941
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-630262
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-845682
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-852592
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-218062
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-953792
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-859852
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-598192
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-283962
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-810012
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-835262
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-794153
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-734553
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-551683
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-873923
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-818933
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-400453
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-115573
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-998453
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-662183
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-453933
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-265583
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-279373
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-950123
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-263984
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-830504
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-592564
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-489674
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-197784
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-796574
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-434084
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-738114
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-217474
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-652385
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-303865
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-288625
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-295275
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-957975
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-947945
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-142735
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-375106
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-244876
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-805866
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-732536
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-254907
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-801877
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-689557
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-538827
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-119547
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-105517
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-749627
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-441307
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-437067
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-610777
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
+20
+f
 Default
 Name
-848927
+917190
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-701357
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-178708
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-778678
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-625088
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-617578
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-416478
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-842178
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-611828
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-395658
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-698238
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
+55806.4
+f
 Default
 Name
-976028
+717861
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
-p
+55806.4
+f
 Default
 Name
-526148
+300171
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
+55806.4
 p
 Default
 Name
-280348
+296472
 Other
 Null Location
 0.2
@@ -842,7 +36,7 @@ Null Location
 p
 Default
 Name
-902168
+831712
 Other
 Null Location
 0.2
@@ -852,27 +46,25 @@ Null Location
 p
 Default
 Name
-702958
+252732
 Other
 Null Location
 0.2
 14.0
 20.0
 52.0
-p
+f
 Default
 Name
-537428
+412542
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
+55806.4
 p
 Default
 Name
-389728
+352783
 Other
 Null Location
 0.2
@@ -882,47 +74,41 @@ Null Location
 p
 Default
 Name
-387948
+489913
 Other
 Null Location
 0.2
 14.0
 20.0
 52.0
-p
+f
 Default
 Name
-977439
+845823
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
-p
+55806.4
+f
 Default
 Name
-882539
+990843
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
-p
+55806.4
+f
 Default
 Name
-549269
+731984
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
+55806.4
 p
 Default
 Name
-503759
+152395
 Other
 Null Location
 0.2
@@ -932,7 +118,7 @@ Null Location
 p
 Default
 Name
-122229
+722465
 Other
 Null Location
 0.2
@@ -942,7 +128,7 @@ Null Location
 p
 Default
 Name
-751439
+441855
 Other
 Null Location
 0.2
@@ -952,50 +138,44 @@ Null Location
 p
 Default
 Name
-519599
+205826
 Other
 Null Location
 0.2
 14.0
 20.0
 52.0
-p
+f
 Default
 Name
-993879
+219086
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
-p
+55806.4
+f
 Default
 Name
-854259
+548707
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
+55806.4
 p
 Default
 Name
-803259
+743429
 Other
 Null Location
 0.2
 14.0
 20.0
 52.0
-p
+f
 Default
 Name
-870359
+618409
 Other
 Null Location
 0.2
-14.0
-20.0
-52.0
+55806.4
