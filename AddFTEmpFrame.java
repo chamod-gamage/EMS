@@ -31,7 +31,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jComboBox1.setVisible(false);
         jTextField14.setVisible(false);
         jTextField15.setVisible(false);
-        jTextField16.setVisible(false);
+        employeeNumberInput.setVisible(false);
         jLabel8.setVisible(false);
         
         
@@ -93,7 +93,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
+        employeeNumberInput = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -179,9 +179,9 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+        employeeNumberInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
+                employeeNumberInputActionPerformed(evt);
             }
         });
 
@@ -213,9 +213,9 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel21)
-                .addGap(150, 150, 150))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel20)
@@ -233,7 +233,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(employeeNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
@@ -284,7 +284,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(employeeNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
@@ -339,7 +339,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jComboBox1.setVisible(true);
         jTextField14.setVisible(true);
         jTextField15.setVisible(true);
-        jTextField16.setVisible(true);
+        employeeNumberInput.setVisible(true);
         jLabel8.setVisible(false);
         
         
@@ -378,7 +378,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jComboBox1.setVisible(true);
         jTextField14.setVisible(true);
         jTextField15.setVisible(true);
-        jTextField16.setVisible(true);
+        employeeNumberInput.setVisible(true);
         jLabel8.setVisible(true);
         
         
@@ -415,8 +415,8 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         if (jRadioButton1.isSelected() && done != true) {
             FullTimeEmployee empToAdd = new FullTimeEmployee();
             System.out.println(empToAdd.getEmployeeNumber());
-            if (StringConverter.stringToInteger(jTextField16.getText()) != -1 && StringConverter.stringToInteger(jTextField16.getText()) < 1000000) {
-                empToAdd.setEmployeeNumber(StringConverter.stringToInteger(jTextField16.getText()));
+            if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
+                empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
             } else {
                 valid = false;
             }
@@ -448,6 +448,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             if (valid == true) {
                 mainHT.addToTable(empToAdd);
+                
                 jLabel19.setVisible(false);
                 jLabel21.setText("EMPLOYEE ADDED!");
                 jButton1.setText("Done");
@@ -460,8 +461,8 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         if (jRadioButton2.isSelected() && done != true) {
             PartTimeEmployee empToAdd = new PartTimeEmployee();
             System.out.println(empToAdd.getEmployeeNumber());
-            if (StringConverter.stringToInteger(jTextField16.getText()) != -1 && StringConverter.stringToInteger(jTextField16.getText()) < 1000000) {
-                empToAdd.setEmployeeNumber(StringConverter.stringToInteger(jTextField16.getText()));
+            if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
+                empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
             } else {
                 valid = false;
             }
@@ -552,9 +553,9 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void employeeNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNumberInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_employeeNumberInputActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
@@ -600,6 +601,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField employeeNumberInput;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -622,7 +624,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables

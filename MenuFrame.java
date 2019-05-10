@@ -10,6 +10,7 @@
  */
 
 import java.io.*;
+import java.awt.Desktop;
 
 public class MenuFrame extends javax.swing.JFrame {
     
@@ -477,9 +478,9 @@ public class MenuFrame extends javax.swing.JFrame {
         // Creates editEmployeeFrame for the currently selected employee
         if (mainTable.getSelectedRowCount() == 1) {
             EmployeeInfo employeeToEdit = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
-            EditStudentFrame editFrame = new EditStudentFrame(employeeToEdit);
+            EditEmployeeFrame editFrame = new EditEmployeeFrame(employeeToEdit);
             editFrame.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
             fillRow(employeeToEdit, mainTable.getSelectedRow());
         }
     }//GEN-LAST:event_editEmployeeButtonActionPerformed
