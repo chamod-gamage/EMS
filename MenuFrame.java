@@ -9,6 +9,8 @@
  * @author 567882
  */
 
+import java.io.*;
+
 public class MenuFrame extends javax.swing.JFrame {
     
     private javax.swing.table.DefaultTableModel mainModel; // Model for the main table
@@ -520,6 +522,15 @@ public class MenuFrame extends javax.swing.JFrame {
 
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed
         // TODO add your handling code here:
+        File userGuide = new File("UserGuide.pdf");
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(userGuide);
+            }
+        }
+        catch (IOException e) {
+            
+        }      
     }//GEN-LAST:event_userGuideButtonActionPerformed
 
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
@@ -609,11 +620,7 @@ public class MenuFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
                 new MenuFrame(false).setVisible(true);
-                
-                
-
             }
         });
     }

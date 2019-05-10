@@ -8,6 +8,10 @@
  *
  * @author P0068839
  */
+
+import java.awt.Desktop;
+import java.io.*;
+
 public class MainJFrame extends javax.swing.JFrame {
     
     // ATTRIBUTES
@@ -178,10 +182,15 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void viewUserGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserGuideButtonActionPerformed
         // TODO add your handling code here:
-        
-        //SeparateJFrame theSeparateJFrame = new SeparateJFrame();
-        //theSeparateJFrame.setVisible(true);
-        //theSeparateJFrame.setMainHT(getTheHT());  // Have theSeparateJFrame mainHT point to the real HT.
+        File userGuide = new File("UserGuide.pdf");
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(userGuide);
+            }
+        }
+        catch (IOException e) {
+            
+        }      
     }//GEN-LAST:event_viewUserGuideButtonActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
