@@ -1,181 +1,33 @@
-20
+4
 f
-Default
-Name
-917190
-Other
-Null Location
-0.2
-55806.4
 f
-Default
-Name
-717861
-Other
-Null Location
-0.2
-55806.4
+q
+569874
+Female
+Toronto
+0.3
+256985.0
 f
-Default
-Name
-300171
-Other
-Null Location
-0.2
-55806.4
-p
-Default
-Name
-296472
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-831712
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-252732
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
 f
-Default
-Name
-412542
-Other
-Null Location
-0.2
-55806.4
-p
-Default
-Name
-352783
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-489913
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
+a
+256985
+Male
+Toronto
+0.1
+269.0
 f
-Default
-Name
-845823
-Other
-Null Location
-0.2
-55806.4
 f
-Default
-Name
-990843
-Other
-Null Location
-0.2
-55806.4
+a
+26598
+Male
+Toronto
+0.1
+555.0
 f
-Default
-Name
-731984
-Other
-Null Location
-0.2
-55806.4
-p
-Default
-Name
-152395
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-722465
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-441855
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-p
-Default
-Name
-205826
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
 f
-Default
-Name
-219086
-Other
-Null Location
-0.2
-55806.4
-f
-Default
-Name
-548707
-Other
-Null Location
-0.2
-55806.4
-p
-Default
-Name
-743429
-Other
-Null Location
-0.2
-14.0
-20.0
-52.0
-f
-Default
-Name
-618409
-Other
-Null Location
-0.2
-55806.4
+g
+236958
+Male
+Toronto
+0.5
+25698.0

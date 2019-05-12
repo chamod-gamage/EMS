@@ -17,8 +17,8 @@ public class EmployeeInfo {
     protected int gender;
     protected int workLocation;
     protected double deductionRate;
-    private static String[] genders = new String[3];
-    public static ArrayList<String> locations = new ArrayList<String>();
+    private static String[] genders = {"Other", "Female", "Male"};
+    public static ArrayList<String> locations = new ArrayList<String>() {{add("Toronto");}};
 
     protected EmployeeInfo () {
         employeeNumber = generateEmployeeNumber();
@@ -26,13 +26,7 @@ public class EmployeeInfo {
         lastName = "Name";
         gender = 0;
         workLocation = 0;
-        if (locations.isEmpty()) {
-            locations.add("Null Location");
-        }
         deductionRate = 0.2;
-        genders[0] = "Other"; 
-        genders[1] = "Female"; 
-        genders[2] = "Male";
     }
 
     protected EmployeeInfo (int employeeNum, String fName, String lName, int gen, int workLoc, double dedRate) {
@@ -45,14 +39,8 @@ public class EmployeeInfo {
         firstName = fName;
         lastName = lName;
         gender = gen;
-        if (locations.isEmpty()) {
-            locations.add("Null Location");
-        }
         workLocation = workLoc;
         deductionRate = dedRate;
-        genders[0] = "Other"; 
-        genders[1] = "Female"; 
-        genders[2] = "Male";
     }
 
     protected EmployeeInfo (String fName, String lName, int gen, int workLoc, double dedRate) {
@@ -60,14 +48,8 @@ public class EmployeeInfo {
         firstName = fName;
         lastName = lName;
         gender = gen;
-        if (locations.isEmpty()) {
-            locations.add("Null Location");
-        }
         workLocation = workLoc;
         deductionRate = dedRate;
-        genders[0] = "Other"; 
-        genders[1] = "Female"; 
-        genders[2] = "Male";
     }
     
     // Getters
@@ -85,7 +67,6 @@ public class EmployeeInfo {
         if (num < 0 || MainJFrame.getTheHT().isInTable(num)){
             return false;
         }
-        //employeeNumbers.remove(employeeNumber);
         employeeNumber = num;
         return true;
     }

@@ -103,42 +103,4 @@ public class FileStream {
             System.out.println("Error Writing to Memeory");
         }
     }
-    public static void restoreFromBackup () throws Exception {
-        try {
-            BufferedReader myFile = new BufferedReader(new FileReader(backup));
-            int length = Integer.parseInt(myFile.readLine());
-            for (int i = 0; i < length; i++) {
-                String dataType = myFile.readLine();
-                if (dataType.equals("f")) {
-                    // Full time employee
-                    FullTimeEmployee employeeToAdd = new FullTimeEmployee();
-                    employeeToAdd.setFirstName(myFile.readLine());
-                    employeeToAdd.setLastName(myFile.readLine());
-                    employeeToAdd.setEmployeeNumber(Integer.parseInt(myFile.readLine()));
-                    employeeToAdd.setGender(myFile.readLine());
-                    employeeToAdd.setWorkLocation(myFile.readLine());
-                    employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
-                    employeeToAdd.setYearlySalary(Double.parseDouble(myFile.readLine()));
-                    MainJFrame.getTheHT().addToTable(employeeToAdd);
-                }
-                if (dataType.equals("p")) {
-                    // Part time employee
-                    PartTimeEmployee employeeToAdd = new PartTimeEmployee();
-                    employeeToAdd.setFirstName(myFile.readLine());
-                    employeeToAdd.setLastName(myFile.readLine());
-                    employeeToAdd.setEmployeeNumber(Integer.parseInt(myFile.readLine()));
-                    employeeToAdd.setGender(myFile.readLine());
-                    employeeToAdd.setWorkLocation(myFile.readLine());
-                    employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
-                    employeeToAdd.setHourlyWage(Double.parseDouble(myFile.readLine()));
-                    employeeToAdd.setWeeksPerYear(Double.parseDouble(myFile.readLine()));
-                    MainJFrame.getTheHT().addToTable(employeeToAdd);
-                }
-            }
-            myFile.close();
-        }
-        catch (Exception e) {
-            throw e;
-        }
-    }
 }

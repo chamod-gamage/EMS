@@ -61,12 +61,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     
     private MyHashTable mainHT = MainJFrame.getTheHT();  // This contains the ref value for theHT of MainJFrame.
 
-    
-    public void setMainHT(MyHashTable refvalForHT) {
-        mainHT = refvalForHT;
-    }
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -414,7 +408,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         }
         if (jRadioButton1.isSelected() && done != true) {
             FullTimeEmployee empToAdd = new FullTimeEmployee();
-            System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                 empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
             } else {
@@ -445,7 +438,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             if (valid == true) {
                 mainHT.addToTable(empToAdd);
                 
@@ -460,7 +452,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         }
         if (jRadioButton2.isSelected() && done != true) {
             PartTimeEmployee empToAdd = new PartTimeEmployee();
-            System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                 empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
             } else {
@@ -504,7 +495,6 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             
             if (valid == true) {
                 mainHT.addToTable(empToAdd);

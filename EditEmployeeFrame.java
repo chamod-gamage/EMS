@@ -15,7 +15,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
      */
     private boolean valid = true;
     private boolean done = false;
-    private static MyHashTable mainHT = new MyHashTable(10); // REMOVE LATER, PLACEHOLDER HASH TABLE
+    private static MyHashTable mainHT = MainJFrame.getTheHT(); // REMOVE LATER, PLACEHOLDER HASH TABLE
     private EmployeeInfo employeeToEdit;
     public EditEmployeeFrame(EmployeeInfo employee) {
         initComponents();
@@ -24,7 +24,6 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             jComboBox2.addItem(EmployeeInfo.locations.get(x));
         }
         employeeToEdit = employee;
-        mainHT.addToTable(employeeToEdit); // SET BEGINNING STATE
         if (employee instanceof PartTimeEmployee){
             partTimeButton.setSelected(true);
             partTimeButtonActionPerformed(null);
@@ -386,11 +385,14 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             MainJFrame.setMenuVisibility(true);
             this.dispose();
         }
+        int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
         if (fullTimeButton.isSelected() && done != true) {
-            FullTimeEmployee empToAdd = new FullTimeEmployee();
-            System.out.println(empToAdd.getEmployeeNumber());
+            FullTimeEmployee empToAdd = (FullTimeEmployee)employeeToEdit;
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
-                empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                 boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                 if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
+                     valid = false;
+                 }
             } else {
                 valid = false;
             }
@@ -419,9 +421,8 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             if (valid == true) {
-                mainHT.removeFromTable(employeeToEdit.getEmployeeNumber());
+                mainHT.removeFromTable(oldEmployeeNum);
                 mainHT.addToTable(empToAdd);
 
                 invalidLabel.setVisible(false);
@@ -434,10 +435,13 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         }
         if (partTimeButton.isSelected() && done != true) {
-            PartTimeEmployee empToAdd = new PartTimeEmployee();
+            PartTimeEmployee empToAdd = (PartTimeEmployee)employeeToEdit;
             System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
-                empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
+                    valid = false;
+                }
             } else {
                 valid = false;
             }
@@ -479,11 +483,8 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
-
-            mainHT.removeFromTable(empToAdd.getEmployeeNumber());
             if (valid == true) {
-                mainHT.removeFromTable(employeeToEdit.getEmployeeNumber());
+                mainHT.removeFromTable(oldEmployeeNum);
                 mainHT.addToTable(empToAdd);
 
                 invalidLabel.setVisible(false);
@@ -531,29 +532,6 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditStudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditStudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditStudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditStudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         FullTimeEmployee myEmployee = new FullTimeEmployee();
         EditEmployeeFrame theFrame = new EditEmployeeFrame(myEmployee);
