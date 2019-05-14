@@ -117,13 +117,14 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        mainTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(mainTable);
         if (mainTable.getColumnModel().getColumnCount() > 0) {
             mainTable.getColumnModel().getColumn(0).setResizable(false);
