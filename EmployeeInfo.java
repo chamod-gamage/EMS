@@ -17,7 +17,7 @@ public class EmployeeInfo {
     protected int gender;
     protected int workLocation;
     protected double deductionRate;
-    private static String[] genders = {"Other", "Female", "Male"};
+    public static String[] genders = {"Other", "Female", "Male"};
     public static ArrayList<String> locations = new ArrayList<String>() {{add("Toronto");}};
 
     protected EmployeeInfo () {
