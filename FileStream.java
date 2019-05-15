@@ -19,6 +19,17 @@ public class FileStream {
     public static void readFromFile() {
         try {
             BufferedReader myFile = new BufferedReader(new FileReader(filename));
+            if (myFile.readLine().equals("loc")) {
+                    System.out.println("Reading loc");
+                    int numLoc = Integer.parseInt(myFile.readLine());
+                    for (int x =0; x < numLoc; x++) {
+                        String loc = myFile.readLine();
+                        if (!EmployeeInfo.locations.contains(loc)) {
+                            EmployeeInfo.locations.add(loc);
+                            System.out.println(loc);
+                        }
+                    }
+                }
             int length = Integer.parseInt(myFile.readLine());
             for (int i = 0; i < length; i++) {
                 String dataType = myFile.readLine();
@@ -48,6 +59,8 @@ public class FileStream {
                     employeeToAdd.setWeeksPerYear(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
                 }
+                
+                
             }
             myFile.close();
         }
@@ -65,6 +78,11 @@ public class FileStream {
         try {
             BufferedWriter myFile = new BufferedWriter(new FileWriter(filename));
             EmployeeInfo currentEmployee;
+            myFile.write("loc"); myFile.newLine();
+            myFile.write(Integer.toString(EmployeeInfo.locations.size())); myFile.newLine();
+            for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+                myFile.write(EmployeeInfo.locations.get(x)); myFile.newLine();
+            }
             myFile.write(Integer.toString(MainJFrame.getTheHT().getNumInTable())); myFile.newLine();
             while (true) {
                 currentEmployee = MainJFrame.getTheHT().iterate();
@@ -96,6 +114,8 @@ public class FileStream {
                     myFile.write(Double.toString(currentFTEmployee.getYearlySalary())); myFile.newLine();
                 }
             }
+            
+            
             // Iterate through hashtable using employee numbers and write them all to the file
             myFile.close();
         }
