@@ -21,8 +21,27 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         initComponents();
         jComboBox2.removeAllItems();
         for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
-            jComboBox2.addItem(EmployeeInfo.locations.get(x));
+            if (EmployeeInfo.locations.get(x) == employee.getWorkLocation()) {
+                jComboBox2.addItem(EmployeeInfo.locations.get(x));
+            }
         }
+        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+            if (EmployeeInfo.locations.get(x) != employee.getWorkLocation()) {
+                jComboBox2.addItem(EmployeeInfo.locations.get(x));
+            }
+        }
+        jComboBox1.removeAllItems();
+        for (int x = 0; x < 3; x++) {
+            if (EmployeeInfo.genders[x] == employee.getGender()) {
+                jComboBox1.addItem(EmployeeInfo.genders[x]);
+            }
+        }
+        for (int x = 0; x < 3; x++) {
+            if (EmployeeInfo.genders[x] != employee.getGender()) {
+                jComboBox1.addItem(EmployeeInfo.genders[x]);
+            }
+        }
+        
         employeeToEdit = employee;
         if (employee instanceof PartTimeEmployee){
             partTimeButton.setSelected(true);
@@ -43,6 +62,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         String empNum = Integer.toString(employeeToEdit.getEmployeeNumber());
         employeeNumberInput.setText(empNum);
         jComboBox1.setSelectedItem(employeeToEdit.getWorkLocation());
+        System.out.println(jComboBox1.getSelectedItem());
         jComboBox2.setSelectedItem(employeeToEdit.getGender());
         String deduction = Double.toString(employeeToEdit.getDeductionRate());
         deductionRateInput.setText(deduction);
@@ -97,6 +117,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         lastNameInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lastNameLabel.setText("Last Name:");
 
@@ -387,7 +408,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         }
         int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
         if (fullTimeButton.isSelected() && done != true) {
-            FullTimeEmployee empToAdd = (FullTimeEmployee)employeeToEdit;
+            FullTimeEmployee empToAdd = new FullTimeEmployee();
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                  boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
                  if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
@@ -435,7 +456,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         }
         if (partTimeButton.isSelected() && done != true) {
-            PartTimeEmployee empToAdd = (PartTimeEmployee)employeeToEdit;
+            PartTimeEmployee empToAdd = new PartTimeEmployee();
             System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                 boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));

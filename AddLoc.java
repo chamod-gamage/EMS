@@ -57,6 +57,7 @@ public class AddLoc extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel9.setText("Add Location:");
 
