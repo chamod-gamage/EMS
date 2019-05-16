@@ -518,7 +518,7 @@ public class MenuFrame extends javax.swing.JFrame {
         // Creates new add employee frame
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
         theAddFrame.setVisible(true);
-        //this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed
