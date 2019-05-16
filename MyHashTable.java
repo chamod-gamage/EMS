@@ -142,7 +142,7 @@ public class MyHashTable {
         int index = 0;
         for (int i = 0; i < buckets.length; i ++) {
             for (int j = 0; j < buckets[i].size(); j++) {
-                names[index][0] = buckets[i].get(j).getFirstName();
+                names[index][0] = buckets[i].get(j).getFirstName().toLowerCase();
                 names[index][1] = Integer.toString(buckets[i].get(j).getEmployeeNumber());
                 index++;
             }
@@ -162,7 +162,7 @@ public class MyHashTable {
         int index = 0;
         for (int i = 0; i < buckets.length; i ++) {
             for (int j = 0; j < buckets[i].size(); j++) {
-                names[index][0] = buckets[i].get(j).getLastName();
+                names[index][0] = buckets[i].get(j).getLastName().toLowerCase();
                 names[index][1] = Integer.toString(buckets[i].get(j).getEmployeeNumber());
                 index++;
             }
@@ -213,6 +213,45 @@ public class MyHashTable {
             rates = StringConverter.reverseTwoDimentionalArray(rates);
         }
         return rates;
+    }
+    
+    public int[] sortedGenders(boolean ascending) {
+        int[] toReturn = new int[numInTable];
+        int frontIndex = 0;
+        int backIndex = numInTable - 1;
+        ArrayList<Integer> middle = new ArrayList();
+        for (int i = 0; i < buckets.length; i++) {
+            for (int x = 0; x < buckets[i].size(); x++) {
+                if ("Female".equals(buckets[i].get(x).getGender())) {
+                    if (ascending) {
+                        toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber();
+                        frontIndex++;
+                    }
+                    else {
+                        toReturn[backIndex] = buckets[i].get(x).getEmployeeNumber();
+                        backIndex--;
+                    }
+                }
+                else if ("Other".equals(buckets[i].get(x).getGender())) {
+                    if (!ascending) {
+                        toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber();
+                        frontIndex++;
+                    }
+                    else {
+                        toReturn[backIndex] = buckets[i].get(x).getEmployeeNumber();
+                        backIndex--;
+                    }
+                }
+                else {
+                    middle.add(buckets[i].get(x).getEmployeeNumber());
+                }
+            }
+        }
+        for (int i = 0; i < middle.size(); i++) {
+            toReturn[frontIndex] = middle.get(i);
+            frontIndex++;
+        }
+        return toReturn;
     }
 }
 

@@ -35,6 +35,9 @@ public class MenuFrame extends javax.swing.JFrame {
                 case 3:
                     fillByLastName();
                     break;
+                case 4:
+                    fillByGender();
+                    break;
                 case 5:
                     fillByLocation();
                     break;
@@ -428,6 +431,24 @@ public class MenuFrame extends javax.swing.JFrame {
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
             employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
+            fillRow(employee, i);
+        }
+        if (sortedUp) {
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
+        }
+    }
+    
+    private void fillByGender() {
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
+        int [] sortedList = MainJFrame.getTheHT().sortedGenders(!sortedUp);
+        EmployeeInfo employee;
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable(sortedList[i]);
             fillRow(employee, i);
         }
         if (sortedUp) {
