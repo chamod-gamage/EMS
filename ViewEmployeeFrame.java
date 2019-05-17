@@ -8,7 +8,6 @@
  *
  * @author 618062
  */
-
 public class ViewEmployeeFrame extends javax.swing.JFrame {
 
     /**
@@ -85,7 +84,8 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mainTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("View Employee");
@@ -162,6 +162,7 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void initModel() {

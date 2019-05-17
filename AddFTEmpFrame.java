@@ -98,7 +98,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
         jLabel8.setText("Yearly Salary:");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         setResizable(false);
 
@@ -317,6 +317,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
