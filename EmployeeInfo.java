@@ -19,6 +19,7 @@ public class EmployeeInfo {
     protected double deductionRate;
     public static String[] genders = {"Other", "Female", "Male"};
     public static ArrayList<String> locations = new ArrayList<String>() {{add("Toronto");}};
+    public static ArrayList<String> locationsInUse = new ArrayList<String>() ;
 
     protected EmployeeInfo () {
         employeeNumber = generateEmployeeNumber();

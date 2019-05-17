@@ -40,7 +40,11 @@ public class FileStream {
                     employeeToAdd.setLastName(myFile.readLine());
                     employeeToAdd.setEmployeeNumber(Integer.parseInt(myFile.readLine()));
                     employeeToAdd.setGender(myFile.readLine());
-                    employeeToAdd.setWorkLocation(myFile.readLine());
+                    String locToAdd = myFile.readLine();
+                    employeeToAdd.setWorkLocation(locToAdd);
+                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) {
+                        EmployeeInfo.locationsInUse.add(locToAdd);
+                    }
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setYearlySalary(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
@@ -52,7 +56,11 @@ public class FileStream {
                     employeeToAdd.setLastName(myFile.readLine());
                     employeeToAdd.setEmployeeNumber(Integer.parseInt(myFile.readLine()));
                     employeeToAdd.setGender(myFile.readLine());
-                    employeeToAdd.setWorkLocation(myFile.readLine());
+                    String locToAdd = myFile.readLine();
+                    employeeToAdd.setWorkLocation(locToAdd);
+                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) {
+                        EmployeeInfo.locationsInUse.add(locToAdd);
+                    }
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setHourlyWage(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setHoursPerWeek(Double.parseDouble(myFile.readLine()));
