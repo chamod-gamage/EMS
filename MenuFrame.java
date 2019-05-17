@@ -180,6 +180,14 @@ public class MenuFrame extends javax.swing.JFrame {
         }
 
         searchBar.setText("Search...");
+        searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchBarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchBarFocusLost(evt);
+            }
+        });
         searchBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBarActionPerformed(evt);
@@ -226,32 +234,33 @@ public class MenuFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(warningLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(addEmployeeButton)
-                .addGap(18, 18, 18)
-                .addComponent(removeEmployeeButton)
-                .addGap(18, 18, 18)
-                .addComponent(editEmployeeButton)
-                .addGap(18, 18, 18)
-                .addComponent(viewEmployeeButton)
-                .addGap(18, 18, 18)
-                .addComponent(addLocationButton)
-                .addGap(18, 18, 18)
-                .addComponent(userGuideButton)
-                .addGap(18, 18, 18)
-                .addComponent(saveButton)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(warningLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(addEmployeeButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(removeEmployeeButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(editEmployeeButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(viewEmployeeButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(addLocationButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(userGuideButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(saveButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     public void resizeTable() {
@@ -611,6 +620,16 @@ public class MenuFrame extends javax.swing.JFrame {
         warningLabel.setVisible(false);
         FileStream.writeToFile();
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void searchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchBarFocusGained
+        // TODO add your handling code here:
+        searchBar.setText("");
+    }//GEN-LAST:event_searchBarFocusGained
+
+    private void searchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchBarFocusLost
+        // TODO add your handling code here:
+        searchBar.setText("Search...");
+    }//GEN-LAST:event_searchBarFocusLost
 
     /**
      * @param args the command line arguments
