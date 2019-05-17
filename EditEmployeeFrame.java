@@ -116,7 +116,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         firstNameLabel = new javax.swing.JLabel();
         lastNameInput = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         lastNameLabel.setText("Last Name:");
