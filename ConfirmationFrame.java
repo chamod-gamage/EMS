@@ -15,11 +15,21 @@ public class ConfirmationFrame extends javax.swing.JFrame {
      */
     
     MenuFrame mainTable;
+    AddLoc locationEditor;
+    String location;
     
     public ConfirmationFrame(MenuFrame main) {
         mainTable = main;
         main.setEnabled(false);
         initComponents();
+    }
+    
+    public ConfirmationFrame(AddLoc loc, String toEdit) {
+        location = toEdit;
+        locationEditor = loc;
+        locationEditor.setEnabled(false);
+        initComponents();
+        jLabel1.setText("Do you want to delete the selected location?");
     }
 
     /**
@@ -89,16 +99,28 @@ public class ConfirmationFrame extends javax.swing.JFrame {
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
-        MainJFrame.setMenuLabel(false);
-        mainTable.setEnabled(true);
+        if (mainTable != null) {
+            MainJFrame.setMenuLabel(false);
+            mainTable.setEnabled(true);
+        }
+        if (locationEditor != null) {
+            locationEditor.labelOff();
+            locationEditor.setEnabled(true);
+        }
         this.dispose();
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
         // TODO add your handling code here:
-        MainJFrame.setMenuLabel(false);
-        mainTable.removeEmployees();
-        mainTable.setEnabled(true);
+        if (mainTable != null) {
+            MainJFrame.setMenuLabel(false);
+            mainTable.removeEmployees();
+            mainTable.setEnabled(true);
+        }
+        if (locationEditor != null) {
+            locationEditor.removeLocation(location);
+            locationEditor.setEnabled(true);
+        }
         this.dispose();
     }//GEN-LAST:event_yesButtonActionPerformed
 

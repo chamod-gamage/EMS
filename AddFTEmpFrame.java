@@ -428,7 +428,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         valid = true;
         if (done == true) {
-            MainJFrame.setMenuVisibility(true);
+            MainJFrame.setMenuEnabled(true);
             MainJFrame.setMenuLabel(false);
             this.dispose();
         }
@@ -597,7 +597,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        MainJFrame.setMenuVisibility(true);
+        MainJFrame.setMenuEnabled(true);
         MainJFrame.setMenuLabel(false);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed

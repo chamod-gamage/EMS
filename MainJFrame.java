@@ -227,6 +227,13 @@ public class MainJFrame extends javax.swing.JFrame {
         }
     }
     
+    public static void setMenuEnabled(boolean isActive) {
+        theMenu.setEnabled(isActive);
+        if (theMenu.isEnabled()) {
+            theMenu.fillTable();
+        }
+    }
+    
     public static void setMenuLabel(boolean isVisible) {
         theMenu.setLabelVisibility(isVisible);
     }

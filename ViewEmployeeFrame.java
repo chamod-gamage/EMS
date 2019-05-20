@@ -202,7 +202,6 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
     
     private void setRows(int num) {
         mainModel.setNumRows(num);
-        // TOOOOOOOOOOOO DOOOOOOOOOOOOOOO ADD RESIZE
         mainTable.setModel(mainModel);
     }
     
@@ -210,7 +209,7 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
         MainJFrame.setMenuLabel(false);
-        MainJFrame.setMenuVisibility(true);
+        MainJFrame.setMenuEnabled(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**

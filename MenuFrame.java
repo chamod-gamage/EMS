@@ -512,7 +512,7 @@ public class MenuFrame extends javax.swing.JFrame {
             EmployeeInfo employeeToEdit = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
             EditEmployeeFrame editFrame = new EditEmployeeFrame(employeeToEdit);
             editFrame.setVisible(true);
-            this.dispose();
+            this.setEnabled(false);
             fillRow(employeeToEdit, mainTable.getSelectedRow());
         }
     }//GEN-LAST:event_editEmployeeButtonActionPerformed
@@ -523,7 +523,7 @@ public class MenuFrame extends javax.swing.JFrame {
             EmployeeInfo employeeToView = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
             ViewEmployeeFrame viewFrame = new ViewEmployeeFrame(employeeToView);
             viewFrame.setVisible(true);
-            this.setVisible(false);
+            this.setEnabled(false);
         }
     }//GEN-LAST:event_viewEmployeeButtonActionPerformed
 
@@ -531,7 +531,7 @@ public class MenuFrame extends javax.swing.JFrame {
         // Creates new add location frame
         AddLoc theLocFrame = new AddLoc();
         theLocFrame.setVisible(true);
-        this.setVisible(false);
+        this.setEnabled(false);
     }//GEN-LAST:event_addLocationButtonActionPerformed
 
     private void removeEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeeButtonActionPerformed
@@ -555,7 +555,7 @@ public class MenuFrame extends javax.swing.JFrame {
         // Creates new add employee frame
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
         theAddFrame.setVisible(true);
-        this.setVisible(false);
+        this.setEnabled(false);
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed

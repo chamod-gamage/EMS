@@ -189,6 +189,7 @@ public class AddLoc extends javax.swing.JFrame {
             } else {
                 EmployeeInfo.addWorkLocation(jTextField12.getText());
                 mainLabel.setText("Location Added!");
+                resetBox();
                 
             }
         }
@@ -199,24 +200,40 @@ public class AddLoc extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        mainLabel.setVisible(true);
         String locationToRemove = jComboBox1.getSelectedItem().toString();
         if (EmployeeInfo.locations.contains(locationToRemove) && !EmployeeInfo.locationsInUse.contains(locationToRemove)) {
-            EmployeeInfo.locations.remove(locationToRemove);
-            mainLabel.setText("Location Removed!");
+            ConfirmationFrame check = new ConfirmationFrame(this, locationToRemove);
+            check.setVisible(true);
         } else {
+            mainLabel.setVisible(true);
             mainLabel.setText("Location In Use");
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void resetBox() {
+        jComboBox1.removeAllItems();
+        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+            jComboBox1.addItem(EmployeeInfo.locations.get(x));
+        }
+    }
+    
+    public void removeLocation(String locationToRemove) {
+        EmployeeInfo.locations.remove(locationToRemove);
+        mainLabel.setText("Location Removed!");
+        mainLabel.setVisible(true);
+        resetBox();
+    }
+    
+    public void labelOff() {mainLabel.setVisible(false);}
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        MainJFrame.setMenuVisibility(true);
+        MainJFrame.setMenuEnabled(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 

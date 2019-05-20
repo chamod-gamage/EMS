@@ -361,6 +361,13 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
         hourlyWageLabel.setVisible(true);
         hourlyWageLabel.setText("Yearly Salary: ");
+        if (employeeToEdit instanceof PartTimeEmployee) {
+            hourlyWageInput.setText("");
+        }
+        else {
+            FullTimeEmployee temp = (FullTimeEmployee)employeeToEdit;
+            hourlyWageInput.setText(Double.toString(temp.getYearlySalary()));
+        }
 
         employeeNumberLabel.setVisible(true);
 
@@ -398,6 +405,13 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
         hourlyWageLabel.setVisible(true);
         hourlyWageLabel.setText("Hourly Wage: ");
+        if (employeeToEdit instanceof FullTimeEmployee) {
+            hourlyWageInput.setText("");
+        }
+        else {
+            PartTimeEmployee temp = (PartTimeEmployee)employeeToEdit;
+            hourlyWageInput.setText(Double.toString(temp.getHourlyWage()));
+        }
 
         employeeNumberLabel.setVisible(true);
 
@@ -417,7 +431,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         valid = true;
         if (done == true) {
-            MainJFrame.setMenuVisibility(true);
+            MainJFrame.setMenuEnabled(true);
             MainJFrame.setMenuLabel(false);
             this.dispose();
         }
@@ -528,7 +542,6 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 jButton1.setText("Done");
                 done = true;
             } else {
-
                 invalidLabel.setVisible(true);
             }
 
@@ -567,7 +580,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
-        MainJFrame.setMenuVisibility(true);
+        MainJFrame.setMenuEnabled(true);
         MainJFrame.setMenuLabel(false);
         this.dispose();
         
