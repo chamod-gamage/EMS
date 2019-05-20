@@ -418,6 +418,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         valid = true;
         if (done == true) {
             MainJFrame.setMenuVisibility(true);
+            MainJFrame.setMenuLabel(false);
             this.dispose();
         }
         int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
@@ -567,6 +568,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         MainJFrame.setMenuVisibility(true);
+        MainJFrame.setMenuLabel(false);
         this.dispose();
         
     }//GEN-LAST:event_jButton3ActionPerformed

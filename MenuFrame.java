@@ -290,6 +290,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     public void addRow(EmployeeInfo employee) {
+        mainTable.removeRowSelectionInterval(0, mainModel.getRowCount() - 1);
         mainModel.setNumRows(mainModel.getRowCount() + 1); // Add a row to the table
         mainTable.setModel(mainModel);
         mainTable.getTableHeader().setReorderingAllowed(false);
@@ -381,6 +382,7 @@ public class MenuFrame extends javax.swing.JFrame {
     
     public void fillTable() {
         resizeTable(); // Iterates through the rows, calling fill row with the next employee
+        mainTable.removeRowSelectionInterval(0, mainModel.getRowCount() - 1);
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -534,6 +536,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
     private void removeEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeeButtonActionPerformed
         // Removes selected employees from the hashtable, then updates mainTable
+        ConfirmationFrame check = new ConfirmationFrame(this);
+        check.setVisible(true);
+    }//GEN-LAST:event_removeEmployeeButtonActionPerformed
+
+    public void removeEmployees() {
         int[] employees = mainTable.getSelectedRows();
         for (int i = 0; i < employees.length; i++) {
             Object employeeNumber = mainTable.getValueAt(employees[i], 0);
@@ -542,8 +549,8 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         }
         fillTable();
-    }//GEN-LAST:event_removeEmployeeButtonActionPerformed
-
+    }
+    
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
         // Creates new add employee frame
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
@@ -619,6 +626,8 @@ public class MenuFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         warningLabel.setVisible(false);
         FileStream.writeToFile();
+        warningLabel.setText("Information Saved!");
+        warningLabel.setVisible(true);
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void searchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchBarFocusGained
@@ -631,6 +640,10 @@ public class MenuFrame extends javax.swing.JFrame {
         searchBar.setText("Search...");
     }//GEN-LAST:event_searchBarFocusLost
 
+    public void setLabelVisibility(boolean visible) {
+        warningLabel.setVisible(visible);
+    }
+    
     /**
      * @param args the command line arguments
      */

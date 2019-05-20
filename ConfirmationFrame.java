@@ -13,7 +13,12 @@ public class ConfirmationFrame extends javax.swing.JFrame {
     /**
      * Creates new form ConfirmationFrame
      */
-    public ConfirmationFrame() {
+    
+    MenuFrame mainTable;
+    
+    public ConfirmationFrame(MenuFrame main) {
+        mainTable = main;
+        main.setEnabled(false);
         initComponents();
     }
 
@@ -27,8 +32,8 @@ public class ConfirmationFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        yesButton = new javax.swing.JButton();
+        noButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -37,12 +42,17 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         jLabel1.setText("Do you want to delete the selected employees?");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setText("Yes");
-
-        jButton2.setText("No");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        yesButton.setText("Yes");
+        yesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                yesButtonActionPerformed(evt);
+            }
+        });
+
+        noButton.setText("No");
+        noButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noButtonActionPerformed(evt);
             }
         });
 
@@ -56,9 +66,9 @@ public class ConfirmationFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(noButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(yesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
@@ -68,20 +78,29 @@ public class ConfirmationFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(yesButton)
+                    .addComponent(noButton))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
-
-        jLabel1.getAccessibleContext().setAccessibleName("Do you want to delete the selected employees?");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        MainJFrame.setMenuLabel(false);
+        mainTable.setEnabled(true);
+        this.dispose();
+    }//GEN-LAST:event_noButtonActionPerformed
+
+    private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
+        // TODO add your handling code here:
+        MainJFrame.setMenuLabel(false);
+        mainTable.removeEmployees();
+        mainTable.setEnabled(true);
+        this.dispose();
+    }//GEN-LAST:event_yesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,14 +132,14 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConfirmationFrame().setVisible(true);
+                new ConfirmationFrame(new MenuFrame(false)).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton noButton;
+    private javax.swing.JButton yesButton;
     // End of variables declaration//GEN-END:variables
 }

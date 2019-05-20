@@ -116,19 +116,19 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(headerLabel)
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(invalidLabel)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(enterButton)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(viewUserGuideButton)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,6 +198,26 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
+        invalidLabel.setVisible(false);
+        char[] input = jPasswordField1.getPassword(); 
+        
+        if (isPasswordCorrect(input) == true) {
+            boolean alert = false;
+            try {
+                FileStream.readFromFile();
+            }
+            catch(Exception e) {
+                // Create pop-up
+                alert = true;
+            }
+            theMenu = new MenuFrame(alert);
+            theMenu.setVisible(true);
+            this.dispose();
+        
+        } 
+        else {
+            invalidLabel.setVisible(true);
+        }
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     public static void setMenuVisibility(boolean isVisible) {
@@ -205,6 +225,10 @@ public class MainJFrame extends javax.swing.JFrame {
         if (theMenu.isVisible()) {
             theMenu.fillTable();
         }
+    }
+    
+    public static void setMenuLabel(boolean isVisible) {
+        theMenu.setLabelVisibility(isVisible);
     }
     
     /**
