@@ -17,6 +17,13 @@ public class ConfirmationFrame extends javax.swing.JFrame {
     MenuFrame mainTable;
     AddLoc locationEditor;
     String location;
+    EditEmployeeFrame empEditor;
+    boolean invalid;
+    MyHashTable hT;
+    int eNum;
+    EmployeeInfo eTA;
+    
+    
     
     public ConfirmationFrame(MenuFrame main) {
         mainTable = main;
@@ -30,6 +37,17 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         locationEditor.setEnabled(false);
         initComponents();
         jLabel1.setText("Do you want to delete the selected location?");
+    }
+    
+    public ConfirmationFrame(EditEmployeeFrame empEdit,MyHashTable haT, int eN, EmployeeInfo empToAdd) {
+        empEditor = empEdit;
+        empEditor.setEnabled(false);
+        hT =haT;
+        eNum = eN;
+        eTA = empToAdd;
+        initComponents();
+        jLabel1.setText("Do you want to continue with these changes?");
+        invalid = true;
     }
 
     /**
@@ -107,6 +125,12 @@ public class ConfirmationFrame extends javax.swing.JFrame {
             locationEditor.labelOff();
             locationEditor.setEnabled(true);
         }
+        if (empEditor != null) {
+            empEditor.valid = true;
+            empEditor.setEnabled(true);
+            invalid = true;
+            
+        }
         this.dispose();
     }//GEN-LAST:event_noButtonActionPerformed
 
@@ -120,6 +144,17 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         if (locationEditor != null) {
             locationEditor.removeLocation(location);
             locationEditor.setEnabled(true);
+        }
+        if (empEditor != null) {
+            hT.removeFromTable(eNum);
+            hT.addToTable(eTA);
+
+            
+                
+            
+            empEditor.done = true;
+            empEditor.setEnabled(true);
+            
         }
         this.dispose();
     }//GEN-LAST:event_yesButtonActionPerformed

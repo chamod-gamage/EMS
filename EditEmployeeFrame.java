@@ -13,8 +13,9 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     /**
      * Creates new form EditEmployeeFrame
      */
-    private boolean valid = true;
-    private boolean done = false;
+    public boolean valid = true;
+    public boolean done = false;
+    
     private static MyHashTable mainHT = MainJFrame.getTheHT(); // REMOVE LATER, PLACEHOLDER HASH TABLE
     private EmployeeInfo employeeToEdit;
     public EditEmployeeFrame(EmployeeInfo employee) {
@@ -472,17 +473,14 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 valid = false;
             }
             if (valid == true) {
-                mainHT.removeFromTable(oldEmployeeNum);
-                mainHT.addToTable(empToAdd);
-
                 invalidLabel.setVisible(false);
-                jLabel21.setText("EMPLOYEE ADDED!");
-                jButton1.setText("Done");
-                done = true;
+                ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
+                theConFrame.setVisible(true);
             } else {
 
                 invalidLabel.setVisible(true);
             }
+            
         }
         if (partTimeButton.isSelected() && done != true) {
             PartTimeEmployee empToAdd = new PartTimeEmployee();
@@ -533,15 +531,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            if (valid == true) {
-                mainHT.removeFromTable(oldEmployeeNum);
-                mainHT.addToTable(empToAdd);
-
+             if (valid == true) {
                 invalidLabel.setVisible(false);
-                jLabel21.setText("EMPLOYEE ADDED!");
-                jButton1.setText("Done");
-                done = true;
+                ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
+                theConFrame.setVisible(true);
             } else {
+
                 invalidLabel.setVisible(true);
             }
 
