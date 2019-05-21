@@ -25,7 +25,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
-        invalidLabel.setVisible(false);
+        invalidLabel.setText("  ");
         theHT = new MyHashTable(10);
     }
     
@@ -161,7 +161,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
-        invalidLabel.setVisible(false);
+        invalidLabel.setVisible(true);
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
@@ -177,9 +177,8 @@ public class MainJFrame extends javax.swing.JFrame {
             theMenu.setVisible(true);
             this.dispose();
         
-        } 
-        else {
-            invalidLabel.setVisible(true);
+        } else {
+            invalidLabel.setText("PASSWORD IS INVALID");
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 
@@ -198,7 +197,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
-        invalidLabel.setVisible(false);
+        invalidLabel.setVisible(true);
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
@@ -214,9 +213,8 @@ public class MainJFrame extends javax.swing.JFrame {
             theMenu.setVisible(true);
             this.dispose();
         
-        } 
-        else {
-            invalidLabel.setVisible(true);
+        } else {
+            invalidLabel.setText("PASSWORD IS INVALID");
         }
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
