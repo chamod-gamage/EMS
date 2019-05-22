@@ -20,13 +20,11 @@ public class FileStream {
         try {
             BufferedReader myFile = new BufferedReader(new FileReader(filename));
             if (myFile.readLine().equals("loc")) {
-                    System.out.println("Reading loc");
                     int numLoc = Integer.parseInt(myFile.readLine());
                     for (int x =0; x < numLoc; x++) {
                         String loc = myFile.readLine();
                         if (!EmployeeInfo.locations.contains(loc)) {
                             EmployeeInfo.locations.add(loc);
-                            System.out.println(loc);
                         }
                     }
                 }

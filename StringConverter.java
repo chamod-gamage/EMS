@@ -58,7 +58,7 @@ public final class StringConverter {
     }
     
     public static int stringToInteger(String employeeNumber) {
-        if (employeeNumber.length() == 0 || employeeNumber.length() > 6){
+        if (employeeNumber.length() == 0){
             return -1;
         }
         for (int x = 0; x < employeeNumber.length(); x++) {
@@ -76,7 +76,6 @@ public final class StringConverter {
             return -1;
         }
         int perCounter = 0;
-        
         for (int x = 0; x < doub.length(); x++) {
             int ascii = doub.charAt(x);
             if ((ascii < 48 || ascii > 57) && ascii != 46) {
@@ -95,65 +94,16 @@ public final class StringConverter {
     }
     
     public static double stringToDollars (String doub) {
-        if (doub.length() == 0){
-            return -1;
-        }
-        int perCounter = 0;
-        boolean hasSign = false;
-        for (int x = 0; x < doub.length(); x++) {
-            int ascii = doub.charAt(x);
-            if ((ascii < 48 || ascii > 57) && ascii != 46) {
-                if (ascii == 36 && x == 0){
-                    hasSign = true;
-                    continue;
-                }
-                return -1;
-            }
-            if (ascii == 46){
-                perCounter++;
-            }
-        }
-        if (perCounter > 1){
-            return -1;
-        }
-        if (hasSign){
-            String doubTwo = doub.substring(1);
-            double num = Double.parseDouble(doubTwo);
-            return num;
-        }
-        double num = Double.parseDouble(doub);
-        return num;
+        double toReturn = stringToDouble(doub);
+        return toReturn;
     }
     
     public static double stringToPercent (String doub) {
-        if (doub.length() == 0){
-            return -1;
+        double toReturn = stringToDouble(doub);
+        if (0 <= toReturn && 1 > toReturn) {
+            return toReturn;
         }
-        int perCounter = 0;
-        boolean hasSign = false;
-        for (int x = 0; x < doub.length(); x++) {
-            int ascii = doub.charAt(x);
-            if ((ascii < 48 || ascii > 57) && ascii != 46) {
-                if (ascii == 37 && x == doub.length() - 1){
-                    hasSign = true;
-                    continue;
-                }
-                return -1;
-            }
-            if (ascii == 46){
-                perCounter++;
-            }
-        }
-        if (perCounter > 1){
-            return -1;
-        }
-        if (hasSign){
-            String doubTwo = doub.substring(0, doub.length() - 1);
-            double num = Double.parseDouble(doubTwo);
-            return num/100;
-        }
-        double num = Double.parseDouble(doub);
-        return num;
+        return -1;
     } 
     
     public static String[][] sortTwoDimentionalArray(String[][] array) {

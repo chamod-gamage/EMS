@@ -154,8 +154,8 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(titleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -186,7 +186,7 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -202,14 +202,14 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
     
     private void setRows(int num) {
         mainModel.setNumRows(num);
-        // TOOOOOOOOOOOO DOOOOOOOOOOOOOOO ADD RESIZE
         mainTable.setModel(mainModel);
     }
     
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
+        MainJFrame.setMenuLabel(false);
+        MainJFrame.setMenuEnabled(true);
         this.dispose();
-        MainJFrame.setMenuVisibility(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**

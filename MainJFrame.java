@@ -54,7 +54,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(325, 225));
-        setPreferredSize(new java.awt.Dimension(325, 225));
+        setPreferredSize(new java.awt.Dimension(410, 210));
+        setResizable(false);
 
         enterButton.setText("Enter");
         enterButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +79,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        headerLabel.setText("Employee Management System");
+        headerLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        headerLabel.setText("Welcome to the Employee Management System!");
 
         passwordLabel.setText("Password");
 
@@ -89,44 +91,44 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(invalidLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(passwordLabel)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(headerLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(93, 93, 93)
-                                .addComponent(invalidLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(passwordLabel)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(enterButton)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 60, Short.MAX_VALUE))
+                            .addComponent(enterButton)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(viewUserGuideButton)))
-                .addContainerGap())
+                        .addComponent(viewUserGuideButton)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(headerLabel)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(headerLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(invalidLabel)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(enterButton)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(viewUserGuideButton)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,7 +138,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     private static boolean isPasswordCorrect(char[] input) {
         
-        char[] correct = { 'I', 'n', 'v', 'a', 'l', 'i', 'd' };
+        char[] correct = { 'I', 'N', 'V', 'A', 'L', 'I', 'D' };
         boolean isCorrect = true;
         if (input.length != correct.length) {
             isCorrect = false;
@@ -196,6 +198,26 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
+        invalidLabel.setVisible(false);
+        char[] input = jPasswordField1.getPassword(); 
+        
+        if (isPasswordCorrect(input) == true) {
+            boolean alert = false;
+            try {
+                FileStream.readFromFile();
+            }
+            catch(Exception e) {
+                // Create pop-up
+                alert = true;
+            }
+            theMenu = new MenuFrame(alert);
+            theMenu.setVisible(true);
+            this.dispose();
+        
+        } 
+        else {
+            invalidLabel.setVisible(true);
+        }
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     public static void setMenuVisibility(boolean isVisible) {
@@ -203,6 +225,17 @@ public class MainJFrame extends javax.swing.JFrame {
         if (theMenu.isVisible()) {
             theMenu.fillTable();
         }
+    }
+    
+    public static void setMenuEnabled(boolean isActive) {
+        theMenu.setEnabled(isActive);
+        if (theMenu.isEnabled()) {
+            theMenu.fillTable();
+        }
+    }
+    
+    public static void setMenuLabel(boolean isVisible) {
+        theMenu.setLabelVisibility(isVisible);
     }
     
     /**
