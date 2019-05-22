@@ -53,20 +53,21 @@ public class MyHashTable {
         int position = calcBucket(theEmployee.employeeNumber);
         buckets[position].add(theEmployee);
         numInTable++;
-        // Add the employee referenced by theemployee to the hash table.
+        // Add the employee referenced by the employee to the hash table.
     }
 
     public EmployeeInfo readFromTable(int employeeNumber) {
-        int position = calcBucket(employeeNumber);
-        for (int i = 0; i < buckets[position].size(); i++) {
+        int position = calcBucket(employeeNumber); // Calculate bucket
+        for (int i = 0; i < buckets[position].size(); i++) { // Iterate through bucket to search for employee number
             if (buckets[position].get(i).employeeNumber == employeeNumber) {
-                return buckets[position].get(i);
+                return buckets[position].get(i); // return employee if found
             }
         }
         return null;
     }
 
     public EmployeeInfo removeFromTable(int employeeNumber) {
+        // Same method as readFrom table, just removes the employee
         int position = calcBucket(employeeNumber);
         for (int i = 0; i < buckets[position].size(); i++) {
             if (buckets[position].get(i).employeeNumber == employeeNumber) {
@@ -80,6 +81,7 @@ public class MyHashTable {
     }
 
     public boolean isInTable(int employeeNumber) {
+        // Same method as readFromTable, just returns a boolean
         int position = calcBucket(employeeNumber);
         for (int i = 0; i < buckets[position].size(); i++) {
             if (buckets[position].get(i).employeeNumber == employeeNumber) {
@@ -90,7 +92,7 @@ public class MyHashTable {
         // Return true if that employee is in the hash table, false otherwise.
     }
 
-    public void displayTable() {
+    public void displayTable() {  // Displays hashtable
         for (int i = 0; i < buckets.length; i ++) {
             for (int j = 0; j < buckets[i].size(); j++) {
                 buckets[i].get(j).print();
@@ -98,47 +100,47 @@ public class MyHashTable {
         }
     }
     
-    public EmployeeInfo iterate() {
-        while (iterateIndex >= buckets[iterateHash].size()) {
+    public EmployeeInfo iterate() { // Used to iterate through hashtable
+        while (iterateIndex >= buckets[iterateHash].size()) { // Checks that the index is within bounds, if not switches buckets
             iterateIndex = 0;
             iterateHash++;
-            if (iterateHash >= buckets.length) {
+            if (iterateHash >= buckets.length) { // Reset iterator if the last bucket has been processed
                 iterateHash = 0;
                 iterateIndex = 0;
                 return null;
             }
         }
-        EmployeeInfo toReturn = buckets[iterateHash].get(iterateIndex);
+        EmployeeInfo toReturn = buckets[iterateHash].get(iterateIndex); // Get next employee in bucket
         iterateIndex++;
-        return toReturn;
+        return toReturn; // Return employee
     }
     
-    public Integer[] sortedNumbers(boolean ascending) {
+    public Integer[] sortedNumbers(boolean ascending) { // Returns an array of sorted employee numbers
         if (numInTable == 0) {
             return null;
         }
-        Integer[] employeeNumbers = new Integer[numInTable];
+        Integer[] employeeNumbers = new Integer[numInTable]; // Create array for employee numbers
         int index = 0;
-        for (int i = 0; i < buckets.length; i ++) {
+        for (int i = 0; i < buckets.length; i ++) { // Fill array from hashtable
             for (int j = 0; j < buckets[i].size(); j++) {
                 employeeNumbers[index] = buckets[i].get(j).getEmployeeNumber();
                 index++;
             }
         }
-        if (ascending) {
+        if (ascending) { // Sort ascending
             Arrays.sort(employeeNumbers);
         }
-        else {
+        else { // Sort decending
             Arrays.sort(employeeNumbers, Collections.reverseOrder());
         }
-        return employeeNumbers;
+        return employeeNumbers; // Return sorted array
     }
     
-    public String[][] sortedFirstNames(boolean ascending) {
+    public String[][] sortedFirstNames(boolean ascending) { // Returns 2d array with employees sorted by first name
         if (numInTable == 0) {
             return null;
         }
-        String [][] names = new String[numInTable][2];
+        String [][] names = new String[numInTable][2]; // [x][0] is for names, [x][1] for employee numbers
         int index = 0;
         for (int i = 0; i < buckets.length; i ++) {
             for (int j = 0; j < buckets[i].size(); j++) {

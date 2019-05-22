@@ -57,7 +57,7 @@ public class MenuFrame extends javax.swing.JFrame {
         if (!warning) { // Warning label for if no memory file was found
             warningLabel.setVisible(false);
         }
-        fillTable();
+        fillTable(); // Fill the main table
     }
 
     /**
@@ -116,7 +116,7 @@ public class MenuFrame extends javax.swing.JFrame {
         });
         getContentPane().add(viewEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 246, 186, -1));
 
-        addLocationButton.setText("Add Work Location");
+        addLocationButton.setText("Manage Work Locations");
         addLocationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addLocationButtonActionPerformed(evt);
@@ -257,7 +257,7 @@ public class MenuFrame extends javax.swing.JFrame {
     
     public void addRow(EmployeeInfo employee) {
         mainModel.setNumRows(mainModel.getRowCount() + 1); // Add a row to the table
-        mainTable.setModel(mainModel);
+        mainTable.setModel(mainModel); // Update table model
         mainTable.getTableHeader().setReorderingAllowed(false);
         mainTable.getColumnModel().getColumn(0).setResizable(false);
         mainTable.getColumnModel().getColumn(1).setResizable(false);
@@ -267,10 +267,10 @@ public class MenuFrame extends javax.swing.JFrame {
         mainTable.getColumnModel().getColumn(5).setResizable(false);
         mainTable.getColumnModel().getColumn(6).setResizable(false);
         fillRow(employee, mainModel.getRowCount() - 1); // Fill the added row with the given employee
-        mainTable.removeRowSelectionInterval(0, mainModel.getRowCount() - 1);
+        mainTable.removeRowSelectionInterval(0, mainModel.getRowCount() - 1); // Deselsect the currently selected rows
     }
     
-    public void initializeModel() { // Creates model for the table
+    public void initializeModel() { // Creates model for the table, copied from initComponents()
         mainModel = (new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -361,20 +361,20 @@ public class MenuFrame extends javax.swing.JFrame {
             fillRow(employee, i);
             i++;
         }
-        mainTable.removeRowSelectionInterval(0, mainModel.getRowCount() - 1);
+        mainTable.removeRowSelectionInterval(0, mainModel.getRowCount() - 1); // Deselect all rows
     }
     
     private void fillByEmployeeNumber() { // Fills rows with employees organized by employee number
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
-        Integer[] sortedList = MainJFrame.getTheHT().sortedNumbers(!sortedUp); // Does the opposit sort of whatever currently exists
+        Integer[] sortedList = MainJFrame.getTheHT().sortedNumbers(!sortedUp); // Does the opposite sort of whatever currently exists
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
-            employee = MainJFrame.getTheHT().readFromTable(sortedList[i]);
+            employee = MainJFrame.getTheHT().readFromTable(sortedList[i]); // Fill rows by iterating through array
             fillRow(employee, i);
         }
-        if (sortedUp) {
+        if (sortedUp) { // Updated sorted status
             sortedUp = false;
         }
         else {
@@ -386,13 +386,13 @@ public class MenuFrame extends javax.swing.JFrame {
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
-        String [][] sortedList = MainJFrame.getTheHT().sortedFirstNames(!sortedUp); // Does the opposit sort of whatever currently exists
+        String [][] sortedList = MainJFrame.getTheHT().sortedFirstNames(!sortedUp); // Does the opposite sort of whatever currently exists
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
-            employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
+            employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1])); // Fill rows by iterating through array
             fillRow(employee, i);
         }
-        if (sortedUp) {
+        if (sortedUp) { // Update sorting status
             sortedUp = false;
         }
         else {
@@ -400,17 +400,17 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByLastName() { // Fill sorted by last name
+    private void fillByLastName() { // Fill sorted by last name, same method as sort by first name
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
-        String [][] sortedList = MainJFrame.getTheHT().sortedLastNames(!sortedUp); // Does the opposit sort of whatever currently exists
+        String [][] sortedList = MainJFrame.getTheHT().sortedLastNames(!sortedUp);
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
             employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
             fillRow(employee, i);
         }
-        if (sortedUp) {
+        if (sortedUp) { // Update sorting status
             sortedUp = false;
         }
         else {
@@ -418,7 +418,7 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByGender() {
+    private void fillByGender() { // Fill sorted by gender, same method as sort by employee number
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
@@ -436,11 +436,11 @@ public class MenuFrame extends javax.swing.JFrame {
         }
     }
     
-    private void fillByLocation() { // Fill sorted by location
+    private void fillByLocation() { // Fill sorted by location, same method as sort by first name
         if (MainJFrame.getTheHT().getNumInTable() == 0) {
             return;
         }
-        String [][] sortedList = MainJFrame.getTheHT().sortedLocations(!sortedUp); // Does the opposit sort of whatever currently exists
+        String [][] sortedList = MainJFrame.getTheHT().sortedLocations(!sortedUp);
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
             employee = MainJFrame.getTheHT().readFromTable(Integer.parseInt(sortedList[i][1]));
@@ -461,10 +461,10 @@ public class MenuFrame extends javax.swing.JFrame {
         double [][] sortedList = MainJFrame.getTheHT().sortedDeductionRates(!sortedUp); // Does the opposit sort of whatever currently exists
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
-            employee = MainJFrame.getTheHT().readFromTable((int)sortedList[i][1]);
+            employee = MainJFrame.getTheHT().readFromTable((int)sortedList[i][1]); // Fill table by iterating through array
             fillRow(employee, i);
         }
-        if (sortedUp) {
+        if (sortedUp) { // Updated sorting status
             sortedUp = false;
         }
         else {
@@ -474,18 +474,17 @@ public class MenuFrame extends javax.swing.JFrame {
     
     private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
         // Creates editEmployeeFrame for the currently selected employee
-        if (mainTable.getSelectedRowCount() == 1) {
-            EmployeeInfo employeeToEdit = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
-            EditEmployeeFrame editFrame = new EditEmployeeFrame(employeeToEdit);
-            editFrame.setVisible(true);
+        if (mainTable.getSelectedRowCount() == 1) { // Checks that only one employee is selected
+            EmployeeInfo employeeToEdit = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString())); // Retrieve selected employee
+            EditEmployeeFrame editFrame = new EditEmployeeFrame(employeeToEdit); // Create new edit employee frame using selected employee
+            editFrame.setVisible(true); // Set edit frame visible and this frame disabled
             this.setEnabled(false);
-            fillRow(employeeToEdit, mainTable.getSelectedRow());
         }
     }//GEN-LAST:event_editEmployeeButtonActionPerformed
 
     private void viewEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeeButtonActionPerformed
         // Creates viewEmployeeFrame for the currently selected employee
-        if (mainTable.getSelectedRowCount() == 1) {
+        if (mainTable.getSelectedRowCount() == 1) { // Same method as editEmployeeFrame
             EmployeeInfo employeeToView = MainJFrame.getTheHT().readFromTable(Integer.parseInt(mainTable.getValueAt(mainTable.getSelectedRow(), 0).toString()));
             ViewEmployeeFrame viewFrame = new ViewEmployeeFrame(employeeToView);
             viewFrame.setVisible(true);
@@ -495,69 +494,68 @@ public class MenuFrame extends javax.swing.JFrame {
 
     private void addLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationButtonActionPerformed
         // Creates new add location frame
-        AddLoc theLocFrame = new AddLoc();
+        AddLoc theLocFrame = new AddLoc(); // Instantiate and set visible a new location management frame
         theLocFrame.setVisible(true);
-        this.setEnabled(false);
+        this.setEnabled(false); // Disable this frame
     }//GEN-LAST:event_addLocationButtonActionPerformed
 
     private void removeEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeeButtonActionPerformed
         // Removes selected employees from the hashtable, then updates mainTable
-        if (mainTable.getSelectedRowCount() != 0) {
-            ConfirmationFrame check = new ConfirmationFrame(this);
+        if (mainTable.getSelectedRowCount() != 0) { // Check that there are employees selected
+            ConfirmationFrame check = new ConfirmationFrame(this); // Create new confirmation frame to check that the user wants to delete the selected employees
             check.setVisible(true);
         }
     }//GEN-LAST:event_removeEmployeeButtonActionPerformed
 
     public void removeEmployees() {
-        int[] employees = mainTable.getSelectedRows();
-        for (int i = 0; i < employees.length; i++) {
+        int[] employees = mainTable.getSelectedRows(); // Get selected employees
+        for (int i = 0; i < employees.length; i++) { // Iterate through employees and remove them from the hashtable
             Object employeeNumber = mainTable.getValueAt(employees[i], 0);
             if (employeeNumber != null) {
                 MainJFrame.getTheHT().removeFromTable(Integer.parseInt(employeeNumber.toString()));
             }
         }
-        fillTable();
+        fillTable(); // Update maintable
     }
     
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
-        // Creates new add employee frame
+        // Creates new add employee frame, same method as location frame
         AddFTEmpFrame theAddFrame = new AddFTEmpFrame();
         theAddFrame.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void userGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuideButtonActionPerformed
-        // TODO add your handling code here:
-        File userGuide = new File("UserGuide.pdf");
+        // Opens user guide pdf
+        File userGuide = new File("UserGuide.pdf"); // Create file class for user guide
         try {
             if (Desktop.isDesktopSupported()) {
-                Desktop.getDesktop().open(userGuide);
+                Desktop.getDesktop().open(userGuide); // Open user guide
             }
         }
         catch (IOException e) {
-            
         }      
     }//GEN-LAST:event_userGuideButtonActionPerformed
 
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
         // Handles search bar
         String search = searchBar.getText();
-        cleanTable();
+        cleanTable(); // Make maintable empty
         EmployeeInfo currentEmployee;
         if (search.equals("")) {
             fillTable(); // If nothing was typed in the search bar, fill table normally
         }
         else if (StringConverter.stringToInteger(search) != -1) { // If search was sucessfully converted to an integer
             if (search.length() == 6) { // If the length is that of a full employee number
-                currentEmployee = MainJFrame.getTheHT().readFromTable(StringConverter.stringToInteger(search)); // Search for number in table
+                currentEmployee = MainJFrame.getTheHT().readFromTable(StringConverter.stringToInteger(search)); // Search for number in hashtable
                 if (currentEmployee == null) {
-                    return;
+                    return; // No result
                 }
                 addRow(currentEmployee); // Display employee if found
                 return;
             }
             while (true) {
-                currentEmployee = MainJFrame.getTheHT().iterate(); // Go through table and display numbers that contain the search
+                currentEmployee = MainJFrame.getTheHT().iterate(); // Go through hashtable and display employee numbers that contain the search
                 if (currentEmployee == null) {
                     break;
                 }
@@ -566,50 +564,50 @@ public class MenuFrame extends javax.swing.JFrame {
                 }
             }
         }
-        else if (StringConverter.stringChecker(search)) {
-            while (true) {
+        else if (StringConverter.stringChecker(search)) { // Case of the input being a valid string (no special characters or numbers)
+            while (true) { // Iterate though employees and check for strings (firstName, lastName, workLocation) containing the input
                 currentEmployee = MainJFrame.getTheHT().iterate();
                 if (currentEmployee == null) {
                     break;
                 }
                 if (currentEmployee.getFirstName().toLowerCase().contains(search.toLowerCase()) || currentEmployee.getLastName().toLowerCase().contains(search.toLowerCase()) || currentEmployee.getWorkLocation().toLowerCase().contains(search.toLowerCase())) {
-                    addRow(currentEmployee);
+                    addRow(currentEmployee); // Add matching employee to the mainTable
                 }
             }
         }
-        else if (StringConverter.stringToDouble(search) != -1) {
+        else if (StringConverter.stringToDouble(search) != -1) { // If the string is not an integer but is a double
             while (true) {
-                currentEmployee = MainJFrame.getTheHT().iterate();
+                currentEmployee = MainJFrame.getTheHT().iterate(); // Iterate through employees
                 if (currentEmployee == null) {
                     break;
                 }
                 if (Double.toString(currentEmployee.getDeductionRate()).contains(search)) {
-                    addRow(currentEmployee);
+                    addRow(currentEmployee); // Display employees with matching deduction rates
                 }
             }
         }
     }//GEN-LAST:event_searchBarActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
+
         warningLabel.setVisible(false);
-        FileStream.writeToFile();
-        warningLabel.setText("Information Saved!");
+        FileStream.writeToFile(); // Save hashtable
+        warningLabel.setText("Information Saved!"); // Display label indicating success
         warningLabel.setVisible(true);
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void searchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchBarFocusGained
-        // TODO add your handling code here:
-        searchBar.setText("");
+
+        searchBar.setText(""); // If search bar is clicked on
     }//GEN-LAST:event_searchBarFocusGained
 
     private void searchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchBarFocusLost
-        // TODO add your handling code here:
-        searchBar.setText("Search...");
+
+        searchBar.setText("Search..."); // If searchBar is clicked off
     }//GEN-LAST:event_searchBarFocusLost
 
     public void setLabelVisibility(boolean visible) {
-        warningLabel.setVisible(visible);
+        warningLabel.setVisible(visible); // Method to set label visibility
     }
     
     /**
