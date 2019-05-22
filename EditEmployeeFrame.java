@@ -13,43 +13,44 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     /**
      * Creates new form EditEmployeeFrame
      */
-    public boolean valid = true;
-    public boolean done = false;
+    //Frame to edit information of employees (including switching from parttime to full time)
+    public boolean valid = true; //Checks validity of user entered information
+    public boolean done = false; //Checks whether user has submitted updated info
     
-    private static MyHashTable mainHT = MainJFrame.getTheHT(); // REMOVE LATER, PLACEHOLDER HASH TABLE
-    private EmployeeInfo employeeToEdit;
+    private static MyHashTable mainHT = MainJFrame.getTheHT(); // gets ref value for hash
+    private EmployeeInfo employeeToEdit; //The employee that will edited
     public EditEmployeeFrame(EmployeeInfo employee) {
         initComponents();
-        jComboBox2.removeAllItems();
-        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+        jComboBox2.removeAllItems(); 
+        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {//Loads in current location to locations ComboBox
             if (EmployeeInfo.locations.get(x) == employee.getWorkLocation()) {
                 jComboBox2.addItem(EmployeeInfo.locations.get(x));
             }
         }
-        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {//Loads in other locations to locations ComboBox
             if (EmployeeInfo.locations.get(x) != employee.getWorkLocation()) {
                 jComboBox2.addItem(EmployeeInfo.locations.get(x));
             }
         }
         jComboBox1.removeAllItems();
-        for (int x = 0; x < 3; x++) {
+        for (int x = 0; x < 3; x++) { //Loads in gender (current) to genders ComboBox
             if (EmployeeInfo.genders[x] == employee.getGender()) {
                 jComboBox1.addItem(EmployeeInfo.genders[x]);
             }
         }
-        for (int x = 0; x < 3; x++) {
+        for (int x = 0; x < 3; x++) {//Loads in other genders to gender combobox
             if (EmployeeInfo.genders[x] != employee.getGender()) {
                 jComboBox1.addItem(EmployeeInfo.genders[x]);
             }
         }
         
-        employeeToEdit = employee;
-        if (employee instanceof PartTimeEmployee){
+        employeeToEdit = employee; //Sets employee being edited to one being passed through the function
+        if (employee instanceof PartTimeEmployee){//Sets parttime button selected if emp was originally parttime
             partTimeButton.setSelected(true);
             partTimeButtonActionPerformed(null);
         }
         
-        else if (employee instanceof FullTimeEmployee){
+        else if (employee instanceof FullTimeEmployee){//Sets fulltime button selected if emp was originally fulltime
             fullTimeButton.setSelected(true);
             fullTimeButtonActionPerformed(null);
         }
@@ -57,6 +58,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         invalidLabel.setVisible(false);
     }
     
+    //Method below sets the text fields to the values of the original employee
     private void setTextFields(){ // DEFAULT VALUES ARE USED IF INFO IS BLANK, EXCEPTION IF IT CAN BE CALCULATED
         firstNameInput.setText(employeeToEdit.getFirstName());
         lastNameInput.setText(employeeToEdit.getLastName());
@@ -341,6 +343,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
     private void fullTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeButtonActionPerformed
         // TODO add your handling code here:
+        //Setting visible text fields and labels to those corresponding to full time
         fullTimeButton.setSelected(true);
         partTimeButton.setSelected(false);
 
@@ -386,6 +389,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
     private void partTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeButtonActionPerformed
         // TODO add your handling code here:
+        //Setting visible text fields and labels to those corresponding to part time
         fullTimeButton.setSelected(false);
         partTimeButton.setSelected(true);
         weeksPerYearInput.setVisible(true);
@@ -431,7 +435,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         valid = true;
-        if (done == true) {
+        if (done == true) { //Exiting (and disposing) frame once done
             MainJFrame.setMenuEnabled(true);
             MainJFrame.setMenuLabel(false);
             this.dispose();
@@ -440,7 +444,8 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
         if (fullTimeButton.isSelected() && done != true) {
             jButton1.setText("Submit");
-            FullTimeEmployee empToAdd = new FullTimeEmployee();
+            FullTimeEmployee empToAdd = new FullTimeEmployee(); //Instantiating new fulltime employee for new information
+            //Checking validity of user entries and if so, adding this info to the new employee
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                  boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
                  if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
@@ -474,7 +479,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            if (valid == true) {
+            if (valid == true) { //Removes old employee and adds new employee if user confirms changes in confirmation frame
                 invalidLabel.setVisible(false);
                 ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
@@ -487,8 +492,9 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         }
         if (partTimeButton.isSelected() && done != true) {
             jButton1.setText("Submit");
-            PartTimeEmployee empToAdd = new PartTimeEmployee();
-            System.out.println(empToAdd.getEmployeeNumber());
+            PartTimeEmployee empToAdd = new PartTimeEmployee(); //Instantiating new parttime employee for new information
+
+            //Checking validity of user entries and if so, adding this info to the new employee
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                 boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
                 if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
@@ -535,7 +541,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-             if (valid == true) {
+             if (valid == true) { //Removes old employee and adds new employee if user confirms changes in confirmation frame
                 invalidLabel.setVisible(false);
                 ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
@@ -579,7 +585,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-
+        //Exiting out the frame once finished
         MainJFrame.setMenuEnabled(true);
         MainJFrame.setMenuLabel(false);
         this.dispose();

@@ -14,24 +14,24 @@ public class ConfirmationFrame extends javax.swing.JFrame {
      * Creates new form ConfirmationFrame
      */
     
-    MenuFrame mainTable;
-    AddLoc locationEditor;
-    String location;
-    EditEmployeeFrame empEditor;
-    boolean invalid;
-    MyHashTable hT;
-    int eNum;
-    EmployeeInfo eTA;
+    MenuFrame mainTable; //Stores frame for hash table
+    AddLoc locationEditor; //Frame for editing locations
+    String location; //Location string
+    EditEmployeeFrame empEditor; //Frame for editing employees
+    boolean invalid; //Random variable
+    MyHashTable hT; //refval for hash table
+    int eNum; //emp num
+    EmployeeInfo eTA; //empToAdd
     
     
     
-    public ConfirmationFrame(MenuFrame main) {
+    public ConfirmationFrame(MenuFrame main) { //Constructor for when removing employees
         mainTable = main;
         main.setEnabled(false);
         initComponents();
     }
     
-    public ConfirmationFrame(AddLoc loc, String toEdit) {
+    public ConfirmationFrame(AddLoc loc, String toEdit) { //Construtor for editing lcoations
         location = toEdit;
         locationEditor = loc;
         locationEditor.setEnabled(false);
@@ -39,7 +39,7 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         jLabel1.setText("Do you want to delete the selected location?");
     }
     
-    public ConfirmationFrame(EditEmployeeFrame empEdit,MyHashTable haT, int eN, EmployeeInfo empToAdd) {
+    public ConfirmationFrame(EditEmployeeFrame empEdit,MyHashTable haT, int eN, EmployeeInfo empToAdd) { //Constructor for editing employees
         empEditor = empEdit;
         empEditor.setEnabled(false);
         hT =haT;
@@ -117,7 +117,8 @@ public class ConfirmationFrame extends javax.swing.JFrame {
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
-        if (mainTable != null) {
+        //Simply returns to original frame without performing changes
+        if (mainTable != null) { 
             MainJFrame.setMenuLabel(false);
             mainTable.setEnabled(true);
         }
@@ -136,6 +137,7 @@ public class ConfirmationFrame extends javax.swing.JFrame {
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
         // TODO add your handling code here:
+        //Performs changes and returns
         if (mainTable != null) {
             MainJFrame.setMenuLabel(false);
             mainTable.removeEmployees();

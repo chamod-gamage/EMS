@@ -79,9 +79,9 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jButton3" max="32767" attributes="0"/>
-                  <Component id="jButton2" max="32767" attributes="0"/>
-                  <Component id="jButton4" max="32767" attributes="0"/>
+                  <Component id="removeButton" max="32767" attributes="0"/>
+                  <Component id="addButton" max="32767" attributes="0"/>
+                  <Component id="doneButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -101,20 +101,20 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jComboBox1" alignment="1" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="removeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mainLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doneButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
           </Group>
@@ -140,12 +140,12 @@
         <Property name="text" type="java.lang.String" value="LOCATION MANAGEMENT"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="addButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -153,12 +153,12 @@
         <Property name="text" type="java.lang.String" value="Remove Location:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="removeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
@@ -184,12 +184,12 @@
         <Property name="text" type="java.lang.String" value="Location Already Added"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="doneButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Done"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doneButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

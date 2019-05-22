@@ -13,15 +13,15 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     /**
      * Creates new form AddFTEmpFrame
      */
-    
+    //Frame to add part time and full time employees
     
     public AddFTEmpFrame() {
         initComponents();
         jComboBox2.removeAllItems();
-        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+        for (int x = 0; x < EmployeeInfo.locations.size(); x++) { //Adds locations to ComboBox
             jComboBox2.addItem(EmployeeInfo.locations.get(x));
         }
-        
+        //Everything except radio buttons and cancel is hidden initially
         jTextField8.setVisible(false);
         jTextField9.setVisible(false);
         jTextField10.setVisible(false);
@@ -54,7 +54,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         
         jLabel19.setVisible(false);
       
-        jButton1.setVisible(false);
+        submitButton.setVisible(false);
         jLabel21.setVisible(true);
     
     }
@@ -79,9 +79,9 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        fTButton = new javax.swing.JRadioButton();
+        pTButton = new javax.swing.JRadioButton();
+        submitButton = new javax.swing.JButton();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
@@ -125,24 +125,24 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
         jLabel17.setText("Weeks/Year:");
 
-        jRadioButton1.setText("Full-Time");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        fTButton.setText("Full-Time");
+        fTButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                fTButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Part-Time");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        pTButton.setText("Part-Time");
+        pTButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                pTButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                submitButtonActionPerformed(evt);
             }
         });
 
@@ -257,11 +257,11 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(submitButton, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton2)
+                                .addComponent(pTButton)
                                 .addGap(200, 200, 200)
-                                .addComponent(jRadioButton1))))
+                                .addComponent(fTButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,8 +295,8 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1))
+                            .addComponent(pTButton)
+                            .addComponent(fTButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -335,7 +335,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(submitButton)
                     .addComponent(jButton3))
                 .addContainerGap())
         );
@@ -344,10 +344,11 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void fTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fTButtonActionPerformed
         // TODO add your handling code here:
-        jRadioButton1.setSelected(true);
-        jRadioButton2.setSelected(false);
+        //Full-time labels and text fields are made visible
+        fTButton.setSelected(true);
+        pTButton.setSelected(false);
         
         jTextField8.setVisible(false);
         jTextField9.setVisible(false);
@@ -380,14 +381,15 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
        
         jLabel17.setVisible(false);
       
-        jButton1.setVisible(true);
+        submitButton.setVisible(true);
         
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_fTButtonActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void pTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTButtonActionPerformed
         // TODO add your handling code here:
-        jRadioButton1.setSelected(false);
-        jRadioButton2.setSelected(true);
+        //Part time labels and text fields are made visible
+        fTButton.setSelected(false);
+        pTButton.setSelected(true);
         jTextField8.setVisible(true);
         jTextField9.setVisible(true);
         jTextField10.setVisible(true);
@@ -419,21 +421,22 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
        
         jLabel17.setVisible(true);
       
-        jButton1.setVisible(true);
+        submitButton.setVisible(true);
         
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-    private boolean valid = true;
-    private boolean done = false;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_pTButtonActionPerformed
+    private boolean valid = true; //Determines validity of entered information
+    private boolean done = false; //Determines whether user is ready to exit this frame
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         valid = true;
-        if (done == true) {
+        if (done == true) { //Exits out of frame
             MainJFrame.setMenuEnabled(true);
             MainJFrame.setMenuLabel(false);
             this.dispose();
         }
-        if (jRadioButton1.isSelected() && done != true) {
+        if (fTButton.isSelected() && done != true) { //Adding full time
             FullTimeEmployee empToAdd = new FullTimeEmployee();
+            //Checking validity of user entry for each attribute and adding to empToAdd if valid
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                 
                 if (!mainHT.isInTable(Integer.parseInt(employeeNumberInput.getText()))){
@@ -469,20 +472,21 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             } else {
                 valid = false;
             }
-            if (valid == true) {
+            if (valid == true) { //Adding employee to hash table when valid; invalid label shows if not
                 mainHT.addToTable(empToAdd);
                 
                 jLabel19.setVisible(false);
                 jLabel21.setText("EMPLOYEE ADDED!");
-                jButton1.setText("Done");
+                submitButton.setText("Done");
                 done = true; 
             } else {
                 
                 jLabel19.setVisible(true);
             }
         }
-        if (jRadioButton2.isSelected() && done != true) {
+        if (pTButton.isSelected() && done != true) { //Adding parttime
             PartTimeEmployee empToAdd = new PartTimeEmployee();
+             //Checking validity of user entry for each attribute and adding to empToAdd if valid
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                 
                 if (!mainHT.isInTable(Integer.parseInt(employeeNumberInput.getText()))){
@@ -532,11 +536,11 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                 valid = false;
             }
             
-            if (valid == true) {
+            if (valid == true) { //Adding employee to hash table when valid; invalid label shows if not
                 mainHT.addToTable(empToAdd);
                 jLabel19.setVisible(false);
                 jLabel21.setText("EMPLOYEE ADDED!");
-                jButton1.setText("Done");
+                submitButton.setText("Done");
                 done = true;
                 
                 
@@ -553,7 +557,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
@@ -639,7 +643,7 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField employeeNumberInput;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton fTButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -657,13 +661,13 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JRadioButton pTButton;
+    private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }

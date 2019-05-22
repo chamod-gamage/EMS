@@ -85,13 +85,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextField8" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
                                   <Component id="jTextField9" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="submitButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="pTButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="fTButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -138,8 +138,8 @@
                       <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pTButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fTButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -190,7 +190,7 @@
               </Group>
               <EmptySpace pref="12" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="submitButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -234,28 +234,28 @@
         <Property name="text" type="java.lang.String" value="Weeks/Year:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="fTButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Full-Time"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fTButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+    <Component class="javax.swing.JRadioButton" name="pTButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Part-Time"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pTButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="submitButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField8">

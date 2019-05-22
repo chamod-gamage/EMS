@@ -15,11 +15,12 @@ public class AddLoc extends javax.swing.JFrame {
     /**
      * Creates new form AddLoc
      */
+    //Frame for user to add and remove locations
     public AddLoc() {
         initComponents();
         mainLabel.setVisible(false);
-        jComboBox1.removeAllItems();
-        for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+        jComboBox1.removeAllItems(); 
+        for (int x = 0; x < EmployeeInfo.locations.size(); x++) { //Adds currently stored locations to ComboBox
             jComboBox1.addItem(EmployeeInfo.locations.get(x));
         }
         
@@ -40,12 +41,12 @@ public class AddLoc extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         mainLabel = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        doneButton = new javax.swing.JButton();
 
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel21.setText("ADD EMPLOYEE");
@@ -82,19 +83,19 @@ public class AddLoc extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel22.setText("LOCATION MANAGEMENT");
 
-        jButton2.setText("Add");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addButtonActionPerformed(evt);
             }
         });
 
         jLabel10.setText("Remove Location:");
 
-        jButton3.setText("Remove");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        removeButton.setText("Remove");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                removeButtonActionPerformed(evt);
             }
         });
 
@@ -107,10 +108,10 @@ public class AddLoc extends javax.swing.JFrame {
 
         mainLabel.setText("Location Already Added");
 
-        jButton4.setText("Done");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        doneButton.setText("Done");
+        doneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                doneButtonActionPerformed(evt);
             }
         });
 
@@ -135,9 +136,9 @@ public class AddLoc extends javax.swing.JFrame {
                         .addComponent(mainLabel)
                         .addGap(99, 99, 99)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(doneButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
@@ -153,17 +154,17 @@ public class AddLoc extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jButton2))
+                    .addComponent(addButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
-                        .addComponent(jButton3)))
+                        .addComponent(removeButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mainLabel)
-                    .addComponent(jButton4))
+                    .addComponent(doneButton))
                 .addGap(3, 3, 3))
         );
 
@@ -180,10 +181,11 @@ public class AddLoc extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
         mainLabel.setVisible(true);
-        if (StringConverter.stringChecker(jTextField12.getText()))   {
+        //Location adder
+        if (StringConverter.stringChecker(jTextField12.getText()))   { //Checks whether the location to be added is a valid string and not already added
             if (EmployeeInfo.locations.contains(jTextField12.getText()) || EmployeeInfo.locations.contains(jTextField12.getText().toLowerCase())) {
                 mainLabel.setText("Location Already Added");
             } else {
@@ -193,14 +195,15 @@ public class AddLoc extends javax.swing.JFrame {
                 
             }
         }
-        else {
+        else { //Invalid label set visible
             mainLabel.setText("Invalid Input");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_addButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
         String locationToRemove = jComboBox1.getSelectedItem().toString();
+        //Remove locations iff they are not in use
         if (EmployeeInfo.locations.contains(locationToRemove) && !EmployeeInfo.locationsInUse.contains(locationToRemove)) {
             ConfirmationFrame check = new ConfirmationFrame(this, locationToRemove);
             check.setVisible(true);
@@ -209,33 +212,34 @@ public class AddLoc extends javax.swing.JFrame {
             mainLabel.setText("Location In Use");
         }
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_removeButtonActionPerformed
 
-    private void resetBox() {
+    private void resetBox() { //Removes all items from the box and reloads locations
         jComboBox1.removeAllItems();
         for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
             jComboBox1.addItem(EmployeeInfo.locations.get(x));
         }
     }
     
-    public void removeLocation(String locationToRemove) {
+    public void removeLocation(String locationToRemove) { //Method to remove locations
         EmployeeInfo.locations.remove(locationToRemove);
         mainLabel.setText("Location Removed!");
         mainLabel.setVisible(true);
         resetBox();
     }
     
-    public void labelOff() {mainLabel.setVisible(false);}
+    public void labelOff() {mainLabel.setVisible(false);} //turns label visibility off
     
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
         // TODO add your handling code here:
+        //Exits and disposes the frame
         MainJFrame.setMenuEnabled(true);
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_doneButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,10 +277,9 @@ public class AddLoc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton doneButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel21;
@@ -285,6 +288,7 @@ public class AddLoc extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JLabel mainLabel;
+    private javax.swing.JButton removeButton;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -13,26 +13,27 @@ import java.util.*;
 import java.io.*;
 
 public class FileStream {
+    //Class that handles the reading and writing to files
     private FileStream(){}
-    private static String filename = "src/RWMemory.txt";
-    private static String backup = "Backup.txt";
-    public static void readFromFile() {
+    private static String filename = "src/RWMemory.txt"; //Contains main text file
+    private static String backup = "Backup.txt"; //Contains backup text file (currently not functional)
+    public static void readFromFile() { //Reads information from file if it is found
         try {
             BufferedReader myFile = new BufferedReader(new FileReader(filename));
-            if (myFile.readLine().equals("loc")) {
-                    int numLoc = Integer.parseInt(myFile.readLine());
-                    for (int x =0; x < numLoc; x++) {
+            if (myFile.readLine().equals("loc")) { //Reading location info
+                    int numLoc = Integer.parseInt(myFile.readLine()); //Number of locations
+                    for (int x =0; x < numLoc; x++) { //Adds location in text file to static array locations
                         String loc = myFile.readLine();
                         if (!EmployeeInfo.locations.contains(loc)) {
                             EmployeeInfo.locations.add(loc);
                         }
                     }
                 }
-            int length = Integer.parseInt(myFile.readLine());
-            for (int i = 0; i < length; i++) {
-                String dataType = myFile.readLine();
+            int length = Integer.parseInt(myFile.readLine()); //Number of employees
+            for (int i = 0; i < length; i++) { 
+                String dataType = myFile.readLine(); //Checks whether the employee is fulltime or parttime
                 if (dataType.equals("f")) {
-                    // Full time employee
+                    // Full time employee info reading
                     FullTimeEmployee employeeToAdd = new FullTimeEmployee();
                     employeeToAdd.setFirstName(myFile.readLine());
                     employeeToAdd.setLastName(myFile.readLine());
@@ -40,7 +41,7 @@ public class FileStream {
                     employeeToAdd.setGender(myFile.readLine());
                     String locToAdd = myFile.readLine();
                     employeeToAdd.setWorkLocation(locToAdd);
-                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) {
+                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) { //Adds location to LocationsInUse static array
                         EmployeeInfo.locationsInUse.add(locToAdd);
                     }
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
@@ -48,7 +49,7 @@ public class FileStream {
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
                 }
                 if (dataType.equals("p")) {
-                    // Part time employee
+                    // Part time employee info reading
                     PartTimeEmployee employeeToAdd = new PartTimeEmployee();
                     employeeToAdd.setFirstName(myFile.readLine());
                     employeeToAdd.setLastName(myFile.readLine());
@@ -56,7 +57,7 @@ public class FileStream {
                     employeeToAdd.setGender(myFile.readLine());
                     String locToAdd = myFile.readLine();
                     employeeToAdd.setWorkLocation(locToAdd);
-                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) {
+                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) { //Adds location to LocationsInUse static array
                         EmployeeInfo.locationsInUse.add(locToAdd);
                     }
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
@@ -80,13 +81,13 @@ public class FileStream {
             // ADD POPUP 
         }
     }
-    public static void writeToFile() {
+    public static void writeToFile() { //Writes info to file if it is found
         try {
             BufferedWriter myFile = new BufferedWriter(new FileWriter(filename));
             EmployeeInfo currentEmployee;
             myFile.write("loc"); myFile.newLine();
             myFile.write(Integer.toString(EmployeeInfo.locations.size())); myFile.newLine();
-            for (int x = 0; x < EmployeeInfo.locations.size(); x++) {
+            for (int x = 0; x < EmployeeInfo.locations.size(); x++) { //Writing location info
                 myFile.write(EmployeeInfo.locations.get(x)); myFile.newLine();
             }
             myFile.write(Integer.toString(MainJFrame.getTheHT().getNumInTable())); myFile.newLine();
@@ -95,7 +96,7 @@ public class FileStream {
                 if (currentEmployee == null) {
                     break;
                 }
-                if (currentEmployee instanceof PartTimeEmployee) {
+                if (currentEmployee instanceof PartTimeEmployee) { //Writing part time employee infos
                     myFile.write("p"); myFile.newLine();
                     myFile.write(currentEmployee.getFirstName()); myFile.newLine();
                     myFile.write(currentEmployee.getLastName()); myFile.newLine();
@@ -109,7 +110,7 @@ public class FileStream {
                     myFile.write(Double.toString(currentPTEmployee.getWeeksPerYear())); myFile.newLine();
                 }
                 else {
-                    myFile.write("f"); myFile.newLine();
+                    myFile.write("f"); myFile.newLine(); //Writing full time employee infos
                     myFile.write(currentEmployee.getFirstName()); myFile.newLine();
                     myFile.write(currentEmployee.getLastName()); myFile.newLine();
                     myFile.write(Integer.toString(currentEmployee.getEmployeeNumber())); myFile.newLine();

@@ -15,15 +15,15 @@ import java.io.*;
 public class MainJFrame extends javax.swing.JFrame {
     
     // ATTRIBUTES
-    private static MyHashTable theHT;
-    private static MenuFrame theMenu;
+    private static MyHashTable theHT; //Static hash table
+    private static MenuFrame theMenu; //Static menuFrame
     
     
     // CONSTRUCTORS
     /**
      * Creates new form MainJFrame
      */
-    public MainJFrame() {
+    public MainJFrame() { //Instantiates frame with a hash table containing 10 buckets
         initComponents();
         invalidLabel.setVisible(false);
         theHT = new MyHashTable(10);
@@ -32,7 +32,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     // METHODS   
     
-    public static MyHashTable getTheHT() {
+    public static MyHashTable getTheHT() { //Returns the hash table
         return theHT;
     }
 
@@ -136,7 +136,8 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private static boolean isPasswordCorrect(char[] input) {
+    private static boolean isPasswordCorrect(char[] input) { //Determines whether user's entry is the password
+       
         
         char[] correct = { 'I', 'N', 'V', 'A', 'L', 'I', 'D' };
         boolean isCorrect = true;
@@ -161,6 +162,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
+        //Proceeds to MenuFrame if password is correct, reading from file for info
         invalidLabel.setVisible(false);
         char[] input = jPasswordField1.getPassword(); 
         
@@ -178,13 +180,14 @@ public class MainJFrame extends javax.swing.JFrame {
             this.dispose();
         
         } 
-        else {
+        else { //Invalid label is set visible
             invalidLabel.setVisible(true);
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void viewUserGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserGuideButtonActionPerformed
         // TODO add your handling code here:
+        //Opens user guide if possible and found
         File userGuide = new File("UserGuide.pdf");
         try {
             if (Desktop.isDesktopSupported()) {
@@ -198,6 +201,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
+        //User presses enter key
+        //Proceeds to MenuFrame if password is correct, reading from file for info
         invalidLabel.setVisible(false);
         char[] input = jPasswordField1.getPassword(); 
         
@@ -220,21 +225,21 @@ public class MainJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    public static void setMenuVisibility(boolean isVisible) {
+    public static void setMenuVisibility(boolean isVisible) { //Sets visibility of MenuFrame
         theMenu.setVisible(isVisible);
         if (theMenu.isVisible()) {
             theMenu.fillTable();
         }
     }
     
-    public static void setMenuEnabled(boolean isActive) {
+    public static void setMenuEnabled(boolean isActive) {//Sets interactability of MenuFrame
         theMenu.setEnabled(isActive);
         if (theMenu.isEnabled()) {
             theMenu.fillTable();
         }
     }
     
-    public static void setMenuLabel(boolean isVisible) {
+    public static void setMenuLabel(boolean isVisible) { 
         theMenu.setLabelVisibility(isVisible);
     }
     
