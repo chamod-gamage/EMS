@@ -56,6 +56,7 @@ public class MainJFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(325, 225));
         setPreferredSize(new java.awt.Dimension(410, 210));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterButton.setText("Enter");
         enterButton.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +64,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 enterButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(enterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 123, -1, -1));
 
         viewUserGuideButton.setText("View User Guide");
         viewUserGuideButton.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +72,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 viewUserGuideButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(viewUserGuideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 166, -1, -1));
 
         jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setMinimumSize(new java.awt.Dimension(119, 22));
@@ -78,58 +81,17 @@ public class MainJFrame extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 82, 120, 30));
 
         headerLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         headerLabel.setText("Welcome to the Employee Management System!");
+        getContentPane().add(headerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 11, -1, -1));
 
         passwordLabel.setText("Password");
+        getContentPane().add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 90, -1, -1));
 
         invalidLabel.setText("PASSWORD IS INVALID");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(invalidLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(passwordLabel)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enterButton)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 16, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(viewUserGuideButton)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(headerLabel)
-                        .addGap(19, 19, 19))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headerLabel)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(invalidLabel)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordLabel)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enterButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(viewUserGuideButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(invalidLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 50, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
