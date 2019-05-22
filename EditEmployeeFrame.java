@@ -436,8 +436,10 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             MainJFrame.setMenuLabel(false);
             this.dispose();
         }
+        
         int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
         if (fullTimeButton.isSelected() && done != true) {
+            jButton1.setText("Submit");
             FullTimeEmployee empToAdd = new FullTimeEmployee();
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
                  boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
@@ -476,6 +478,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 invalidLabel.setVisible(false);
                 ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
+                jButton1.setText("Done");
             } else {
 
                 invalidLabel.setVisible(true);
@@ -483,6 +486,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             
         }
         if (partTimeButton.isSelected() && done != true) {
+            jButton1.setText("Submit");
             PartTimeEmployee empToAdd = new PartTimeEmployee();
             System.out.println(empToAdd.getEmployeeNumber());
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
@@ -535,6 +539,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 invalidLabel.setVisible(false);
                 ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
+                jButton1.setText("Done");
             } else {
 
                 invalidLabel.setVisible(true);
