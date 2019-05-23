@@ -19,6 +19,7 @@ public class MyHashTable {
 
     private ArrayList<EmployeeInfo>[] buckets;
     private int numInTable;
+    // Used in interate method
     private int iterateHash;
     private int iterateIndex;
 
@@ -142,21 +143,21 @@ public class MyHashTable {
         }
         String [][] names = new String[numInTable][2]; // [x][0] is for names, [x][1] for employee numbers
         int index = 0;
-        for (int i = 0; i < buckets.length; i ++) {
+        for (int i = 0; i < buckets.length; i ++) { // Iterates through hashtable and builds array
             for (int j = 0; j < buckets[i].size(); j++) {
                 names[index][0] = buckets[i].get(j).getFirstName().toLowerCase();
                 names[index][1] = Integer.toString(buckets[i].get(j).getEmployeeNumber());
                 index++;
             }
         }
-        names = StringConverter.sortTwoDimentionalArray(names);
+        names = StringConverter.sortTwoDimentionalArray(names); // Sort array by ascending names
         if (!ascending) {
-            names = StringConverter.reverseTwoDimentionalArray(names);
+            names = StringConverter.reverseTwoDimentionalArray(names); // Reverse sorted array
         }
         return names;
     }
     
-    public String [][] sortedLastNames(boolean ascending) {
+    public String [][] sortedLastNames(boolean ascending) { // Same as sorteFirstNames, just using the last names
         if (numInTable == 0) {
             return null;
         }
@@ -176,7 +177,7 @@ public class MyHashTable {
         return names;
     }
     
-    public String [][] sortedLocations(boolean ascending) {
+    public String [][] sortedLocations(boolean ascending) { // Same as sortedFirstNames, using locations
         if (numInTable == 0) {
             return null;
         }
@@ -196,45 +197,45 @@ public class MyHashTable {
         return locations;
     }
     
-    public double [][] sortedDeductionRates(boolean ascending) {
+    public double [][] sortedDeductionRates(boolean ascending) { // Returns a 2d array sorted by deduction rate
         if (numInTable == 0) {
             return null;
         }
         double temp;
-        double [][] rates = new double[numInTable][2];
+        double [][] rates = new double[numInTable][2]; // [x][0] for deduction rate, [x][1] is for employee numbers
         int index = 0;
-        for (int i = 0; i < buckets.length; i ++) {
+        for (int i = 0; i < buckets.length; i ++) { // Fill array
             for (int j = 0; j < buckets[i].size(); j++) {
                 rates[index][0] = buckets[i].get(j).getDeductionRate();
                 rates[index][1] = buckets[i].get(j).getEmployeeNumber();
                 index++;
             }
         }
-        rates = StringConverter.sortTwoDimentionalArray(rates);
+        rates = StringConverter.sortTwoDimentionalArray(rates); // Sort array
         if (!ascending) {
-            rates = StringConverter.reverseTwoDimentionalArray(rates);
+            rates = StringConverter.reverseTwoDimentionalArray(rates); // Reverse sorted array 
         }
         return rates;
     }
     
-    public int[] sortedGenders(boolean ascending) {
+    public int[] sortedGenders(boolean ascending) { // Returns an array of employee numbers sorted by gender
         int[] toReturn = new int[numInTable];
-        int frontIndex = 0;
-        int backIndex = numInTable - 1;
-        ArrayList<Integer> middle = new ArrayList();
+        int frontIndex = 0; // Front of array
+        int backIndex = numInTable - 1; // Back of array
+        ArrayList<Integer> middle = new ArrayList(); // List to hold Male employees
         for (int i = 0; i < buckets.length; i++) {
             for (int x = 0; x < buckets[i].size(); x++) {
-                if ("Female".equals(buckets[i].get(x).getGender())) {
+                if ("Female".equals(buckets[i].get(x).getGender())) { // If the order is acending, the order will always be Female, Male, Other
                     if (ascending) {
-                        toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber();
-                        frontIndex++;
+                        toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber(); // Set to current front index
+                        frontIndex++; // Move front index in one
                     }
-                    else {
-                        toReturn[backIndex] = buckets[i].get(x).getEmployeeNumber();
-                        backIndex--;
+                    else { // Descending is always Other, Male, Female
+                        toReturn[backIndex] = buckets[i].get(x).getEmployeeNumber(); // Set to current back index
+                        backIndex--; // Move back index in one
                     }
                 }
-                else if ("Other".equals(buckets[i].get(x).getGender())) {
+                else if ("Other".equals(buckets[i].get(x).getGender())) { // Same idea as with female, but using other
                     if (!ascending) {
                         toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber();
                         frontIndex++;
@@ -244,12 +245,12 @@ public class MyHashTable {
                         backIndex--;
                     }
                 }
-                else {
+                else { // Add male employees to list of employees to be added to the middle
                     middle.add(buckets[i].get(x).getEmployeeNumber());
                 }
             }
         }
-        for (int i = 0; i < middle.size(); i++) {
+        for (int i = 0; i < middle.size(); i++) { // Fill the middle with the male employees
             toReturn[frontIndex] = middle.get(i);
             frontIndex++;
         }
