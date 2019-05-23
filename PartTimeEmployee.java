@@ -8,26 +8,26 @@
  *
  * @author 618062
  */
-public class PartTimeEmployee extends EmployeeInfo {
-    private double hourlyWage;
-    private double hoursPerWeek;
-    private double weeksPerYear;
+public class PartTimeEmployee extends EmployeeInfo { //class for parttime employees
+    private double hourlyWage; //hourly wage
+    private double hoursPerWeek; //hours per week
+    private double weeksPerYear;//weeks per year
 
-    public PartTimeEmployee () {
+    public PartTimeEmployee () { //automatic constructor without any parameters
         super();
         hourlyWage = 14;
         hoursPerWeek = 20;
         weeksPerYear = 52;
     }
 
-    public PartTimeEmployee (int empNum, String fName, String lName, int gen, int loc, double ded, double hWage, double hPer, double wPer) {
+    public PartTimeEmployee (int empNum, String fName, String lName, int gen, int loc, double ded, double hWage, double hPer, double wPer) { //constructor with all parameters
         super(empNum, fName, lName, gen, loc, ded);
         hourlyWage = hWage;
         hoursPerWeek = hPer;
         weeksPerYear = wPer;
     }
 
-    public PartTimeEmployee (String fName, String lName, int gen, int loc, double ded, double hWage, double hPer, double wPer) {
+    public PartTimeEmployee (String fName, String lName, int gen, int loc, double ded, double hWage, double hPer, double wPer) { //constructor with all parameters except emp Number
         super(fName, lName, gen, loc, ded);
         hourlyWage = hWage;
         hoursPerWeek = hPer;
@@ -65,7 +65,7 @@ public class PartTimeEmployee extends EmployeeInfo {
         weeksPerYear = weeks;
         return true;
     }
-
+//Other methods
     public double calcAnnualGrossIncome () {
             return (hourlyWage*hoursPerWeek*weeksPerYear);
     }
@@ -74,7 +74,7 @@ public class PartTimeEmployee extends EmployeeInfo {
             return ((1-deductionRate) * calcAnnualGrossIncome());
     }
 
-    public void print() {
+    public void print() { //prints info of employee to console
             super.print();
             System.out.println("Hourly Wage: " + hourlyWage);
             System.out.println("Hours Per Week: " + hoursPerWeek);

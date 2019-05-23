@@ -10,18 +10,18 @@
  */
 import java.util.*;
 
-public class EmployeeInfo {
+public class EmployeeInfo { //Super class for all employees
     protected int employeeNumber;
     protected String firstName;
     protected String lastName;
     protected int gender;
     protected int workLocation;
     protected double deductionRate;
-    public static String[] genders = {"Other", "Female", "Male"};
-    public static ArrayList<String> locations = new ArrayList<String>() {{add("Toronto");}};
-    public static ArrayList<String> locationsInUse = new ArrayList<String>() ;
+    public static String[] genders = {"Other", "Female", "Male"}; //Array of strings for 3 gender options
+    public static ArrayList<String> locations = new ArrayList<String>() {{add("Toronto");}}; //Arraylist with locations in system (automatically adds Toronto)
+    public static ArrayList<String> locationsInUse = new ArrayList<String>() ; //Arraylist containing locations in use by employees
 
-    protected EmployeeInfo () {
+    protected EmployeeInfo () { //Constructor with no parameters
         employeeNumber = generateEmployeeNumber();
         firstName = "Default";
         lastName = "Name";
@@ -30,7 +30,7 @@ public class EmployeeInfo {
         deductionRate = 0.2;
     }
 
-    protected EmployeeInfo (int employeeNum, String fName, String lName, int gen, int workLoc, double dedRate) {
+    protected EmployeeInfo (int employeeNum, String fName, String lName, int gen, int workLoc, double dedRate) { //Constructor with all parameters
         if (MainJFrame.getTheHT().isInTable(employeeNum)) {
                 employeeNumber = generateEmployeeNumber();
         }
@@ -44,7 +44,7 @@ public class EmployeeInfo {
         deductionRate = dedRate;
     }
 
-    protected EmployeeInfo (String fName, String lName, int gen, int workLoc, double dedRate) {
+    protected EmployeeInfo (String fName, String lName, int gen, int workLoc, double dedRate) { //Constructor with all parameters but eNum
         employeeNumber = generateEmployeeNumber();
         firstName = fName;
         lastName = lName;
@@ -82,7 +82,7 @@ public class EmployeeInfo {
         return true;
     }
     
-    public boolean setGender(String gen){
+    public boolean setGender(String gen){ //Sets gneder to respective integer
         List<Character> genChar = StringConverter.stringToChars(gen);
         if (genChar.get(0) == 'M' || genChar.get(0) == 'm') {
             gender = 2;
@@ -98,7 +98,7 @@ public class EmployeeInfo {
         }   
     }
     
-    public boolean setWorkLocation (String location){
+    public boolean setWorkLocation (String location){ //Sets work location if location is found in arraylist
         if (locations.contains(location)){
             workLocation = locations.indexOf(location);
         }
@@ -108,19 +108,20 @@ public class EmployeeInfo {
         return true;
     }
     
-    public boolean setDeductionRate(double rate){
+    public boolean setDeductionRate(double rate){ //Sets deduction rate if >0 and <1
         if (rate < 0 || rate >= 1){
             return false;
         }
         deductionRate = rate;
         return true;
     }
+    //Other methods
     
-    public static void addWorkLocation(String location){
+    public static void addWorkLocation(String location){ //Adds location to arraylist
         locations.add(location);
     }
 
-    private static int generateEmployeeNumber () {
+    private static int generateEmployeeNumber () { //Generates random employee number
             Random getNum = new Random();
             int number = 0;
             do {
@@ -129,7 +130,7 @@ public class EmployeeInfo {
             return number;
     }
 
-    public void print() {
+    public void print() { //Prints general info for employee to console
             System.out.println("Employee Number: " + employeeNumber);
             System.out.println("First Name: " + firstName);
             System.out.println("Last Name: " + lastName);
