@@ -94,10 +94,10 @@ public class ConfirmationFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(noButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(yesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(38, 38, 38)
+                .addComponent(noButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,6 +130,7 @@ public class ConfirmationFrame extends javax.swing.JFrame {
             empEditor.valid = true;
             empEditor.setEnabled(true);
             invalid = true;
+            empEditor.setDone("Submit");
             
         }
         this.dispose();
@@ -156,6 +157,7 @@ public class ConfirmationFrame extends javax.swing.JFrame {
             
             empEditor.done = true;
             empEditor.setEnabled(true);
+            empEditor.setDone("Done");
             
         }
         this.dispose();

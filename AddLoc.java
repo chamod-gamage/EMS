@@ -189,7 +189,7 @@ public class AddLoc extends javax.swing.JFrame {
             if (EmployeeInfo.locations.contains(jTextField12.getText()) || EmployeeInfo.locations.contains(jTextField12.getText().toLowerCase())) {
                 mainLabel.setText("Location Already Added");
             } else {
-                EmployeeInfo.addWorkLocation(jTextField12.getText());
+                EmployeeInfo.addWorkLocation(jTextField12.getText().trim());
                 mainLabel.setText("Location Added!");
                 resetBox();
                 

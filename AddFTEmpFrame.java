@@ -449,12 +449,12 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             }
 
             if (StringConverter.stringChecker(jTextField15.getText())) {
-                empToAdd.setFirstName(jTextField15.getText());
+                empToAdd.setFirstName(jTextField15.getText().trim());
             } else {
                 valid = false;
             }
             if (StringConverter.stringChecker(jTextField14.getText())) {
-                empToAdd.setLastName( jTextField14.getText());
+                empToAdd.setLastName( jTextField14.getText().trim());
             } else {
                 valid = false;
             }
@@ -499,12 +499,12 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             }
 
             if (StringConverter.stringChecker(jTextField15.getText())) {
-                empToAdd.setFirstName(jTextField15.getText());
+                empToAdd.setFirstName(jTextField15.getText().trim());
             } else {
                 valid = false;
             }
             if (StringConverter.stringChecker(jTextField14.getText())) {
-                empToAdd.setLastName( jTextField14.getText());
+                empToAdd.setLastName( jTextField14.getText().trim());
             } else {
                 valid = false;
             }

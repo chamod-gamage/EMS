@@ -104,7 +104,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         fullTimeButton = new javax.swing.JRadioButton();
         partTimeButton = new javax.swing.JRadioButton();
         workLocationLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        doneButton = new javax.swing.JButton();
         genderLabel = new javax.swing.JLabel();
         weeksPerYearInput = new javax.swing.JTextField();
         deductionRateLabel = new javax.swing.JLabel();
@@ -159,10 +159,10 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
         workLocationLabel.setText("Work Location:");
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        doneButton.setText("Submit");
+        doneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                doneButtonActionPerformed(evt);
             }
         });
 
@@ -244,7 +244,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(doneButton))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(invalidLabel)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -325,14 +325,16 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                     .addComponent(weeksPerYear))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(doneButton)
                     .addComponent(jButton3)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    public void setDone (String text) { //Method to publicly change text in the done button
+        doneButton.setText(text);
+    }
     private void firstNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameInputActionPerformed
@@ -383,7 +385,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
         weeksPerYear.setVisible(false);
 
-        jButton1.setVisible(true);
+        doneButton.setVisible(true);
 
     }//GEN-LAST:event_fullTimeButtonActionPerformed
 
@@ -428,11 +430,11 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
         weeksPerYear.setVisible(true);
 
-        jButton1.setVisible(true);
+        doneButton.setVisible(true);
 
     }//GEN-LAST:event_partTimeButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
         // TODO add your handling code here:
         valid = true;
         if (done == true) { //Exiting (and disposing) frame once done
@@ -443,7 +445,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         
         int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
         if (fullTimeButton.isSelected() && done != true) {
-            jButton1.setText("Submit");
+            
             FullTimeEmployee empToAdd = new FullTimeEmployee(); //Instantiating new fulltime employee for new information
             //Checking validity of user entries and if so, adding this info to the new employee
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
@@ -456,12 +458,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
 
             if (StringConverter.stringChecker(firstNameInput.getText())) {
-                empToAdd.setFirstName(firstNameInput.getText());
+                empToAdd.setFirstName(firstNameInput.getText().trim());
             } else {
                 valid = false;
             }
             if (StringConverter.stringChecker(lastNameInput.getText())) {
-                empToAdd.setLastName( lastNameInput.getText());
+                empToAdd.setLastName( lastNameInput.getText().trim());
             } else {
                 valid = false;
             }
@@ -483,7 +485,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 invalidLabel.setVisible(false);
                 ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
-                jButton1.setText("Done");
+                
             } else {
 
                 invalidLabel.setVisible(true);
@@ -491,7 +493,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             
         }
         if (partTimeButton.isSelected() && done != true) {
-            jButton1.setText("Submit");
+            
             PartTimeEmployee empToAdd = new PartTimeEmployee(); //Instantiating new parttime employee for new information
 
             //Checking validity of user entries and if so, adding this info to the new employee
@@ -505,12 +507,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
 
             if (StringConverter.stringChecker(firstNameInput.getText())) {
-                empToAdd.setFirstName(firstNameInput.getText());
+                empToAdd.setFirstName(firstNameInput.getText().trim());
             } else {
                 valid = false;
             }
             if (StringConverter.stringChecker(lastNameInput.getText())) {
-                empToAdd.setLastName( lastNameInput.getText());
+                empToAdd.setLastName( lastNameInput.getText().trim());
             } else {
                 valid = false;
             }
@@ -545,7 +547,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 invalidLabel.setVisible(false);
                 ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
-                jButton1.setText("Done");
+                
             } else {
 
                 invalidLabel.setVisible(true);
@@ -553,7 +555,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_doneButtonActionPerformed
 
     private void weeksPerYearInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weeksPerYearInputActionPerformed
         // TODO add your handling code here:
@@ -609,6 +611,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField deductionRateInput;
     private javax.swing.JLabel deductionRateLabel;
+    private javax.swing.JButton doneButton;
     private javax.swing.JTextField employeeNumberInput;
     private javax.swing.JLabel employeeNumberLabel;
     private javax.swing.JTextField firstNameInput;
@@ -620,7 +623,6 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     private javax.swing.JTextField hoursPerWeekInput;
     private javax.swing.JLabel hoursPerWeekLabel;
     private javax.swing.JLabel invalidLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
