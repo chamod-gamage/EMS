@@ -41,9 +41,7 @@ public class FileStream {
                     employeeToAdd.setGender(myFile.readLine());
                     String locToAdd = myFile.readLine();
                     employeeToAdd.setWorkLocation(locToAdd);
-                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) { //Adds location to LocationsInUse static array
-                        EmployeeInfo.locationsInUse.add(locToAdd);
-                    }
+                    
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setYearlySalary(Double.parseDouble(myFile.readLine()));
                     MainJFrame.getTheHT().addToTable(employeeToAdd);
@@ -57,9 +55,7 @@ public class FileStream {
                     employeeToAdd.setGender(myFile.readLine());
                     String locToAdd = myFile.readLine();
                     employeeToAdd.setWorkLocation(locToAdd);
-                    if (!EmployeeInfo.locationsInUse.contains(locToAdd)) { //Adds location to LocationsInUse static array
-                        EmployeeInfo.locationsInUse.add(locToAdd);
-                    }
+                    
                     employeeToAdd.setDeductionRate(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setHourlyWage(Double.parseDouble(myFile.readLine()));
                     employeeToAdd.setHoursPerWeek(Double.parseDouble(myFile.readLine()));

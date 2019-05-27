@@ -129,6 +129,22 @@ public class EmployeeInfo { //Super class for all employees
             } while (MainJFrame.getTheHT().isInTable(number) == true);
             return number;
     }
+    public static void updateLocationsInUse() { //Method to update locationsInUse arraylist
+        locationsInUse.clear();
+        EmployeeInfo employee;
+        while (true) {
+            employee = MainJFrame.getTheHT().iterate();
+            if (employee == null) {
+                break;
+            }
+            if (!locationsInUse.contains(employee.getWorkLocation())) {
+                locationsInUse.add(employee.getWorkLocation());
+            }
+            if (locationsInUse.size() == locations.size()) {
+                break;
+            }
+        }
+    }
 
     public void print() { //Prints general info for employee to console
             System.out.println("Employee Number: " + employeeNumber);

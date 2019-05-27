@@ -18,6 +18,7 @@ public class AddLoc extends javax.swing.JFrame {
     //Frame for user to add and remove locations
     public AddLoc() {
         initComponents();
+        EmployeeInfo.updateLocationsInUse();
         mainLabel.setVisible(false);
         jComboBox1.removeAllItems(); 
         for (int x = 0; x < EmployeeInfo.locations.size(); x++) { //Adds currently stored locations to ComboBox
