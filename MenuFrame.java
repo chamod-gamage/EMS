@@ -82,7 +82,7 @@ public class MenuFrame extends javax.swing.JFrame {
         warningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("EMS - Homepage");
 
         addEmployeeButton.setText("Add Employees");
         addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +90,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 addEmployeeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 96, 186, -1));
 
         removeEmployeeButton.setText("Remove Employees");
         removeEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +97,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 removeEmployeeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(removeEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 146, 186, -1));
 
         editEmployeeButton.setText("Edit Employee Information");
         editEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +104,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 editEmployeeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 196, 186, -1));
 
         viewEmployeeButton.setText("View Employee Information");
         viewEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +111,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 viewEmployeeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(viewEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 246, 186, -1));
 
         addLocationButton.setText("Manage Work Locations");
         addLocationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +118,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 addLocationButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addLocationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 296, 186, -1));
 
         mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -185,8 +180,6 @@ public class MenuFrame extends javax.swing.JFrame {
             mainTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 586, 422));
-
         searchBar.setText("Search...");
         searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -201,7 +194,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 searchBarActionPerformed(evt);
             }
         });
-        getContentPane().add(searchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 54, 186, -1));
 
         userGuideButton.setText("User Guide");
         userGuideButton.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +201,6 @@ public class MenuFrame extends javax.swing.JFrame {
                 userGuideButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(userGuideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 346, 186, -1));
 
         saveButton.setText("Save Information");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -217,13 +208,57 @@ public class MenuFrame extends javax.swing.JFrame {
                 saveButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 396, 186, -1));
 
         warningLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         warningLabel.setText("WARNING, NO MEMORY FOUND");
         warningLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         warningLabel.setPreferredSize(new java.awt.Dimension(186, 16));
-        getContentPane().add(warningLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(warningLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addLocationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userGuideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(warningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(addEmployeeButton)
+                .addGap(18, 18, 18)
+                .addComponent(removeEmployeeButton)
+                .addGap(18, 18, 18)
+                .addComponent(editEmployeeButton)
+                .addGap(18, 18, 18)
+                .addComponent(viewEmployeeButton)
+                .addGap(18, 18, 18)
+                .addComponent(addLocationButton)
+                .addGap(18, 18, 18)
+                .addComponent(userGuideButton)
+                .addGap(18, 18, 18)
+                .addComponent(saveButton)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);
