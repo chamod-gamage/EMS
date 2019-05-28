@@ -444,6 +444,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         }
         
         int oldEmployeeNum = employeeToEdit.getEmployeeNumber();
+        int currentEmployeeNum = StringConverter.stringToInteger(employeeNumberInput.getText());
         if (fullTimeButton.isSelected() && done != true) {
             
             FullTimeEmployee empToAdd = new FullTimeEmployee(); //Instantiating new fulltime employee for new information
@@ -483,7 +484,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
             if (valid == true) { //Removes old employee and adds new employee if user confirms changes in confirmation frame
                 invalidLabel.setVisible(false);
-                ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
+                ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum,currentEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
                 
             } else {
@@ -545,7 +546,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
              if (valid == true) { //Removes old employee and adds new employee if user confirms changes in confirmation frame
                 invalidLabel.setVisible(false);
-                ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum, empToAdd);
+                ConfirmationFrame theConFrame = new ConfirmationFrame(this,mainHT,oldEmployeeNum,currentEmployeeNum, empToAdd);
                 theConFrame.setVisible(true);
                 
             } else {

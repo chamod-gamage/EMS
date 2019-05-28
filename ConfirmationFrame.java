@@ -21,6 +21,7 @@ public class ConfirmationFrame extends javax.swing.JFrame {
     boolean invalid; //Random variable
     MyHashTable hT; //refval for hash table
     int eNum; //emp num
+    int newENum;
     EmployeeInfo eTA; //empToAdd
     
     
@@ -39,11 +40,12 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         jLabel1.setText("Do you want to delete the selected location?");
     }
     
-    public ConfirmationFrame(EditEmployeeFrame empEdit,MyHashTable haT, int eN, EmployeeInfo empToAdd) { //Constructor for editing employees
+    public ConfirmationFrame(EditEmployeeFrame empEdit,MyHashTable haT, int eN, int newEN, EmployeeInfo empToAdd) { //Constructor for editing employees
         empEditor = empEdit;
         empEditor.setEnabled(false);
         hT =haT;
         eNum = eN;
+        newENum = newEN;
         eTA = empToAdd;
         initComponents();
         jLabel1.setText("Do you want to continue with these changes?");
@@ -150,11 +152,8 @@ public class ConfirmationFrame extends javax.swing.JFrame {
         }
         if (empEditor != null) {
             hT.removeFromTable(eNum);
+            eTA.setEmployeeNumber(newENum);
             hT.addToTable(eTA);
-
-            
-                
-            
             empEditor.done = true;
             empEditor.setEnabled(true);
             empEditor.setDone("Done");
