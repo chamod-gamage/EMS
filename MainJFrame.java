@@ -25,7 +25,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() { //Instantiates frame with a hash table containing 10 buckets
         initComponents();
-        invalidLabel.setVisible(false);
+        invalidLabel.setText(" ");
         theHT = new MyHashTable(10);
     }
     
@@ -53,10 +53,11 @@ public class MainJFrame extends javax.swing.JFrame {
         invalidLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(325, 225));
-        setPreferredSize(new java.awt.Dimension(410, 210));
+        setTitle("EMS - Gateway");
+        setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color1"));
+        setMinimumSize(new java.awt.Dimension(425, 230));
+        setPreferredSize(new java.awt.Dimension(425, 230));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterButton.setText("Enter");
         enterButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +65,6 @@ public class MainJFrame extends javax.swing.JFrame {
                 enterButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(enterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 123, -1, -1));
 
         viewUserGuideButton.setText("View User Guide");
         viewUserGuideButton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,6 @@ public class MainJFrame extends javax.swing.JFrame {
                 viewUserGuideButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(viewUserGuideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 166, -1, -1));
 
         jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setMinimumSize(new java.awt.Dimension(119, 22));
@@ -81,17 +80,58 @@ public class MainJFrame extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 82, 120, 30));
 
         headerLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         headerLabel.setText("Welcome to the Employee Management System!");
-        getContentPane().add(headerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 11, -1, -1));
 
         passwordLabel.setText("Password");
-        getContentPane().add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 90, -1, -1));
 
         invalidLabel.setText("PASSWORD IS INVALID");
-        getContentPane().add(invalidLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 50, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(headerLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(invalidLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(passwordLabel)
+                        .addGap(12, 12, 12)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(enterButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(285, 285, 285)
+                        .addComponent(viewUserGuideButton)))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(headerLabel)
+                .addGap(19, 19, 19)
+                .addComponent(invalidLabel)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(passwordLabel))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(enterButton)
+                .addGap(14, 14, 14)
+                .addComponent(viewUserGuideButton)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -125,7 +165,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
         //Proceeds to MenuFrame if password is correct, reading from file for info
-        invalidLabel.setVisible(false);
+        invalidLabel.setText(" ");
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
@@ -143,7 +183,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         } 
         else { //Invalid label is set visible
-            invalidLabel.setVisible(true);
+            invalidLabel.setText("PASSWORD IS INVALID");
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 
@@ -156,7 +196,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 Desktop.getDesktop().open(userGuide);
             }
         }
-        catch (IOException e) {
+        catch (Exception e) {
             
         }      
     }//GEN-LAST:event_viewUserGuideButtonActionPerformed
@@ -165,7 +205,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //User presses enter key
         //Proceeds to MenuFrame if password is correct, reading from file for info
-        invalidLabel.setVisible(false);
+        invalidLabel.setText(" ");
         char[] input = jPasswordField1.getPassword(); 
         
         if (isPasswordCorrect(input) == true) {
@@ -183,7 +223,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         } 
         else {
-            invalidLabel.setVisible(true);
+            invalidLabel.setText("PASSWORD IS INVALID");
         }
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
