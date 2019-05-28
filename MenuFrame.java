@@ -83,6 +83,7 @@ public class MenuFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EMS - Homepage");
+        setResizable(false);
 
         addEmployeeButton.setText("Add Employees");
         addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
