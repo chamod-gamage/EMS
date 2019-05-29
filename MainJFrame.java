@@ -216,6 +216,7 @@ public class MainJFrame extends javax.swing.JFrame {
             catch(Exception e) {
                 // Create pop-up
                 alert = true;
+                
             }
             theMenu = new MenuFrame(alert);
             theMenu.setVisible(true);
