@@ -627,7 +627,14 @@ public class MenuFrame extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
 
         warningLabel.setVisible(false);
-        FileStream.writeToFile(); // Save hashtable
+        try {
+            FileStream.writeToFile(); // Save hashtable
+        }
+        catch (Exception e) {
+            warningLabel.setText("ERROR SAVING");
+            warningLabel.setVisible(true);
+            return;
+        }
         warningLabel.setText("Information Saved!"); // Display label indicating success
         warningLabel.setVisible(true);
     }//GEN-LAST:event_saveButtonActionPerformed

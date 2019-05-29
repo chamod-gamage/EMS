@@ -17,7 +17,7 @@ public class FileStream {
     private FileStream(){}
     private static String filename = "src/RWMemory.txt"; //Contains main text file
     private static String backup = "Backup.txt"; //Contains backup text file (currently not functional)
-    public static void readFromFile() { //Reads information from file if it is found
+    public static void readFromFile() throws Exception { //Reads information from file if it is found
         try {
             BufferedReader myFile = new BufferedReader(new FileReader(filename));
             if (myFile.readLine().equals("loc")) { //Reading location info
@@ -70,14 +70,12 @@ public class FileStream {
         catch (Exception e) {
             
             if (e instanceof FileNotFoundException) {
-                System.out.println("File Not Found");
-                // Add option to restore from backup
-                return;
+                throw e;
             }
             // ADD POPUP 
         }
     }
-    public static void writeToFile() { //Writes info to file if it is found
+    public static void writeToFile() throws Exception { //Writes info to file if it is found
         try {
             BufferedWriter myFile = new BufferedWriter(new FileWriter(filename));
             EmployeeInfo currentEmployee;
@@ -117,13 +115,11 @@ public class FileStream {
                     myFile.write(Double.toString(currentFTEmployee.getYearlySalary())); myFile.newLine();
                 }
             }
-            
-            
             // Iterate through hashtable using employee numbers and write them all to the file
             myFile.close();
         }
         catch (IOException e) {
-            System.out.println("Error Writing to Memeory");
+            throw e;
         }
     }
 }
