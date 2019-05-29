@@ -1,14 +1,1 @@
-Changes Made:
-Removed list of employee numbers, replaced it with an iterator and some methods
-Maid MenuFrame an attribute of MainJFrame, and provided a method to change it's visibility
-Finished remove button and edit button
-Made table editable from code
-Fixed the stupid password screen
-Made search bar
-All applicable columns can now be sorted by clicking the header
-Added safety swtich based on the number of employees in the hashtable
-Things to do:
-Get the memory working
-	Maybe add multiple save files?
-Random fillrow error, throws out of bounds exception?
-Add 100000 cap to # of employees
+Currently Nothing
