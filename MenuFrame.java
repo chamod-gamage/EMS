@@ -29,6 +29,9 @@ public class MenuFrame extends javax.swing.JFrame {
                 case 0:
                     fillByEmployeeNumber();
                     break;
+                case 1:
+                    fillByType();
+                    break;
                 case 2:
                     fillByFirstName();
                     break;
@@ -405,6 +408,24 @@ public class MenuFrame extends javax.swing.JFrame {
             return;
         }
         Integer[] sortedList = MainJFrame.getTheHT().sortedNumbers(!sortedUp); // Does the opposite sort of whatever currently exists
+        EmployeeInfo employee;
+        for (int i = 0; i < sortedList.length; i++) {
+            employee = MainJFrame.getTheHT().readFromTable(sortedList[i]); // Fill rows by iterating through array
+            fillRow(employee, i);
+        }
+        if (sortedUp) { // Updated sorted status
+            sortedUp = false;
+        }
+        else {
+            sortedUp = true;
+        }
+    }
+    
+    private void fillByType() {
+        if (MainJFrame.getTheHT().getNumInTable() == 0) {
+            return;
+        }
+        int [] sortedList = MainJFrame.getTheHT().sortedTypes(!sortedUp);
         EmployeeInfo employee;
         for (int i = 0; i < sortedList.length; i++) {
             employee = MainJFrame.getTheHT().readFromTable(sortedList[i]); // Fill rows by iterating through array

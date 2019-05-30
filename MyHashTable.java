@@ -218,6 +218,37 @@ public class MyHashTable {
         return rates;
     }
     
+    public int[] sortedTypes (boolean ascending) {
+        int[] toReturn = new int[numInTable];
+        int frontIndex = 0;
+        int backIndex = toReturn.length - 1;
+        for (int i = 0; i < buckets.length; i++) {
+            for (int x = 0; x < buckets[i].size(); x++) {
+                if (buckets[i].get(x) instanceof FullTimeEmployee) {
+                    if (ascending) {
+                        toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber();
+                        frontIndex++;
+                    }
+                    else {
+                        toReturn[backIndex] = buckets[i].get(x).getEmployeeNumber();
+                        backIndex--;
+                    }
+                }
+                else {
+                    if (!ascending) {
+                        toReturn[frontIndex] = buckets[i].get(x).getEmployeeNumber();
+                        frontIndex++;
+                    }
+                    else {
+                        toReturn[backIndex] = buckets[i].get(x).getEmployeeNumber();
+                        backIndex--;
+                    }
+                }
+            }
+        }
+        return toReturn;
+    }
+    
     public int[] sortedGenders(boolean ascending) { // Returns an array of employee numbers sorted by gender
         int[] toReturn = new int[numInTable];
         int frontIndex = 0; // Front of array
