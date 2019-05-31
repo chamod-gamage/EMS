@@ -20,14 +20,14 @@ public class PartTimeEmployee extends EmployeeInfo { //class for parttime employ
         weeksPerYear = 52;
     }
 
-    public PartTimeEmployee (int empNum, String fName, String lName, int gen, int loc, double ded, double hWage, double hPer, double wPer) { //constructor with all parameters
+    public PartTimeEmployee (int empNum, String fName, String lName, int gen, String loc, double ded, double hWage, double hPer, double wPer) { //constructor with all parameters
         super(empNum, fName, lName, gen, loc, ded);
         hourlyWage = hWage;
         hoursPerWeek = hPer;
         weeksPerYear = wPer;
     }
 
-    public PartTimeEmployee (String fName, String lName, int gen, int loc, double ded, double hWage, double hPer, double wPer) { //constructor with all parameters except emp Number
+    public PartTimeEmployee (String fName, String lName, int gen, String loc, double ded, double hWage, double hPer, double wPer) { //constructor with all parameters except emp Number
         super(fName, lName, gen, loc, ded);
         hourlyWage = hWage;
         hoursPerWeek = hPer;

@@ -17,12 +17,12 @@ public class FullTimeEmployee extends EmployeeInfo {
         yearlySalary = 55806.40;
     }
 
-    public FullTimeEmployee (int empNum, String fName, String lName, int gen, int loc, double ded, double yearlySal) { //Constructor with various attributes  
+    public FullTimeEmployee (int empNum, String fName, String lName, int gen, String loc, double ded, double yearlySal) { //Constructor with various attributes  
         super(empNum, fName, lName, gen, loc, ded);
         yearlySalary = yearlySal;
     }
 
-    public FullTimeEmployee (String fName, String lName, int gen, int loc, double ded, double yearlySal) { //Like above but automatically set employee number
+    public FullTimeEmployee (String fName, String lName, int gen, String loc, double ded, double yearlySal) { //Like above but automatically set employee number
         super(fName, lName, gen, loc, ded);
         yearlySalary = yearlySal;
     }

@@ -15,7 +15,7 @@ public class EmployeeInfo { //Super class for all employees
     protected String firstName;
     protected String lastName;
     protected int gender;
-    protected int workLocation;
+    protected String workLocation;
     protected double deductionRate;
     public static String[] genders = {"Other", "Female", "Male"}; //Array of strings for 3 gender options
     public static ArrayList<String> locations = new ArrayList<String>() {{add("Toronto");}}; //Arraylist with locations in system (automatically adds Toronto)
@@ -26,11 +26,11 @@ public class EmployeeInfo { //Super class for all employees
         firstName = "Default";
         lastName = "Name";
         gender = 0;
-        workLocation = 0;
+        workLocation = "Toronto";
         deductionRate = 0.2;
     }
 
-    protected EmployeeInfo (int employeeNum, String fName, String lName, int gen, int workLoc, double dedRate) { //Constructor with all parameters
+    protected EmployeeInfo (int employeeNum, String fName, String lName, int gen, String workLoc, double dedRate) { //Constructor with all parameters
         if (MainJFrame.getTheHT().isInTable(employeeNum)) {
                 employeeNumber = generateEmployeeNumber();
         }
@@ -44,7 +44,7 @@ public class EmployeeInfo { //Super class for all employees
         deductionRate = dedRate;
     }
 
-    protected EmployeeInfo (String fName, String lName, int gen, int workLoc, double dedRate) { //Constructor with all parameters but eNum
+    protected EmployeeInfo (String fName, String lName, int gen, String workLoc, double dedRate) { //Constructor with all parameters but eNum
         employeeNumber = generateEmployeeNumber();
         firstName = fName;
         lastName = lName;
@@ -59,7 +59,7 @@ public class EmployeeInfo { //Super class for all employees
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
     public String getGender() {return genders[gender];}
-    public String getWorkLocation() {return locations.get(workLocation);}
+    public String getWorkLocation() {return workLocation;}
     public double getDeductionRate() {return deductionRate;}
     
     // Setters
@@ -100,7 +100,7 @@ public class EmployeeInfo { //Super class for all employees
     
     public boolean setWorkLocation (String location){ //Sets work location if location is found in arraylist
         if (locations.contains(location)){
-            workLocation = locations.indexOf(location);
+            workLocation = location;
         }
         else{
             return false;
@@ -151,7 +151,7 @@ public class EmployeeInfo { //Super class for all employees
             System.out.println("First Name: " + firstName);
             System.out.println("Last Name: " + lastName);
             System.out.println("Gender: " + genders[gender]);
-            System.out.println("Work Location: " + locations.get(workLocation));
+            System.out.println("Work Location: " + workLocation);
             System.out.println("DeductionRate: " + deductionRate);
     }
 

@@ -71,6 +71,7 @@ public class AddLoc extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("EMS - Location Management");
         setResizable(false);
 
         jLabel9.setText("Add Location:");
@@ -81,7 +82,7 @@ public class AddLoc extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel22.setText("LOCATION MANAGEMENT");
 
         addButton.setText("Add");
@@ -144,7 +145,7 @@ public class AddLoc extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel22)
-                .addGap(99, 99, 99))
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
