@@ -204,12 +204,20 @@ public class AddLoc extends javax.swing.JFrame {
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
+        if (EmployeeInfo.locations.size() == 0) {
+            mainLabel.setText("No Locations in EMS");
+            return;
+        }
         String locationToRemove = jComboBox1.getSelectedItem().toString();
+        
         //Remove locations iff they are not in use
+        
         if (EmployeeInfo.locations.contains(locationToRemove) && !EmployeeInfo.locationsInUse.contains(locationToRemove)) {
+            
             ConfirmationFrame check = new ConfirmationFrame(this, locationToRemove);
             check.setVisible(true);
         } else {
+            
             mainLabel.setVisible(true);
             mainLabel.setText("Location In Use");
         }
