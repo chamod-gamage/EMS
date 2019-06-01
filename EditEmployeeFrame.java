@@ -65,7 +65,6 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         String empNum = Integer.toString(employeeToEdit.getEmployeeNumber());
         employeeNumberInput.setText(empNum);
         jComboBox1.setSelectedItem(employeeToEdit.getWorkLocation());
-        System.out.println(jComboBox1.getSelectedItem());
         jComboBox2.setSelectedItem(employeeToEdit.getGender());
         String deduction = Double.toString(employeeToEdit.getDeductionRate());
         deductionRateInput.setText(deduction);
