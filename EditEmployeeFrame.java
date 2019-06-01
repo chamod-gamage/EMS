@@ -23,12 +23,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         initComponents();
         jComboBox2.removeAllItems(); 
         for (int x = 0; x < EmployeeInfo.locations.size(); x++) {//Loads in current location to locations ComboBox
-            if (EmployeeInfo.locations.get(x) == employee.getWorkLocation()) {
+            if (EmployeeInfo.locations.get(x).equals(employee.getWorkLocation())) {
                 jComboBox2.addItem(EmployeeInfo.locations.get(x));
             }
         }
         for (int x = 0; x < EmployeeInfo.locations.size(); x++) {//Loads in other locations to locations ComboBox
-            if (EmployeeInfo.locations.get(x) != employee.getWorkLocation()) {
+            if (!EmployeeInfo.locations.get(x).equals(employee.getWorkLocation())) {
                 jComboBox2.addItem(EmployeeInfo.locations.get(x));
             }
         }
