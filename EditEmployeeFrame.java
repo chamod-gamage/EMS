@@ -8,7 +8,9 @@
  *
  * @author 567882
  */
+import java.text.DecimalFormat;
 public class EditEmployeeFrame extends javax.swing.JFrame {
+    DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     /**
      * Creates new form EditEmployeeFrame
@@ -70,14 +72,14 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         deductionRateInput.setText(deduction);
         if (employeeToEdit instanceof PartTimeEmployee){
             PartTimeEmployee temp = (PartTimeEmployee)employeeToEdit;
-            hourlyWageInput.setText(Double.toString(temp.getHourlyWage()));
-            hoursPerWeekInput.setText(Double.toString(temp.getHoursPerWeek()));
-            weeksPerYearInput.setText(Double.toString(temp.getWeeksPerYear()));
+            hourlyWageInput.setText(String.format ("%.2f", temp.getHourlyWage()));
+            hoursPerWeekInput.setText(String.format ("%.2f", temp.getHoursPerWeek()));
+            weeksPerYearInput.setText(String.format ("%.2f", temp.getWeeksPerYear()));
             //yearlySalaryInput.setText(Double.toString(temp.calcAnnualGrossIncome()));
         }
         else {
             FullTimeEmployee temp = (FullTimeEmployee)employeeToEdit;
-            hourlyWageInput.setText(Double.toString(temp.getYearlySalary()));
+            hourlyWageInput.setText(String.format ("%.2f", temp.getYearlySalary()));
             //weeksPerYearInput.setText("52");
             //hoursPerWeekInput.setText("20");
             //double wage = (((temp.getYearlySalary())/52)/20);
@@ -372,7 +374,9 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         }
         else {
             FullTimeEmployee temp = (FullTimeEmployee)employeeToEdit;
-            hourlyWageInput.setText(Double.toString(temp.getYearlySalary()));
+            
+            hourlyWageInput.setText(String.format ("%.2f", temp.getYearlySalary()));
+            
         }
 
         employeeNumberLabel.setVisible(true);
@@ -417,7 +421,9 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         }
         else {
             PartTimeEmployee temp = (PartTimeEmployee)employeeToEdit;
-            hourlyWageInput.setText(Double.toString(temp.getHourlyWage()));
+            
+            
+            hourlyWageInput.setText(String.format ("%.2f", temp.getHourlyWage()));
         }
 
         employeeNumberLabel.setVisible(true);

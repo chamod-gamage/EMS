@@ -36,15 +36,15 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
             mainTable.setValueAt("Deduction Rate", 6, 0);
             mainTable.setValueAt(employee.getDeductionRate(), 6, 1);
             mainTable.setValueAt("Hourly Wage", 7, 0);
-            mainTable.setValueAt(employee.getHourlyWage(), 7, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.getHourlyWage()), 7, 1);
             mainTable.setValueAt("Hours per Week", 8, 0);
-            mainTable.setValueAt(employee.getHoursPerWeek(), 8, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.getHoursPerWeek()), 8, 1);
             mainTable.setValueAt("Weeks per Year", 9, 0);
-            mainTable.setValueAt(employee.getWeeksPerYear(), 9, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.getWeeksPerYear()), 9, 1);
             mainTable.setValueAt("Annual Gross Income", 10, 0);
-            mainTable.setValueAt(employee.calcAnnualGrossIncome(), 10, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.calcAnnualGrossIncome()), 10, 1);
             mainTable.setValueAt("Annual Net Income", 11, 0);
-            mainTable.setValueAt(employee.calcAnnualNetIncome(), 11, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.calcAnnualNetIncome()), 11, 1);
         }
         else if (employeeInput instanceof FullTimeEmployee) { // Case of FullTimeEmployee, fill table
             FullTimeEmployee employee = (FullTimeEmployee)employeeInput;
@@ -64,9 +64,9 @@ public class ViewEmployeeFrame extends javax.swing.JFrame {
             mainTable.setValueAt("Deduction Rate", 6, 0);
             mainTable.setValueAt(employee.getDeductionRate(), 6, 1);
             mainTable.setValueAt("Yearly Salary", 7, 0);
-            mainTable.setValueAt(employee.calcAnnualGrossIncome(), 7, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.calcAnnualGrossIncome()), 7, 1);
             mainTable.setValueAt("Annual Net Income", 8, 0);
-            mainTable.setValueAt(employee.calcAnnualNetIncome(), 8, 1);
+            mainTable.setValueAt(String.format ("%.2f", employee.calcAnnualNetIncome()), 8, 1);
         }
     }
 
