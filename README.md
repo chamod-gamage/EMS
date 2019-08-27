@@ -33,7 +33,7 @@ Download EMS-1.0-SNAPSHOT.jar
 
 Download UserGuide.pdf to the same location
 
-Open the .jar file to run the EMS
+Open the .jar file to run the EMS (double-click)
 
 
 
