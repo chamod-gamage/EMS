@@ -8,13 +8,22 @@ These instructions will allow you to get the EMS running on your local system fo
 
 ### Prerequisites
 
-NetBeans IDE (https://netbeans.apache.org/download/nb110/nb110.html)
+NetBeans IDE (if you want to view/edit code) https://netbeans.apache.org/download/nb110/nb110.html
+Java Development Kit https://www.oracle.com/technetwork/java/javase/downloads/index.html
+Java Runtime Environment
 
 ### Installing
 
+Developers:
 Download all of the files to your local system.
 Open the downloaded directory with NetBeans.
-Place the UserGuide.txt outside of its current folder into the src folder.
-Run the program.
+Place the UserGuide.pdf outside of its current folder into the src folder.
+Run the program/Edit code
+
+Users:
+Download EMS-1.0-SNAPSHOT.jar
+Download UserGuide.pdf to the same location
+Open the .jar file to run the EMS
+
 
 
