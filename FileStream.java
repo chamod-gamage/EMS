@@ -1,3 +1,5 @@
+package com.mycompany.ems;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,7 +17,7 @@ import java.io.*;
 public class FileStream {
     //Class that handles the reading and writing to files
     private FileStream(){}
-    private static String filename = "src/RWMemory.txt"; //Contains main text file
+    private static String filename = "RWMemory.txt"; //Contains main text file
     private static String backup = "Backup.txt"; //Contains backup text file (currently not functional)
     public static void readFromFile() throws Exception { //Reads information from file if it is found
         try {

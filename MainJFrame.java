@@ -1,3 +1,5 @@
+package com.mycompany.ems;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -56,7 +58,6 @@ public class MainJFrame extends javax.swing.JFrame {
         setTitle("EMS - Gateway");
         setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color1"));
         setMinimumSize(new java.awt.Dimension(425, 230));
-        setPreferredSize(new java.awt.Dimension(425, 230));
         setResizable(false);
 
         enterButton.setText("Enter");
@@ -86,7 +87,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         passwordLabel.setText("Password");
 
-        invalidLabel.setText("PASSWORD IS INVALID");
+        invalidLabel.setText("PASSWORD IS (INVALID)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,19 +99,18 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(headerLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(invalidLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(passwordLabel)
-                        .addGap(12, 12, 12)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(enterButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(285, 285, 285)
-                        .addComponent(viewUserGuideButton)))
+                        .addComponent(viewUserGuideButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(passwordLabel)
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(invalidLabel)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,9 +118,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(headerLabel)
-                .addGap(19, 19, 19)
+                .addGap(23, 23, 23)
                 .addComponent(invalidLabel)
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -166,7 +166,8 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Proceeds to MenuFrame if password is correct, reading from file for info
         invalidLabel.setText(" ");
-        char[] input = jPasswordField1.getPassword(); 
+        char[] input = jPasswordField1.getPassword();
+        
         
         if (isPasswordCorrect(input) == true) {
             boolean alert = false;
@@ -183,7 +184,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         } 
         else { //Invalid label is set visible
-            invalidLabel.setText("PASSWORD IS INVALID");
+            invalidLabel.setText("PASSWORD IS 'INVALID'");
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 
@@ -224,7 +225,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         } 
         else {
-            invalidLabel.setText("PASSWORD IS INVALID");
+            invalidLabel.setText("PASSWORD IS 'INVALID'");
         }
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 

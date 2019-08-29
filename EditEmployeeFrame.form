@@ -48,15 +48,15 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="employeeNumberLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="firstNameLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="genderLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="workLocationLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="deductionRateLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="hourlyWageLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="hoursPerWeekLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="weeksPerYear" min="-2" max="-2" attributes="0"/>
+                                  <Component id="empNumLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fNLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lNLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="genLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="locLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dedLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wageLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="hourLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="weekLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -93,47 +93,47 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="employeeNumberInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="employeeNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="empNumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="firstNameInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fNLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lastNameInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lNLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="genderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="genLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jComboBox2" alignment="3" max="32767" attributes="0"/>
-                  <Component id="workLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="locLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deductionRateInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="deductionRateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dedLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="hourlyWageInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hourlyWageLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="wageLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="hoursPerWeekInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hoursPerWeekLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hourLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="weeksPerYearInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="weeksPerYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="weekLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -145,7 +145,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lastNameLabel">
+    <Component class="javax.swing.JLabel" name="lNLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Last Name:"/>
       </Properties>
@@ -155,7 +155,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameInputActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="hoursPerWeekLabel">
+    <Component class="javax.swing.JLabel" name="hourLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hours / Week:"/>
       </Properties>
@@ -165,7 +165,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="employeeNumberInputActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="weeksPerYear">
+    <Component class="javax.swing.JLabel" name="weekLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Weeks/Year:"/>
       </Properties>
@@ -191,7 +191,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partTimeButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="workLocationLabel">
+    <Component class="javax.swing.JLabel" name="locLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Work Location:"/>
       </Properties>
@@ -204,7 +204,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doneButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="genderLabel">
+    <Component class="javax.swing.JLabel" name="genLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gender:"/>
       </Properties>
@@ -214,7 +214,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weeksPerYearInputActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="deductionRateLabel">
+    <Component class="javax.swing.JLabel" name="dedLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Deductions Rate:"/>
       </Properties>
@@ -250,7 +250,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="hourlyWageLabel">
+    <Component class="javax.swing.JLabel" name="wageLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hourly Wage:"/>
       </Properties>
@@ -277,7 +277,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="employeeNumberLabel">
+    <Component class="javax.swing.JLabel" name="empNumLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Employee Number:"/>
       </Properties>
@@ -287,7 +287,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deductionRateInputActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="firstNameLabel">
+    <Component class="javax.swing.JLabel" name="fNLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="First Name:"/>
       </Properties>

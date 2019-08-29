@@ -1,3 +1,6 @@
+package com.mycompany.ems;
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -35,22 +38,22 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jLabel8.setVisible(false);
         
         
-        jLabel9.setVisible(false);
+        locLabel.setVisible(false);
         
        
-        jLabel10.setVisible(false);
+        dedLabel.setVisible(false);
         
-        jLabel11.setVisible(false);
+        wageLabel.setVisible(false);
        
-        jLabel12.setVisible(false);
+        empNumLabel.setVisible(false);
       
-        jLabel13.setVisible(false);
-        jLabel14.setVisible(false);
+        fNLabel.setVisible(false);
+        lNLabel.setVisible(false);
        
-        jLabel15.setVisible(false);
-        jLabel16.setVisible(false);
+        genLabel.setVisible(false);
+        hourLabel.setVisible(false);
        
-        jLabel17.setVisible(false);
+        weekLabel.setVisible(false);
         
         jLabel19.setVisible(false);
       
@@ -72,13 +75,13 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        dedLabel = new javax.swing.JLabel();
+        wageLabel = new javax.swing.JLabel();
+        empNumLabel = new javax.swing.JLabel();
+        fNLabel = new javax.swing.JLabel();
+        lNLabel = new javax.swing.JLabel();
+        hourLabel = new javax.swing.JLabel();
+        weekLabel = new javax.swing.JLabel();
         fTButton = new javax.swing.JRadioButton();
         pTButton = new javax.swing.JRadioButton();
         submitButton = new javax.swing.JButton();
@@ -91,8 +94,8 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         employeeNumberInput = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        locLabel = new javax.swing.JLabel();
+        genLabel = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -112,19 +115,19 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         setResizable(false);
 
-        jLabel10.setText("Deductions Rate:");
+        dedLabel.setText("Deductions Rate:");
 
-        jLabel11.setText("Hourly Wage:");
+        wageLabel.setText("Hourly Wage:");
 
-        jLabel12.setText("Employee Number:");
+        empNumLabel.setText("Employee Number:");
 
-        jLabel13.setText("First Name:");
+        fNLabel.setText("First Name:");
 
-        jLabel14.setText("Last Name:");
+        lNLabel.setText("Last Name:");
 
-        jLabel16.setText("Hours / Week:");
+        hourLabel.setText("Hours / Week:");
 
-        jLabel17.setText("Weeks/Year:");
+        weekLabel.setText("Weeks/Year:");
 
         fTButton.setText("Full-Time");
         fTButton.addActionListener(new java.awt.event.ActionListener() {
@@ -191,9 +194,9 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
 
         jLabel19.setText("INVALID INFORMATION");
 
-        jLabel9.setText("Work Location:");
+        locLabel.setText("Work Location:");
 
-        jLabel15.setText("Gender:");
+        genLabel.setText("Gender:");
 
         jLabel21.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -240,11 +243,11 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(lNLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(fNLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(empNumLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(genLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(locLabel, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -257,16 +260,16 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11)
-                                .addComponent(jLabel10))
+                                .addComponent(wageLabel)
+                                .addComponent(dedLabel))
                             .addGap(25, 25, 25)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel16)
-                                .addComponent(jLabel17))
+                                .addComponent(hourLabel)
+                                .addComponent(weekLabel))
                             .addGap(42, 42, 42)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,39 +304,39 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                             .addComponent(fTButton))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
+                            .addComponent(empNumLabel)
                             .addComponent(employeeNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
+                            .addComponent(fNLabel)
                             .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
+                            .addComponent(lNLabel)
                             .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
+                            .addComponent(genLabel)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
+                            .addComponent(locLabel)
                             .addComponent(jComboBox2))
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
+                            .addComponent(dedLabel)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
+                            .addComponent(wageLabel)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
+                            .addComponent(hourLabel)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
+                            .addComponent(weekLabel)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addComponent(jLabel19)
@@ -368,23 +371,23 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jLabel8.setVisible(false);
         
         
-        jLabel9.setVisible(true);
+        locLabel.setVisible(true);
         
        
-        jLabel10.setVisible(true);
+        dedLabel.setVisible(true);
         
-        jLabel11.setVisible(true);
-        jLabel11.setText("Yearly Salary: ");
+        wageLabel.setVisible(true);
+        wageLabel.setText("Yearly Salary: ");
        
-        jLabel12.setVisible(true);
+        empNumLabel.setVisible(true);
       
-        jLabel13.setVisible(true);
-        jLabel14.setVisible(true);
+        fNLabel.setVisible(true);
+        lNLabel.setVisible(true);
        
-        jLabel15.setVisible(true);
-        jLabel16.setVisible(false);
+        genLabel.setVisible(true);
+        hourLabel.setVisible(false);
        
-        jLabel17.setVisible(false);
+        weekLabel.setVisible(false);
       
         submitButton.setVisible(true);
         
@@ -408,23 +411,23 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
         jLabel8.setVisible(true);
         
         
-        jLabel9.setVisible(true);
+        locLabel.setVisible(true);
         
        
-        jLabel10.setVisible(true);
+        dedLabel.setVisible(true);
         
-        jLabel11.setVisible(true);
-        jLabel11.setText("Hourly Wage: ");
+        wageLabel.setVisible(true);
+        wageLabel.setText("Hourly Wage: ");
        
-        jLabel12.setVisible(true);
+        empNumLabel.setVisible(true);
       
-        jLabel13.setVisible(true);
-        jLabel14.setVisible(true);
+        fNLabel.setVisible(true);
+        lNLabel.setVisible(true);
        
-        jLabel15.setVisible(true);
-        jLabel16.setVisible(true);
+        genLabel.setVisible(true);
+        hourLabel.setVisible(true);
        
-        jLabel17.setVisible(true);
+        weekLabel.setVisible(true);
       
         submitButton.setVisible(true);
         
@@ -446,21 +449,28 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                 
                 if (!mainHT.isInTable(Integer.parseInt(employeeNumberInput.getText()))){
                     empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                    empNumLabel.setForeground(Color.black);    
                 }else {
                 valid = false;
+                empNumLabel.setForeground(Color.red);
                 }
             } else {
                 valid = false;
+                empNumLabel.setForeground(Color.red);
             }
 
             if (StringConverter.stringChecker(jTextField15.getText())) {
                 empToAdd.setFirstName(jTextField15.getText().trim());
+                fNLabel.setForeground(Color.black);
             } else {
+                fNLabel.setForeground(Color.red);
                 valid = false;
             }
             if (StringConverter.stringChecker(jTextField14.getText())) {
                 empToAdd.setLastName( jTextField14.getText().trim());
+                lNLabel.setForeground(Color.black);
             } else {
+                lNLabel.setForeground(Color.red);
                 valid = false;
             }
             empToAdd.setGender(jComboBox1.getSelectedItem().toString());
@@ -469,13 +479,17 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
             
             if (StringConverter.stringToPercent(jTextField11.getText()) != -1) {
                 empToAdd.setDeductionRate(StringConverter.stringToPercent(jTextField11.getText()));
+                dedLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                dedLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(jTextField10.getText()) != -1) {
                 empToAdd.setYearlySalary(StringConverter.stringToDollars(jTextField10.getText()));
+                wageLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                wageLabel.setForeground(Color.red);
             }
             if (valid == true) { //Adding employee to hash table when valid; invalid label shows if not
                 mainHT.addToTable(empToAdd);
@@ -496,49 +510,63 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
                 
                 if (!mainHT.isInTable(Integer.parseInt(employeeNumberInput.getText()))){
                     empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                    empNumLabel.setForeground(Color.black);    
                 }else {
                 valid = false;
+                empNumLabel.setForeground(Color.red);
                 }
             } else {
                 valid = false;
+                empNumLabel.setForeground(Color.red);
             }
 
             if (StringConverter.stringChecker(jTextField15.getText())) {
                 empToAdd.setFirstName(jTextField15.getText().trim());
+                fNLabel.setForeground(Color.black);
             } else {
+                fNLabel.setForeground(Color.red);
                 valid = false;
             }
             if (StringConverter.stringChecker(jTextField14.getText())) {
                 empToAdd.setLastName( jTextField14.getText().trim());
+                lNLabel.setForeground(Color.black);
             } else {
+                lNLabel.setForeground(Color.red);
                 valid = false;
             }
             empToAdd.setGender(jComboBox1.getSelectedItem().toString());
-            
-            empToAdd.setWorkLocation(jComboBox2.getSelectedItem().toString());
+
+            empToAdd.setWorkLocation(jComboBox2.getSelectedItem().toString());    
             
             if (StringConverter.stringToPercent(jTextField11.getText()) != -1) {
                 empToAdd.setDeductionRate(StringConverter.stringToPercent(jTextField11.getText()));
+                dedLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                dedLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(jTextField10.getText()) != -1) {
                 empToAdd.setHourlyWage(StringConverter.stringToDollars(jTextField10.getText()));
+                wageLabel.setForeground(Color.black);
+                
                 
             } else {
                 valid = false;
+                wageLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(jTextField9.getText()) != -1) {
                 empToAdd.setHoursPerWeek(StringConverter.stringToDouble(jTextField9.getText()));
-               
+                hourLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                hourLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(jTextField8.getText()) != -1) {
                 empToAdd.setWeeksPerYear(StringConverter.stringToDouble(jTextField8.getText()));
-                
+                weekLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                weekLabel.setForeground(Color.red);
             }
             
             if (valid == true) { //Adding employee to hash table when valid; invalid label shows if not
@@ -647,32 +675,32 @@ public class AddFTEmpFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dedLabel;
+    private javax.swing.JLabel empNumLabel;
     private javax.swing.JTextField employeeNumberInput;
+    private javax.swing.JLabel fNLabel;
     private javax.swing.JRadioButton fTButton;
+    private javax.swing.JLabel genLabel;
+    private javax.swing.JLabel hourLabel;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lNLabel;
+    private javax.swing.JLabel locLabel;
     private javax.swing.JRadioButton pTButton;
     private javax.swing.JButton submitButton;
+    private javax.swing.JLabel wageLabel;
+    private javax.swing.JLabel weekLabel;
     // End of variables declaration//GEN-END:variables
 }

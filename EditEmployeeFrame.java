@@ -1,3 +1,5 @@
+package com.mycompany.ems;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,6 +10,7 @@
  *
  * @author 567882
  */
+import java.awt.Color;
 import java.text.DecimalFormat;
 public class EditEmployeeFrame extends javax.swing.JFrame {
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
@@ -96,28 +99,28 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lastNameLabel = new javax.swing.JLabel();
+        lNLabel = new javax.swing.JLabel();
         firstNameInput = new javax.swing.JTextField();
-        hoursPerWeekLabel = new javax.swing.JLabel();
+        hourLabel = new javax.swing.JLabel();
         employeeNumberInput = new javax.swing.JTextField();
-        weeksPerYear = new javax.swing.JLabel();
+        weekLabel = new javax.swing.JLabel();
         invalidLabel = new javax.swing.JLabel();
         fullTimeButton = new javax.swing.JRadioButton();
         partTimeButton = new javax.swing.JRadioButton();
-        workLocationLabel = new javax.swing.JLabel();
+        locLabel = new javax.swing.JLabel();
         doneButton = new javax.swing.JButton();
-        genderLabel = new javax.swing.JLabel();
+        genLabel = new javax.swing.JLabel();
         weeksPerYearInput = new javax.swing.JTextField();
-        deductionRateLabel = new javax.swing.JLabel();
+        dedLabel = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         hoursPerWeekInput = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
-        hourlyWageLabel = new javax.swing.JLabel();
+        wageLabel = new javax.swing.JLabel();
         hourlyWageInput = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        employeeNumberLabel = new javax.swing.JLabel();
+        empNumLabel = new javax.swing.JLabel();
         deductionRateInput = new javax.swing.JTextField();
-        firstNameLabel = new javax.swing.JLabel();
+        fNLabel = new javax.swing.JLabel();
         lastNameInput = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
@@ -125,7 +128,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         setTitle("EMS - Edit");
         setResizable(false);
 
-        lastNameLabel.setText("Last Name:");
+        lNLabel.setText("Last Name:");
 
         firstNameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +136,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        hoursPerWeekLabel.setText("Hours / Week:");
+        hourLabel.setText("Hours / Week:");
 
         employeeNumberInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +144,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        weeksPerYear.setText("Weeks/Year:");
+        weekLabel.setText("Weeks/Year:");
 
         invalidLabel.setText("INVALID INFORMATION");
 
@@ -159,7 +162,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        workLocationLabel.setText("Work Location:");
+        locLabel.setText("Work Location:");
 
         doneButton.setText("Submit");
         doneButton.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +171,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        genderLabel.setText("Gender:");
+        genLabel.setText("Gender:");
 
         weeksPerYearInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +179,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        deductionRateLabel.setText("Deductions Rate:");
+        dedLabel.setText("Deductions Rate:");
 
         jLabel21.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel21.setText("EDIT EMPLOYEE");
@@ -194,7 +197,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        hourlyWageLabel.setText("Hourly Wage:");
+        wageLabel.setText("Hourly Wage:");
 
         hourlyWageInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +212,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        employeeNumberLabel.setText("Employee Number:");
+        empNumLabel.setText("Employee Number:");
 
         deductionRateInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +220,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             }
         });
 
-        firstNameLabel.setText("First Name:");
+        fNLabel.setText("First Name:");
 
         lastNameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,15 +259,15 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                                 .addComponent(fullTimeButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(employeeNumberLabel)
-                                    .addComponent(firstNameLabel)
-                                    .addComponent(lastNameLabel)
-                                    .addComponent(genderLabel)
-                                    .addComponent(workLocationLabel)
-                                    .addComponent(deductionRateLabel)
-                                    .addComponent(hourlyWageLabel)
-                                    .addComponent(hoursPerWeekLabel)
-                                    .addComponent(weeksPerYear))
+                                    .addComponent(empNumLabel)
+                                    .addComponent(fNLabel)
+                                    .addComponent(lNLabel)
+                                    .addComponent(genLabel)
+                                    .addComponent(locLabel)
+                                    .addComponent(dedLabel)
+                                    .addComponent(wageLabel)
+                                    .addComponent(hourLabel)
+                                    .addComponent(weekLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(weeksPerYearInput, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,39 +295,39 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(employeeNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(employeeNumberLabel))
+                    .addComponent(empNumLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameLabel))
+                    .addComponent(fNLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameLabel))
+                    .addComponent(lNLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(genderLabel))
+                    .addComponent(genLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox2)
-                    .addComponent(workLocationLabel))
+                    .addComponent(locLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deductionRateInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deductionRateLabel))
+                    .addComponent(dedLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hourlyWageInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hourlyWageLabel))
+                    .addComponent(wageLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hoursPerWeekInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hoursPerWeekLabel))
+                    .addComponent(hourLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(weeksPerYearInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weeksPerYear))
+                    .addComponent(weekLabel))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(doneButton)
@@ -363,12 +366,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         employeeNumberInput.setVisible(true);
 
 
-        workLocationLabel.setVisible(true);
+        locLabel.setVisible(true);
 
-        deductionRateLabel.setVisible(true);
+        dedLabel.setVisible(true);
 
-        hourlyWageLabel.setVisible(true);
-        hourlyWageLabel.setText("Yearly Salary: ");
+        wageLabel.setVisible(true);
+        wageLabel.setText("Yearly Salary: ");
         if (employeeToEdit instanceof PartTimeEmployee) {
             hourlyWageInput.setText("");
         }
@@ -379,15 +382,15 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             
         }
 
-        employeeNumberLabel.setVisible(true);
+        empNumLabel.setVisible(true);
 
-        firstNameLabel.setVisible(true);
-        lastNameLabel.setVisible(true);
+        fNLabel.setVisible(true);
+        lNLabel.setVisible(true);
 
-        genderLabel.setVisible(true);
-        hoursPerWeekLabel.setVisible(false);
+        genLabel.setVisible(true);
+        hourLabel.setVisible(false);
 
-        weeksPerYear.setVisible(false);
+        weekLabel.setVisible(false);
 
         doneButton.setVisible(true);
 
@@ -410,12 +413,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         employeeNumberInput.setVisible(true);
 
 
-        workLocationLabel.setVisible(true);
+        locLabel.setVisible(true);
 
-        deductionRateLabel.setVisible(true);
+        dedLabel.setVisible(true);
 
-        hourlyWageLabel.setVisible(true);
-        hourlyWageLabel.setText("Hourly Wage: ");
+        wageLabel.setVisible(true);
+        wageLabel.setText("Hourly Wage: ");
         if (employeeToEdit instanceof FullTimeEmployee) {
             hourlyWageInput.setText("");
         }
@@ -426,15 +429,15 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
             hourlyWageInput.setText(String.format ("%.2f", temp.getHourlyWage()));
         }
 
-        employeeNumberLabel.setVisible(true);
+        empNumLabel.setVisible(true);
 
-        firstNameLabel.setVisible(true);
-        lastNameLabel.setVisible(true);
+        fNLabel.setVisible(true);
+        lNLabel.setVisible(true);
 
-        genderLabel.setVisible(true);
-        hoursPerWeekLabel.setVisible(true);
+        genLabel.setVisible(true);
+        hourLabel.setVisible(true);
 
-        weeksPerYear.setVisible(true);
+        weekLabel.setVisible(true);
 
         doneButton.setVisible(true);
 
@@ -459,20 +462,27 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                  boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
                  if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
                      valid = false;
+                     empNumLabel.setForeground(Color.red);
                  }
+                 empNumLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                empNumLabel.setForeground(Color.red);
             }
 
             if (StringConverter.stringChecker(firstNameInput.getText())) {
                 empToAdd.setFirstName(firstNameInput.getText().trim());
+                fNLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                fNLabel.setForeground(Color.red);
             }
             if (StringConverter.stringChecker(lastNameInput.getText())) {
                 empToAdd.setLastName( lastNameInput.getText().trim());
+                lNLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                lNLabel.setForeground(Color.red);
             }
             empToAdd.setGender(jComboBox1.getSelectedItem().toString());
 
@@ -480,12 +490,16 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
             if (StringConverter.stringToPercent(deductionRateInput.getText()) != -1) {
                 empToAdd.setDeductionRate(StringConverter.stringToPercent(deductionRateInput.getText()));
+                dedLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                dedLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(hourlyWageInput.getText()) != -1) {
                 empToAdd.setYearlySalary(StringConverter.stringToDollars(hourlyWageInput.getText()));
+                wageLabel.setForeground(Color.black);
             } else {
+                wageLabel.setForeground(Color.red);
                 valid = false;
             }
             if (valid == true) { //Removes old employee and adds new employee if user confirms changes in confirmation frame
@@ -505,23 +519,30 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
             //Checking validity of user entries and if so, adding this info to the new employee
             if (StringConverter.stringToInteger(employeeNumberInput.getText()) != -1 && StringConverter.stringToInteger(employeeNumberInput.getText()) < 1000000) {
-                boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
-                if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
-                    valid = false;
-                }
+                 boolean returned = empToAdd.setEmployeeNumber(StringConverter.stringToInteger(employeeNumberInput.getText()));
+                 if (!returned && StringConverter.stringToInteger(employeeNumberInput.getText()) != oldEmployeeNum) {
+                     valid = false;
+                     empNumLabel.setForeground(Color.red);
+                 }
+                 empNumLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                empNumLabel.setForeground(Color.red);
             }
 
             if (StringConverter.stringChecker(firstNameInput.getText())) {
                 empToAdd.setFirstName(firstNameInput.getText().trim());
+                fNLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                fNLabel.setForeground(Color.red);
             }
             if (StringConverter.stringChecker(lastNameInput.getText())) {
                 empToAdd.setLastName( lastNameInput.getText().trim());
+                lNLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                lNLabel.setForeground(Color.red);
             }
             empToAdd.setGender(jComboBox1.getSelectedItem().toString());
 
@@ -529,26 +550,31 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
             if (StringConverter.stringToPercent(deductionRateInput.getText()) != -1) {
                 empToAdd.setDeductionRate(StringConverter.stringToPercent(deductionRateInput.getText()));
+                dedLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                dedLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(hourlyWageInput.getText()) != -1) {
                 empToAdd.setHourlyWage(StringConverter.stringToDollars(hourlyWageInput.getText()));
-
+                wageLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                wageLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(hoursPerWeekInput.getText()) != -1) {
                 empToAdd.setHoursPerWeek(StringConverter.stringToDouble(hoursPerWeekInput.getText()));
-
+                hourLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                hourLabel.setForeground(Color.red);
             }
             if (StringConverter.stringToDollars(weeksPerYearInput.getText()) != -1) {
                 empToAdd.setWeeksPerYear(StringConverter.stringToDouble(weeksPerYearInput.getText()));
-
+                weekLabel.setForeground(Color.black);
             } else {
                 valid = false;
+                weekLabel.setForeground(Color.red);
             }
              if (valid == true) { //Removes old employee and adds new employee if user confirms changes in confirmation frame
                 invalidLabel.setVisible(false);
@@ -616,29 +642,29 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dedLabel;
     private javax.swing.JTextField deductionRateInput;
-    private javax.swing.JLabel deductionRateLabel;
     private javax.swing.JButton doneButton;
+    private javax.swing.JLabel empNumLabel;
     private javax.swing.JTextField employeeNumberInput;
-    private javax.swing.JLabel employeeNumberLabel;
+    private javax.swing.JLabel fNLabel;
     private javax.swing.JTextField firstNameInput;
-    private javax.swing.JLabel firstNameLabel;
     private javax.swing.JRadioButton fullTimeButton;
-    private javax.swing.JLabel genderLabel;
+    private javax.swing.JLabel genLabel;
+    private javax.swing.JLabel hourLabel;
     private javax.swing.JTextField hourlyWageInput;
-    private javax.swing.JLabel hourlyWageLabel;
     private javax.swing.JTextField hoursPerWeekInput;
-    private javax.swing.JLabel hoursPerWeekLabel;
     private javax.swing.JLabel invalidLabel;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel lNLabel;
     private javax.swing.JTextField lastNameInput;
-    private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JLabel locLabel;
     private javax.swing.JRadioButton partTimeButton;
-    private javax.swing.JLabel weeksPerYear;
+    private javax.swing.JLabel wageLabel;
+    private javax.swing.JLabel weekLabel;
     private javax.swing.JTextField weeksPerYearInput;
-    private javax.swing.JLabel workLocationLabel;
     // End of variables declaration//GEN-END:variables
 }
