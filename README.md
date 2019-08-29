@@ -10,11 +10,12 @@ These instructions will allow you to get the EMS running on your local system fo
 
 NetBeans IDE (if you want to view/edit code) https://netbeans.apache.org/download/nb110/nb110.htm
 
-Java Development Kit https://www.oracle.com/technetwork/java/javase/downloads/index.html
+Java Development Kit 12 https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 Java Runtime Environment
 
 ### Installing
+
 
 #### Developers:
 
@@ -26,6 +27,8 @@ Place the UserGuide.pdf outside of its current folder into the src folder.
 
 Run the program/Edit code
 
+!IMPORTANT: The password is literally 'INVALID'!
+
 
 #### Users:
 
@@ -34,6 +37,8 @@ Download EMS-1.0-SNAPSHOT.jar
 Download UserGuide.pdf to the same location
 
 Open the .jar file to run the EMS (double-click)
+
+!IMPORTANT: The password is literally 'INVALID'!
 
 
 
