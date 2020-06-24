@@ -27,7 +27,7 @@ Place the UserGuide.pdf outside of its current folder into the src folder.
 
 Run the program/Edit code
 
-!IMPORTANT: The password is literally 'INVALID'!
+**!IMPORTANT: The password is literally 'INVALID'!**
 
 
 #### Users:
@@ -38,7 +38,7 @@ Download UserGuide.pdf to the same location
 
 Open the .jar file to run the EMS (double-click)
 
-!IMPORTANT: The password is literally 'INVALID'!
+**!IMPORTANT: The password is literally 'INVALID'!**
 
 
 
