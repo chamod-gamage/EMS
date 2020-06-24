@@ -1,6 +1,6 @@
 # Employee Management System
 
-This repository contains the source code for an Employee Management System, a system allowing for the addition, editing, and removal of employees as well as work locations, along with simple payroll functionality. This system was created by Chamod Gamage and Justin Lawrence initially as a high school computer science project.
+This repository contains the source code for an Employee Management System, a system allowing for the addition, editing, and removal of employees as well as work locations, along with simple payroll functionality. This system was created by Chamod Gamage and Justin Lawrence.
 
 ## Getting Started
 These instructions will allow you to get the EMS running on your local system for development or usage purposes.
